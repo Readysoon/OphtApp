@@ -13,6 +13,8 @@ class Condition {
   final String? source;
   final List<String>? diagnostics;
   final List<String>? complications;
+  final String? wikiContent;
+  final String? wikiSummary;
 
   const Condition({
     required this.id,
@@ -25,6 +27,8 @@ class Condition {
     this.source,
     this.diagnostics,
     this.complications,
+    this.wikiContent,
+    this.wikiSummary,
   });
 }
 
@@ -361,12 +365,624 @@ final List<Category> categories = [
       const Condition(
         id: 'chalazion',
         name: 'Chalazion',
-        description: 'Chronische Entzündung einer Meibom-Drüse mit schmerzloser Schwellung.',
+        description: 'Chronische lipogranulomatöse Entzündung des Augenlids durch Obstruktion der Meibom- oder Zeis-Drüsen.',
         symptoms: ['swelling'],
         urgency: Urgency.low,
         treatment: ['Warme Kompressen', 'Lidmassage', 'Bei Persistenz: Inzision und Kürettage'],
         followUp: 'Kontrolle nach 4-6 Wochen',
         source: null,
+        wikiContent: '''
+## Definition
+
+Ein Chalazion ist eine **chronische lipogranulomatöse Entzündung** des Augenlids, die durch Obstruktion der Talgdrüsen der Lidplatte entsteht – entweder der **Meibom-Drüsen** (tiefes Chalazion) oder der **Zeis-Drüsen** (oberflächliches Chalazion).¹ Es handelt sich um eine der häufigsten Liderkrankungen in allen Altersgruppen.² Die American Academy of Ophthalmology beschreibt Chalazion, Hordeolum und Blepharitis als ein **Kontinuum von Erkrankungen**.
+
+---
+
+## Pathogenese
+
+Die Pathogenese basiert auf einer **Retention von Drüsensekret** nach Obstruktion der Meibom- oder Zeis-Drüsen, die zu einer lokalisierten zystischen Schwellung mit chronischer lipogranulomatöser Entzündungsreaktion führt.¹ ²
+
+Mehrere ätiologische Faktoren tragen zur Chalazion-Entstehung bei:
+
+**Blepharitis**: Blepharitis ist der **stärkste Risikofaktor** für Chalazion-Entwicklung (OR=4,84, p<0,001).³ Demodex folliculorum ist mit **Haarfollikel-Dilatation und Hyperkeratinisierung** assoziiert, was indirekt zur Chalazion-Entstehung beitragen kann.⁴ Diese Veränderungen können die Drüsenausführungsgänge blockieren.
+
+**Tränenfilm- und Augenoberflächenstörungen:**
+- **Trockenes Auge** (OR=3,0, p<0,001)⁵
+
+**Weitere Risikofaktoren:**
+- **Rauchen** (OR=1,12, p<0,05)
+
+---
+
+## Klinik
+
+### Symptome
+- Schmerzlose, langsam wachsende Schwellung im Augenlid¹ ⁶
+- Fremdkörpergefühl
+- Leichte Druckempfindlichkeit
+- Kosmetische Beeinträchtigung
+- Bei großen Läsionen: Astigmatismus durch Druck auf die Hornhaut
+
+### Klinische Befunde
+- **Palpable Masse** im mittleren Lidbereich (nicht am Lidrand wie beim Hordeolum)⁶
+- **Gut abgegrenzte, feste Schwellung** in der Tarsalplatte
+- Bei Ektropionierung des Lids: sichtbare **lipogranulomatöse Veränderungen** der Tarsalkonjunktiva⁷
+- Mögliche **Rötung und Schwellung** der umgebenden Haut
+- Bei chronischen Fällen: **Chalazion-Zyste** mit charakteristischer Konsistenz
+- **Tiefes Chalazion** (Meibom-Drüsen): Größer, tiefer in der Tarsalplatte lokalisiert
+- **Oberflächliches Chalazion** (Zeis-Drüsen): Kleiner, näher am Lidrand
+
+---
+
+## Diagnostik
+
+Die Diagnose erfolgt primär **klinisch** durch Inspektion und Palpation. Die Spaltlampenuntersuchung sollte evaluieren:⁷
+- Lidränder (Rötung, Teleangiektasien, Verdickung)
+- Meibom-Drüsen-Öffnungen (Obstruktion, Metaplasie)
+- Tarsalkonjunktiva (lipogranulomatöse Veränderungen)
+- Wimpernbasis (Collarettes bei Demodex, Schuppung bei seborrhoischer Blepharitis)
+- Tränenfilm (Qualität, Stabilität)
+
+### Differenzialdiagnose
+- **Hordeolum (Gerstenkorn):** Akute, schmerzhafte, purulente Entzündung am Lidrand
+- **Talgdrüsenkarzinom:** Bei rezidivierenden oder atypischen Chalazien sollte eine histologische Untersuchung erfolgen
+- **Basalzellkarzinom:** Kann als chronische Lidläsion imponieren
+- **Pyogenes Granulom:** Nach Trauma oder Chirurgie
+
+---
+
+## Therapie
+
+Die Behandlung erfolgt stufenweise, wobei es **keinen einheitlichen Therapiestandard** gibt:²
+
+### Konservative Therapie (Erstlinienbehandlung, 4–6 Wochen)
+
+- **Warme Kompressen:** Effektiv als Monotherapie oder in Kombination. Komplette Resolution bei **21%** der Fälle. Anwendung mehrmals täglich für 5–10 Minuten zur Verflüssigung der Meibom-Sekrete
+- **Lidhygiene:** Sanftes Reinigen der Wimpernbasis mit verdünntem Baby-Shampoo oder kommerziellen Lidreinigern. **Hypochlorous Acid 0,01%** hat starke antimikrobielle Wirkung
+- **Lidrandmassage:** Vertikale Massage zur Expression der Meibom-Drüsen-Sekrete nach Wärmeanwendung
+- **Topische Antibiotika ± Steroide:** Tobramycin oder Tobramycin/Dexamethason zeigen ähnliche Erfolgsraten wie warme Kompressen allein (16–18% komplette Resolution). **Wichtig:** Topische oder systemische Antibiotika verbessern die Auflösungsrate nicht signifikant (adjustierte RR 0,97–0,99)
+- **Mikroblepharoexfoliation (BlephEx):** Als adjuvante Therapie mit **87% Erfolgsrate** versus 44% bei Lidhygiene allein
+
+> **Wichtig:** Chalazien, die länger als **2 Monate** bestehen, sprechen schlechter auf konservative Therapie an und sollten früher invasiv behandelt werden.
+
+### Systemische Antibiotika (bei rezidivierenden/therapierefraktären Chalazien)
+
+- **Orale Doxycyclin:** Wirkt durch **anti-inflammatorische und lipid-regulierende Effekte** (nicht primär antibakteriell). Bei intraktablen rezidivierenden Chalazien in Kombination mit IPL-Therapie: Erfolgsrate von **83,3%**
+- **Orale Azithromycin:** Längere Gewebehalbwertszeit als Doxycyclin, weniger gastrointestinale Nebenwirkungen. Eine Einzeldosis kann das okuläre Mikrobiom für mindestens **6 Monate** verändern
+- **Indikation:** Primär bei zugrundeliegender Meibom-Drüsen-Dysfunktion und rezidivierenden Chalazien sinnvoll
+
+### Invasive Therapie
+
+- **Intralesionale Triamcinolonacetonid-Injektion** (40 mg/ml, 0,1–0,2 ml):
+  - Erfolgsrate von **81%** kompletter Resolution, vergleichbar mit chirurgischer Exzision (79%)
+  - Durchschnittliche Auflösungszeit **5 Tage**
+  - **92%** der Patienten benötigen nur eine Injektion
+  - Mögliche Komplikationen: Hautatrophie, Depigmentierung (selten)⁸
+- **Extralesionale Triamcinolonacetonid-Injektion:** Bei kleinen Chalazien (≤5 mm) mit **87% Erfolgsrate**
+- **Inzision und Kürettage:**
+  - Chirurgische Entfernung bei therapierefraktären Fällen
+  - Erfolgsrate **79%**
+  - Transkonjunktivaler Zugang bevorzugt (keine sichtbare Narbe)
+  - Histologische Untersuchung bei rezidivierenden oder atypischen Läsionen empfohlen⁸
+
+### Lichtbasierte Therapien
+
+- **Intense Pulsed Light (IPL) mit Meibom-Drüsen-Expression (MGX):**
+  - Primäre/rezidivierende Chalazien: **70,5% Auflösungsrate**, vergleichbar mit chirurgischer Exzision, aber mit **signifikant geringerer Rezidivrate** (11,4% vs. 45,6%)
+  - Granulomatöser Typ spricht besser an (60,71%) als zystischer Typ (26,32%)
+  - **Kombination IPL + Doxycyclin:** Bei intraktablen rezidivierenden Chalazien **83,3% Erfolgsrate**
+- **Low-Level Light Therapy (LLLT):** **46% Resolution** nach einer Sitzung, **92% Resolution** nach zwei Sitzungen
+
+### Experimentelle Verfahren (begrenzte Evidenz)²
+- Botulinum-Toxin-A-Injektion
+- Tarsale Trephination
+- CO₂-Laser-Ablation
+- Kryotherapie
+
+### Therapieempfehlung – Stufenschema
+
+1. **Konservativ (4–6 Wochen):** Warme Kompressen + Lidhygiene + Lidrandmassage ± Mikroblepharoexfoliation
+2. **Bei Persistenz oder >2 Monate Dauer:** Intralesionale Steroidinjektion oder IPL-MGX-Therapie
+3. **Bei Rezidiven:** IPL-MGX ± systemische Antibiotika (Doxycyclin/Azithromycin)
+4. **Therapierefraktär:** Chirurgische Exzision mit Kürettage (histologische Untersuchung empfohlen)
+
+> **Wichtig:** Bei rezidivierenden oder multiplen Chalazien sollte die zugrundeliegende Meibom-Drüsen-Dysfunktion und Blepharitis behandelt werden.
+
+---
+
+## Prophylaxe
+
+Die **Prävention rezidivierender Chalazien** basiert primär auf der **Behandlung der zugrundeliegenden Meibom-Drüsen-Dysfunktion und Blepharitis**.
+
+### Tägliche Lidhygiene – Basismaßnahmen
+
+- **Warme Kompressen:** Tägliche Anwendung für mehrere Minuten zur Verflüssigung der Meibom-Sekrete
+- **Lidrandmassage:** Vertikale Massage zur Expression der Meibom-Drüsen-Sekrete
+- **Lidreinigung:** Sanftes Reinigen der Wimpernbasis mit verdünntem Baby-Shampoo oder kommerziellen Lidreinigern. **Hypochlorous Acid 0,01%** hat starke antimikrobielle Wirkung
+- **Regelmäßigkeit:** Täglich oder mehrmals wöchentlich. Die Behandlung muss **langfristig** erfolgen, da Symptome bei Absetzen häufig rezidivieren
+
+> **Wichtig:** Patienten müssen verstehen, dass eine **Heilung meist nicht möglich ist**, aber kontinuierliche tägliche Behandlung die Symptome signifikant verbessern kann.
+
+### Behandlung der Meibom-Drüsen-Dysfunktion
+
+- **Doxycyclin:** Anti-inflammatorische und lipid-regulierende Effekte
+- **Azithromycin:** Längere Gewebehalbwertszeit, weniger gastrointestinale Nebenwirkungen. Eine Einzeldosis kann das okuläre Mikrobiom für mindestens 6 Monate verändern
+- **Omega-3-Fettsäuren:** Einige Studien zeigen Benefit bei MGD, Evidenz nicht eindeutig
+
+### In-Office-Verfahren zur Langzeitprävention
+
+- **Intense Pulsed Light (IPL) mit Meibom-Drüsen-Expression:** Signifikant reduzierte Rezidivrate: **11,4%** versus **45,6%** ohne IPL-MGX⁵
+
+### Prophylaxe-Empfehlung – Stufenschema
+
+1. **Alle Patienten:** Tägliche Lidhygiene (warme Kompressen + Lidrandmassage + Reinigung)
+2. **Bei Blepharitis/MGD:** Zusätzlich systemische Antibiotika bei unzureichender Kontrolle
+3. **Bei Demodex-Befall:** Spezifische antiparasitäre Therapie (Tea Tree Oil, Lotilaner, Ivermectin)
+4. **Bei rezidivierenden Chalazien:** In-Office-Verfahren (IPL-MGX, Mikroblepharoexfoliation, LipiFlow)
+5. **Nach chirurgischer Exzision:** IPL-MGX-Therapie zur Rezidivprophylaxe
+
+Die Prophylaxe muss **langfristig und kontinuierlich** erfolgen, da die zugrundeliegenden Erkrankungen chronisch sind.
+
+---
+
+## Prognose
+
+Die Prognose des Chalazions ist insgesamt **günstig**. Viele Chalazien resolvieren spontan oder unter konservativer Therapie. Bei adäquater Behandlung der zugrundeliegenden Meibom-Drüsen-Dysfunktion und Blepharitis kann die Rezidivrate signifikant reduziert werden. Bei rezidivierenden oder atypischen Läsionen sollte jedoch immer eine histologische Untersuchung zum Ausschluss eines Talgdrüsenkarzinoms erfolgen.
+
+---
+
+## Referenzen
+
+1. Stopfer M, et al. Glands of Moll. [*Prog Retin Eye Res.* 2025](https://doi.org/10.1016/j.preteyeres.2025.101362)
+2. Sacks E, et al. Apocrine Cystadenomas of the Lower Eyelids. [*Ophthalmology.* 1987](https://doi.org/10.1016/s0161-6420(87)33501-8)
+3. Jakobiec FA, et al. Eyelid Eccrine Cyst. [*Ophthalmic Plast Reconstr Surg.* 2017](https://doi.org/10.1097/IOP.0000000000000855)
+4. Kim ES, et al. The Lowly Chalazion. [*Surv Ophthalmol.* 2023](https://doi.org/10.1016/j.survophthal.2022.11.002)
+5. Jakobiec FA, et al. Eyelid Dermal Keratinous Cysts. [*Ophthalmic Plast Reconstr Surg.* 2016](https://doi.org/10.1097/IOP.0000000000000423)
+6. Palioura S, et al. Pleomorphic Adenoma of the Eyelid. [*Surv Ophthalmol.* 2013](https://doi.org/10.1016/j.survophthal.2012.10.003)
+7. Takahashi Y, et al. Secretory Glands in the Eyelid. [*Ophthalmic Plast Reconstr Surg.* 2013](https://doi.org/10.1097/IOP.0b013e3182833dee)
+8. Malkova K, et al. Ciliary Gland Adenocarcinoma. [*Am J Dermatopathol.* 2022](https://doi.org/10.1097/DAD.0000000000002218)
+''',
+        wikiSummary: '''
+## Kurzzusammenfassung
+
+**Chalazion** = chronische lipogranulomatöse Entzündung durch Obstruktion der **Meibom-** oder **Zeis-Drüsen**.
+
+---
+
+### Klinik
+- Schmerzlose, feste Schwellung im Lid (nicht am Lidrand)
+- DD: Hordeolum (akut, schmerzhaft), Talgdrüsenkarzinom (bei Rezidiven)
+
+---
+
+### Therapie-Stufenschema
+
+1. **Konservativ (4–6 Wo):** Warme Kompressen + Lidhygiene + Lidmassage
+2. **Bei Persistenz >2 Mo:** Intralesionale Steroidinjektion oder IPL-MGX
+3. **Rezidive:** IPL-MGX ± Doxycyclin/Azithromycin
+4. **Therapierefraktär:** Inzision & Kürettage (+ Histologie)
+
+---
+
+### Wichtige Zahlen
+| Therapie | Erfolgsrate |
+|---|---|
+| Warme Kompressen | 21% |
+| BlephEx | 87% |
+| Steroidinjektion | 81% |
+| Inzision & Kürettage | 79% |
+| IPL-MGX | 70,5% |
+| LLLT (2 Sitzungen) | 92% |
+
+---
+
+### Prophylaxe
+Tägliche Lidhygiene + Behandlung der zugrundeliegenden **MGD/Blepharitis**. Bei Rezidiven: IPL-MGX (Rezidivrate nur **11,4%** vs. 45,6%).
+
+> **Cave:** Bei rezidivierenden/atypischen Läsionen immer **Histologie** zum Ausschluss eines Talgdrüsenkarzinoms!
+''',
+      ),
+      const Condition(
+        id: 'moll_cyst',
+        name: 'Moll-Zyste (Apokrines Hidrozystom)',
+        description: 'Benigne zystische Läsion der apokrinen Moll-Drüsen am Lidrand mit charakteristisch durchscheinend-bläulichem Erscheinungsbild.',
+        symptoms: ['swelling'],
+        urgency: Urgency.low,
+        treatment: ['Lokale chirurgische Exzision mit intakter Kapsel'],
+        followUp: 'Kontrolle auf Rezidiv, selten bei kompletter Exzision',
+        wikiContent: '''
+## Definition und Anatomie
+
+Moll-Zysten sind **benigne zystische Tumoren**, die von den **apokrinen Schweißdrüsen (Moll-Drüsen)** des Augenlids abstammen.¹ Die Moll-Drüsen sind modifizierte apokrine Drüsen, die ausschließlich am **Lidrand und in den Kanthi** lokalisiert sind, wo sie mit den Wimpernfollikeln assoziiert sind.² Sie sind anatomisch auf diese Bereiche beschränkt und kommen nicht in anderen Teilen der Lidhaut vor.²
+
+---
+
+## Pathogenese
+
+Die Entstehung der Moll-Zysten basiert auf einer **Obstruktion der Drüsenausführungsgänge** mit nachfolgender Retention des apokrinen Sekrets. Studien zeigen, dass die Zysten aus dem **sekretorischen Anteil** der Moll-Drüsen entstehen (nicht aus dem Ganganteil), was durch elektronenmikroskopische Befunde wie Dekapitationssekretion und sekretorische Granula belegt wird.³ Es handelt sich um einen **proliferativen Prozess** und nicht um eine passive Gangdilatation.³
+
+---
+
+## Klinik
+
+- **Lokalisation:** Ausschließlich am **Lidrand und in den Kanthi**, wo die Moll-Drüsen lokalisiert sind²
+- **Erscheinungsbild:** **Durchscheinend-bläuliche**, glatt begrenzte, kuppelförmige Zysten¹ ³
+- **Charakteristisches Merkmal:** Oft **zweischichtiger Inhalt** – obere Schicht aus cremig-gelblichem Material (lipidreiche Dekapitationssekretion) über einer unteren Schicht klarer Flüssigkeit³
+- **Pigmentierte Variante:** 13% der Hidrozystome sind pigmentiert (dunkelblau bis schwarz) durch Lipofuscin-Pigmente⁴
+- **Größe:** Typischerweise 1–5 mm Durchmesser⁴
+- **Verlauf:** Langsam wachsend, oft über Jahre bestehend
+- **Multiplizität:** Können einzeln oder multipel auftreten; multiple bilaterale Zysten wurden beschrieben³
+
+---
+
+## Histopathologie
+
+- **Zystenwand:** **Doppelschichtiges kuboidales Epithel** mit innerer sekretorischer Schicht und äußerer myoepithelialer Schicht¹ ³
+- **Dekapitationssekretion:** Die innere Zellschicht zeigt charakteristische **apikale Dekapitationssekretion** (PAS-positiv)¹
+- **Papilläre Falten:** Fokale papilläre Einfaltungen des Epithels möglich³
+- **Zysteninhalt:** Zelldebris, unterbrochene Plasmamembranen, flockiges muzinöses Material³
+
+### Immunhistochemie
+
+- **GCDFP-15:** **Positiv** in den adluminalen Zellen – wichtiger Marker für apokrine Differenzierung⁵ ²
+- **α-SMA:** **Positiv** in der äußeren myoepithelialen Schicht⁵ ¹
+- **CK7:** **Positiv** – charakteristisch für sekretorische Spiralen¹ ²
+- **D2-40:** Positiv in der myoepithelialen Schicht¹
+
+> Diese Marker unterscheiden apokrine Hidrozystome von ekkrinen Zysten (die GCDFP-15-negativ und α-SMA-negativ sind).⁵
+
+---
+
+## Differenzialdiagnose
+
+- **Ekkrine Hidrozystome:** Selten am Augenlid, GCDFP-15-negativ, keine Myoepithelschicht⁵ ²
+- **Chalazion:** Tiefere Lokalisation in der Tarsalplatte, lipogranulomatöse Entzündung⁶
+- **Hordeolum:** Akute purulente Entzündung, schmerzhaft⁶
+- **Epidermoidzyste:** Keratinöser Inhalt, Plattenepithel⁷
+- **Hybridzysten:** Kombinierte apokrine, trichilemmale und infundibuläre Differenzierung⁸
+- **Basalzellkarzinom:** Maligne Läsion, erfordert histologische Abklärung
+
+---
+
+## Therapie
+
+- **Standardtherapie:** **Lokale chirurgische Exzision** – kurativ² ⁷
+- **Technik:** Vollständige Entfernung der Zyste mit intakter Kapsel
+- **Prognose:** Exzellent nach vollständiger Entfernung
+- **Rezidive:** Selten bei kompletter Exzision
+
+---
+
+## Sonderformen
+
+- **Proliferatives apokrines Hidrozystom:** Extensive Proliferation von Epithelzellen aus der inneren Zystenschicht⁹
+- **Multiple apokrine Zysten mit Prolaktinom:** Seltene Assoziation mit Hypophysentumoren beschrieben¹⁰
+
+---
+
+## Referenzen
+
+1. Charles NC, et al. Epibulbar Subconjunctival Apocrine Hidrocystoma. [*Ophthalmic Plast Reconstr Surg.* 2021](https://doi.org/10.1097/IOP.0000000000002019)
+2. Jakobiec FA, et al. A Reappraisal of Eyelid Eccrine and Apocrine Hidrocystomas. [*Am J Ophthalmol.* 2011](https://doi.org/10.1016/j.ajo.2010.08.028)
+3. Sacks E, et al. Multiple Bilateral Apocrine Cystadenomas of the Lower Eyelids. [*Ophthalmology.* 1987](https://doi.org/10.1016/s0161-6420(87)33501-8)
+4. Al-Rohil RN, et al. Pigmented Eyelid Cysts Revisited. [*Am J Dermatopathol.* 2014](https://doi.org/10.1097/DAD.0b013e3182a23a87)
+5. Jakobiec FA, et al. Eyelid Eccrine Cyst. [*Ophthalmic Plast Reconstr Surg.* 2017](https://doi.org/10.1097/IOP.0000000000000855)
+6. Kim ES, et al. The Lowly Chalazion. [*Surv Ophthalmol.* 2023](https://doi.org/10.1016/j.survophthal.2022.11.002)
+7. Jakobiec FA, et al. Unusual Eyelid Dermal Keratinous Cysts. [*Ophthalmic Plast Reconstr Surg.* 2016](https://doi.org/10.1097/IOP.0000000000000423)
+8. Milman T, et al. Hybrid Cysts of the Eyelid. [*Ophthalmic Plast Reconstr Surg.* 2008](https://doi.org/10.1097/IOP.0b013e3181647ce9)
+9. Charles NC, et al. Solid Variant of a Proliferative Apocrine Hidrocystoma. [*Ophthalmic Plast Reconstr Surg.* 2019](https://doi.org/10.1097/IOP.0000000000001354)
+10. Ma L, et al. Multiple Eyelid Cysts in a Patient With a Prolactinoma. [*Ophthalmic Plast Reconstr Surg.* 2018](https://doi.org/10.1097/IOP.0000000000001069)
+''',
+        wikiSummary: '''
+## Kurzzusammenfassung
+
+**Moll-Zyste** = benigner zystischer Tumor der **apokrinen Moll-Drüsen** am Lidrand.
+
+---
+
+### Klinik
+- **Durchscheinend-bläuliche**, kuppelförmige Zyste am Lidrand/Kanthus
+- 1–5 mm, langsam wachsend, oft zweischichtiger Inhalt
+- Pigmentierte Variante möglich (13%)
+
+---
+
+### Diagnostik
+| Marker | Moll-Zyste | Ekkrine Zyste |
+|---|---|---|
+| GCDFP-15 | Positiv | Negativ |
+| α-SMA | Positiv | Negativ |
+| CK7 | Positiv | Positiv |
+
+---
+
+### Therapie
+**Lokale chirurgische Exzision** mit intakter Kapsel – kurativ, selten Rezidive.
+
+> **DD:** Ekkrine Hidrozystome (GCDFP-15-negativ), Chalazion (tiefer, entzündlich), Basalzellkarzinom (maligne).
+''',
+      ),
+      const Condition(
+        id: 'zeiss_cyst',
+        name: 'Zeiss-Zyste (Sebazöse Gangzyste)',
+        description: 'Dermale keratinöse Zyste der Zeiss-Drüsen-Ausführungsgänge am Lidrand, assoziiert mit dem pilosebazösen Apparat.',
+        symptoms: ['swelling'],
+        urgency: Urgency.low,
+        treatment: ['Einfache lokale Exzision der anterioren Lamelle des Augenlids'],
+        followUp: 'Kontrolle auf Rezidiv',
+        wikiContent: '''
+## Definition und Anatomie
+
+Zeiss-Zysten sind **dermale keratinöse Zysten**, die aus den **Ausführungsgängen der Zeiss-Drüsen** entstehen.⁷ Die Zeiss-Drüsen sind **Talgdrüsen des pilosebazösen Apparats**, die am Lidrand lokalisiert sind und mit den Wimpernfollikeln assoziiert sind.⁷ Sie unterscheiden sich von den Meibom-Drüsen, die tiefer in der Tarsalplatte liegen.
+
+---
+
+## Pathogenese
+
+Die Zysten entstehen durch **Obstruktion der sebazösen Ausführungsgänge** mit nachfolgender Retention von Keratin und Talg. Die Assoziation mit dem pilosebazösen Apparat (Haarfollikel oder Talgdrüse in unmittelbarer Nähe) ist charakteristisch.⁷
+
+---
+
+## Klinik
+
+- **Lokalisation:** Am **Lidrand**, wo die Zeiss-Drüsen lokalisiert sind⁷
+- **Erscheinungsbild:** **Langsam wachsende, solitäre, feste Läsion**⁷
+- **Größe:** Variabel, typischerweise einige Millimeter
+- **Verlauf:** Chronisch, langsam progredient
+- **Assoziation:** Oft in Nähe eines Haarfollikels oder einer Talgdrüse nachweisbar⁷
+
+---
+
+## Histopathologie
+
+- **Zystenwand:** **Plattenepithel** mit charakteristischer Struktur⁷
+- **Korrigierte Membran:** Gewellte Plattenepithelmembran mit **eosinophiler, refraktiler Oberflächenkutikula** – pathognomonisches Merkmal⁷
+- **Zysteninhalt:** Keratin und Talg
+- **Assoziation:** Talgdrüse oder Haar in unmittelbarer Nähe der Zyste nachweisbar⁷
+
+### Immunhistochemie
+
+- **CK7:** **Positiv**⁷
+- **CK14:** **Positiv**⁷
+- **CK17:** **Positiv**⁷
+
+> Diese Marker unterscheiden Zeiss-Gangzysten von gewöhnlichen Epidermoidzysten der Oberflächenepidermis (die CK7-negativ, CK14-positiv und CK17-positiv sind).⁷
+
+---
+
+## Abgrenzung zu anderen Zysten
+
+| Merkmal | Zeiss-Zyste | Meibom-Zyste | Epidermoidzyste |
+|---|---|---|---|
+| **Lokalisation** | Lidrand (Dermis) | Tarsalplatte (tief) | Oberflächliche Dermis |
+| **Ursprung** | Zeiss-Drüsen-Gang | Meibom-Drüsen-Gang | Oberflächenepidermis |
+| **Haarassoziation** | Ja | Nein | Variabel |
+| **Kutikula** | Eosinophile Kutikula | Keine | Keine |
+| **CK7** | Positiv | Negativ | Negativ |
+
+---
+
+## Differenzialdiagnose
+
+- **Oberflächliches Chalazion:** Entsteht ebenfalls aus Zeiss-Drüsen, aber durch lipogranulomatöse Entzündung nach Obstruktion⁶
+- **Hordeolum externum:** Akute purulente Infektion der Zeiss-Drüsen⁶
+- **Meibom-Drüsen-Gangzyste:** Tiefer in der Tarsalplatte lokalisiert, keine Haarassoziation¹¹
+- **Epidermoidzyste:** Oberflächlicher, keine Kutikula, CK7-negativ⁷
+
+---
+
+## Therapie
+
+- **Standardtherapie:** **Einfache lokale Exzision der anterioren Lamelle des Augenlids**⁷
+- **Technik:** Vollständige Entfernung der Zyste
+- **Prognose:** Exzellent nach vollständiger Exzision
+
+> **Wichtig:** Unterscheidung von Chalazion wichtig, da Inzision und Kürettage bei Zeiss-Zysten zu Rezidiven führen kann.¹¹
+
+---
+
+## Klinische Relevanz
+
+Die Zeiss-Drüsen können auch an der Entstehung eines **oberflächlichen Chalazions** beteiligt sein (im Gegensatz zum tiefen Chalazion der Meibom-Drüsen).⁶ Zusätzlich kann eine akute Infektion der Zeiss-Drüsen zu einem **Hordeolum externum** führen.⁶
+
+---
+
+## Referenzen
+
+1. Charles NC, et al. Epibulbar Subconjunctival Apocrine Hidrocystoma. [*Ophthalmic Plast Reconstr Surg.* 2021](https://doi.org/10.1097/IOP.0000000000002019)
+2. Jakobiec FA, et al. A Reappraisal of Eyelid Eccrine and Apocrine Hidrocystomas. [*Am J Ophthalmol.* 2011](https://doi.org/10.1016/j.ajo.2010.08.028)
+3. Sacks E, et al. Multiple Bilateral Apocrine Cystadenomas of the Lower Eyelids. [*Ophthalmology.* 1987](https://doi.org/10.1016/s0161-6420(87)33501-8)
+4. Al-Rohil RN, et al. Pigmented Eyelid Cysts Revisited. [*Am J Dermatopathol.* 2014](https://doi.org/10.1097/DAD.0b013e3182a23a87)
+5. Jakobiec FA, et al. Eyelid Eccrine Cyst. [*Ophthalmic Plast Reconstr Surg.* 2017](https://doi.org/10.1097/IOP.0000000000000855)
+6. Kim ES, et al. The Lowly Chalazion. [*Surv Ophthalmol.* 2023](https://doi.org/10.1016/j.survophthal.2022.11.002)
+7. Jakobiec FA, et al. Unusual Eyelid Dermal Keratinous Cysts. [*Ophthalmic Plast Reconstr Surg.* 2016](https://doi.org/10.1097/IOP.0000000000000423)
+8. Milman T, et al. Hybrid Cysts of the Eyelid. [*Ophthalmic Plast Reconstr Surg.* 2008](https://doi.org/10.1097/IOP.0b013e3181647ce9)
+9. Charles NC, et al. Solid Variant of a Proliferative Apocrine Hidrocystoma. [*Ophthalmic Plast Reconstr Surg.* 2019](https://doi.org/10.1097/IOP.0000000000001354)
+10. Ma L, et al. Multiple Eyelid Cysts in a Patient With a Prolactinoma. [*Ophthalmic Plast Reconstr Surg.* 2018](https://doi.org/10.1097/IOP.0000000000001069)
+11. Rajak SN, et al. Meibomian Gland Ductal Cysts and Eyelid Steatocystomas. [*Eye.* 2017](https://doi.org/10.1038/eye.2016.313)
+''',
+        wikiSummary: '''
+## Kurzzusammenfassung
+
+**Zeiss-Zyste** = dermale keratinöse Zyste der **sebazösen Zeiss-Drüsen-Ausführungsgänge** am Lidrand.
+
+---
+
+### Klinik
+- Langsam wachsende, **solitäre, feste Läsion** am Lidrand
+- Assoziiert mit Haarfollikel/Talgdrüse
+- Pathognomonisch: **eosinophile, refraktile Oberflächenkutikula** in der Histologie
+
+---
+
+### Abgrenzung
+
+| Merkmal | Zeiss-Zyste | Chalazion | Epidermoidzyste |
+|---|---|---|---|
+| Lokalisation | Lidrand | Tarsalplatte | Oberfl. Dermis |
+| CK7 | Positiv | – | Negativ |
+| Kutikula | Ja | Nein | Nein |
+
+---
+
+### Therapie
+**Einfache lokale Exzision** der anterioren Lamelle – kurativ.
+
+> **Cave:** Keine Inzision & Kürettage (wie bei Chalazion) – führt bei Zeiss-Zysten zu Rezidiven!
+''',
+      ),
+      const Condition(
+        id: 'basal_cell_carcinoma',
+        name: 'Basalzellkarzinom (Basaliom)',
+        description: 'Häufigster maligner Tumor der Augenlider (80–96% aller periokulären Malignome). Lokal invasiv, langsam wachsend, sehr geringes Metastasierungspotenzial.',
+        symptoms: ['swelling'],
+        urgency: Urgency.high,
+        treatment: ['Mohs-Chirurgie (Goldstandard)', 'Standardexzision mit 4mm Sicherheitsabstand', 'Vismodegib/Sonidegib bei lokal fortgeschrittenem BCC', 'Cemiplimab (Anti-PD-1) nach HHI-Versagen'],
+        followUp: 'Hautuntersuchung alle 6-12 Monate für 5 Jahre, dann jährlich lebenslang (NCCN)',
+        wikiContent: '''
+## Definition
+
+Das Basalzellkarzinom (BCC) ist der **häufigste maligne Tumor der Augenlider** (80–96% aller periokulären Malignome).¹ Lokal invasiv, langsam wachsend, mit sehr geringem Metastasierungspotenzial (<0,1%). Lokalisation: **Unterlid** (50–60%) > **medialer Kanthus** (25–30%) > Oberlid > lateraler Kanthus. Mediale Kanthusbeteiligung ist mit höherem Rezidivrisiko assoziiert (>50%).² ³
+
+---
+
+## Epidemiologie
+
+- Häufigstes Hautkarzinom weltweit mit steigender Inzidenz⁴
+- Inzidenz steigt mit dem Alter (86,5/100.000 bei 30–44 Jahren vs. 1221,2/100.000 bei ≥75 Jahren)⁵
+- Männer häufiger betroffen; weiße Rasse stärkster Risikofaktor⁶
+- Mittleres Diagnosealter: 65–67 Jahre⁴
+
+---
+
+## Pathogenese
+
+**UV-Strahlung:** Wichtigster Risikofaktor mit Latenzzeit von 15–20 Jahren. Intermittierende intensive Exposition (v.a. Kindheit) relevanter als kumulative Dosis.⁷ ⁸
+
+**Hedgehog-Signalweg:** Zentral für BCC-Pathogenese. PTCH1-Mutationen in 70–90% der sporadischen BCCs. Beim **Gorlin-Syndrom** liegt eine vererbte PTCH1-Mutation vor.⁷ ⁹
+
+**p53-Mutationen:** In >50% der BCCs, meist UV-induziert.⁷
+
+**Weitere Risikofaktoren:**
+- Phänotyp: Helle Haut, rotes Haar, helle Augen⁵
+- Immunsuppression: 10–21-fach erhöht bei Organtransplantierten⁸ ⁴
+- Vorheriges BCC: 10-fach erhöhtes Risiko⁸
+- Genetische Syndrome: Gorlin-Syndrom, Xeroderma pigmentosum⁴
+
+---
+
+## Diagnose
+
+### Klinische Präsentation nach Subtyp
+
+- **Nodulär (40–70%):** Perlmuttartig glänzender Knoten, Randwall, Teleangiektasien, Ulzeration möglich⁵ ⁸
+- **Superfiziell (20–30%):** Rot, flach, schuppend; kann als Ekzem fehldiagnostiziert werden⁵
+- **Infiltrativ/Morpheaform (5–30%):** Narbenähnlich, aggressivstes Wachstum⁵ ¹⁰
+- **Pigmentiert:** Braun-blau-schwarz durch Melanin; DD Melanom⁵
+
+### Dermoskopie
+
+Arborisierende Gefäße (59%), glänzende weiße Strukturen (49%), blau-graue ovoide Nester (34%).¹¹ ¹²
+
+> **Wichtig:** Alle periokulären BCCs gelten nach NCCN als **High-Risk**.¹³
+
+### Differenzialdiagnose
+
+- **Chalazion** (häufigste Fehldiagnose!)
+- Plattenepithelkarzinom, Talgdrüsenkarzinom, Melanom, Merkelzellkarzinom
+
+---
+
+## Therapie
+
+### Chirurgisch (Standard)
+
+- **Mohs-Chirurgie:** Goldstandard. 5-Jahres-Rezidivrate: **1%**. 100% Randkontrolle⁸ ⁷
+- **Standardexzision:** 5-Jahres-Rezidivrate 10%; 4 mm Sicherheitsabstand⁷ ¹³
+- **Exenteration:** Bei extensiver Orbita-Invasion¹⁴ ⁹
+
+### Systemische Therapie
+
+- **Vismodegib/Sonidegib** (Hedgehog-Inhibitoren): Ansprechrate 75%, komplette Regression 38–56%¹⁴ ¹⁶
+- **Cemiplimab** (Anti-PD-1): Nach HHI-Versagen; Ansprechrate 31%¹³
+
+> **Cave:** Topische Therapien, Kryotherapie, PDT und Kürettage sind **nicht geeignet** für periokuläres BCC.¹³
+
+---
+
+## Prognose und Nachsorge
+
+- **NCCN-Empfehlung:** Hautuntersuchung alle 6–12 Monate für 5 Jahre, dann jährlich lebenslang¹³
+- High-Risk-BCCs: 5 Jahre Nachsorge¹⁷
+
+---
+
+## Prophylaxe
+
+- Konsequenter UV-Schutz (Sonnencreme, Hut, Sonnenbrille)
+- Nicotinamid-Supplementation (NCCN-Empfehlung)¹³
+- Regelmäßige Hautuntersuchungen bei Risikopatienten
+
+> **Cave:** Rezidivierende oder atypische "Chalazien" immer biopsieren → DD Talgdrüsenkarzinom/BCC.¹⁴ ¹⁶
+
+---
+
+## Referenzen
+
+1. Hooper J, et al. Periocular Nonmelanoma Skin Cancer. [*Clin Dermatol.* 2024](https://doi.org/10.1016/j.clindermatol.2023.10.011)
+2. Shi Y, et al. Ocular Basal Cell Carcinoma. [*OncoTargets Ther.* 2017](https://doi.org/10.2147/OTT.S130371)
+3. Furdova A, et al. Periocular BCC. [*Oncol Rev.* 2020](https://doi.org/10.4081/oncol.2020.420)
+4. Nehal KS, et al. Update on Keratinocyte Carcinomas. [*N Engl J Med.* 2018](https://doi.org/10.1056/NEJMra1708701)
+5. Wehner MR. Keratinocyte Carcinoma. [*JAMA.* 2025](https://doi.org/10.1001/jama.2025.18749)
+6. Cheng S, et al. Patterns of BCC Presentation. [*Ophthalmic Plast Reconstr Surg.* 2025](https://doi.org/10.1097/IOP.0000000000002979)
+7. Kauvar AN, et al. Consensus for Nonmelanoma Skin Cancer Treatment. [*Dermatol Surg.* 2015](https://doi.org/10.1097/DSS.0000000000000296)
+8. Rubin AI, et al. Basal-Cell Carcinoma. [*N Engl J Med.* 2005](https://doi.org/10.1056/NEJMra044151)
+9. Wladis EJ, et al. Oral Hedgehog Inhibitor for Periorbital BCC. [*Ophthalmology.* 2024](https://doi.org/10.1016/j.ophtha.2024.06.007)
+10. Firnhaber JM. Basal Cell and Cutaneous SCC. [*Am Fam Physician.* 2020](https://pubmed.ncbi.nlm.nih.gov/32931212/)
+11. Reiter O, et al. Dermoscopic Features of BCC. [*J Am Acad Dermatol.* 2021](https://doi.org/10.1016/j.jaad.2019.11.008)
+12. Jaworska K, et al. Dermoscopic Features of Eyelid Margin Tumors. [*J Dermatol.* 2022](https://doi.org/10.1111/1346-8138.16419)
+13. NCCN. Basal Cell Skin Cancer. Updated 2026-03-11.
+14. Singalavanija T, et al. Vismodegib for Periocular BCC. [*Ophthalmic Plast Reconstr Surg.* 2024](https://doi.org/10.1097/IOP.0000000000002464)
+15. Peris K, et al. European Consensus for BCC. [*Eur J Cancer.* 2019](https://doi.org/10.1016/j.ejca.2019.06.003)
+16. Kahana A, et al. VISORB Trial. [*Oncologist.* 2021](https://doi.org/10.1002/onco.13820)
+17. Juniat V, et al. Periocular BCC Recurrence Surveillance. [*Eye.* 2023](https://doi.org/10.1038/s41433-022-02133-z)
+18. Banlin M, et al. Management of Malignant Eyelid Tumours. [*Clin Exp Ophthalmol.* 2026](https://doi.org/10.1111/ceo.70062)
+''',
+        wikiSummary: '''
+## Kurzzusammenfassung
+
+**Basalzellkarzinom** = häufigster maligner Lidtumor (80–96%). Lokal invasiv, **sehr selten metastasierend** (<0,1%).
+
+---
+
+### Lokalisation
+Unterlid (50–60%) > medialer Kanthus (25–30%) > Oberlid > lateraler Kanthus
+
+---
+
+### Subtypen
+| Subtyp | Häufigkeit | Merkmal |
+|---|---|---|
+| Nodulär | 40–70% | Perlmuttglanz, Randwall, Teleangiektasien |
+| Superfiziell | 20–30% | Rot, flach, schuppend |
+| Infiltrativ | 5–30% | Narbenähnlich, aggressiv |
+
+---
+
+### Therapie
+| Methode | 5J-Rezidivrate |
+|---|---|
+| **Mohs-Chirurgie** | **1%** |
+| Standardexzision | 10% |
+| Vismodegib | Ansprechrate 75% |
+
+---
+
+### Nachsorge
+Alle 6–12 Monate für 5 Jahre, dann jährlich lebenslang (NCCN).
+
+> **Cave:** Rezidivierende "Chalazien" immer biopsieren → DD BCC/Talgdrüsenkarzinom! Alle periokulären BCCs sind **High-Risk**.
+''',
       ),
       const Condition(
         id: 'hordeolum',

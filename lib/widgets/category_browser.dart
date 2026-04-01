@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_markdown/flutter_markdown.dart';
 import 'package:url_launcher/url_launcher.dart';
 import '../data/ophthalmology.dart';
 
@@ -239,15 +240,98 @@ class _CategoryDetail extends StatelessWidget {
   }
 }
 
-class _ConditionDetail extends StatelessWidget {
+class _ConditionDetail extends StatefulWidget {
   const _ConditionDetail({required this.condition, required this.onBack});
 
   final Condition condition;
   final VoidCallback onBack;
 
   @override
+  State<_ConditionDetail> createState() => _ConditionDetailState();
+}
+
+class _ConditionDetailState extends State<_ConditionDetail> {
+  bool _showSummary = false;
+  final _referencesKey = GlobalKey();
+
+  /// Converts unicode superscripts (¹²³…⁸) to clickable markdown footnote links.
+  String _linkifyFootnotes(String content) {
+    const superscripts = {'¹': '1', '²': '2', '³': '3', '⁴': '4', '⁵': '5', '⁶': '6', '⁷': '7', '⁸': '8', '⁹': '9'};
+    var result = content;
+    for (final entry in superscripts.entries) {
+      result = result.replaceAll(entry.key, '[${entry.key}](#ref-${entry.value})');
+    }
+    return result;
+  }
+
+  /// Splits wikiContent into body (before ## Referenzen) and references (the list).
+  (String body, String? references) _splitContent(String content) {
+    final refIndex = content.indexOf('## Referenzen');
+    if (refIndex == -1) return (content, null);
+    final body = content.substring(0, refIndex).trimRight();
+    // Extract just the list items after the heading
+    final refSection = content.substring(refIndex + '## Referenzen'.length).trim();
+    return (body, refSection);
+  }
+
+  void _scrollToReferences() {
+    final ctx = _referencesKey.currentContext;
+    if (ctx != null) {
+      Scrollable.ensureVisible(ctx, duration: const Duration(milliseconds: 400), curve: Curves.easeInOut);
+    }
+  }
+
+  MarkdownStyleSheet _buildMarkdownStyle(ThemeData theme) {
+    return MarkdownStyleSheet(
+      h2: theme.textTheme.titleLarge?.copyWith(
+        fontWeight: FontWeight.bold,
+        color: theme.colorScheme.primary,
+      ),
+      h3: theme.textTheme.titleMedium?.copyWith(
+        fontWeight: FontWeight.w600,
+        color: theme.colorScheme.onSurface,
+      ),
+      p: theme.textTheme.bodyMedium?.copyWith(height: 1.6),
+      strong: TextStyle(fontWeight: FontWeight.bold, color: theme.colorScheme.onSurface),
+      listBullet: theme.textTheme.bodyMedium?.copyWith(height: 1.6),
+      listBulletPadding: const EdgeInsets.only(right: 8),
+      listIndent: 20,
+      blockquoteDecoration: BoxDecoration(
+        color: theme.colorScheme.primaryContainer.withOpacity(0.25),
+        borderRadius: const BorderRadius.only(
+          topRight: Radius.circular(8),
+          bottomRight: Radius.circular(8),
+        ),
+        border: Border(
+          left: BorderSide(color: theme.colorScheme.primary, width: 4),
+        ),
+      ),
+      blockquotePadding: const EdgeInsets.symmetric(horizontal: 14, vertical: 10),
+      horizontalRuleDecoration: BoxDecoration(
+        border: Border(
+          top: BorderSide(color: theme.colorScheme.outlineVariant.withOpacity(0.5), width: 1),
+        ),
+      ),
+      h2Padding: const EdgeInsets.only(top: 24, bottom: 10),
+      h3Padding: const EdgeInsets.only(top: 18, bottom: 8),
+      a: TextStyle(
+        color: theme.colorScheme.primary,
+        decoration: TextDecoration.underline,
+        decorationColor: theme.colorScheme.primary.withOpacity(0.4),
+      ),
+      tableHead: theme.textTheme.bodyMedium?.copyWith(fontWeight: FontWeight.bold),
+      tableBody: theme.textTheme.bodyMedium,
+      tableBorder: TableBorder.all(color: theme.colorScheme.outlineVariant, width: 0.5),
+      tableHeadAlign: TextAlign.left,
+      tableCellsPadding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+      tableColumnWidth: const IntrinsicColumnWidth(),
+    );
+  }
+
+  @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
+    final condition = widget.condition;
     final urgencyConfig = {
       Urgency.low: (label: 'Niedrige Dringlichkeit', color: Colors.green),
       Urgency.medium: (label: 'Mittlere Dringlichkeit', color: Colors.amber),
@@ -255,13 +339,156 @@ class _ConditionDetail extends StatelessWidget {
     };
     final config = urgencyConfig[condition.urgency]!;
 
+    if (condition.wikiContent != null) {
+      final isSummary = _showSummary && condition.wikiSummary != null;
+      final rawContent = isSummary ? condition.wikiSummary! : condition.wikiContent!;
+      final (bodyContent, referencesContent) = _splitContent(rawContent);
+      final linkedBody = _linkifyFootnotes(bodyContent);
+
+      return ListView(
+        shrinkWrap: true,
+        physics: const NeverScrollableScrollPhysics(),
+        padding: const EdgeInsets.only(bottom: 24),
+        children: [
+          TextButton.icon(
+            onPressed: widget.onBack,
+            icon: const Icon(Icons.arrow_back, size: 18),
+            label: const Text('Zurück'),
+          ),
+          // Header card
+          Card(
+            child: Padding(
+              padding: const EdgeInsets.all(20),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Expanded(
+                        child: Text(
+                          condition.name,
+                          style: theme.textTheme.headlineSmall?.copyWith(fontWeight: FontWeight.bold),
+                        ),
+                      ),
+                      const SizedBox(width: 8),
+                      Container(
+                        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
+                        decoration: BoxDecoration(
+                          color: config.color.withOpacity(0.15),
+                          borderRadius: BorderRadius.circular(20),
+                          border: Border.all(color: config.color.withOpacity(0.5)),
+                        ),
+                        child: Text(config.label, style: theme.textTheme.labelSmall?.copyWith(color: config.color, fontWeight: FontWeight.w500)),
+                      ),
+                    ],
+                  ),
+                  if (condition.wikiSummary != null) ...[
+                    const SizedBox(height: 12),
+                    Row(
+                      children: [
+                        Expanded(
+                          child: Text(
+                            condition.description,
+                            style: theme.textTheme.bodyMedium?.copyWith(color: theme.colorScheme.onSurfaceVariant),
+                          ),
+                        ),
+                        const SizedBox(width: 12),
+                        FilledButton.tonalIcon(
+                          onPressed: () => setState(() => _showSummary = !_showSummary),
+                          icon: Icon(_showSummary ? Icons.article_outlined : Icons.summarize_outlined, size: 18),
+                          label: Text(_showSummary ? 'Volltext' : 'Kurzfassung', style: const TextStyle(fontSize: 12)),
+                          style: FilledButton.styleFrom(
+                            padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+                            visualDensity: VisualDensity.compact,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                ],
+              ),
+            ),
+          ),
+          const SizedBox(height: 4),
+          // Content card
+          Card(
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
+              child: MarkdownBody(
+                data: linkedBody,
+                selectable: true,
+                onTapLink: (text, href, title) {
+                  if (href != null && href.startsWith('#ref-')) {
+                    _scrollToReferences();
+                  } else if (href != null) {
+                    launchUrl(Uri.parse(href), mode: LaunchMode.externalApplication);
+                  }
+                },
+                styleSheet: _buildMarkdownStyle(theme),
+              ),
+            ),
+          ),
+          // References card
+          if (referencesContent != null) ...[
+            const SizedBox(height: 4),
+            Card(
+              key: _referencesKey,
+              color: theme.colorScheme.surfaceContainerLow,
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Row(
+                      children: [
+                        Icon(Icons.menu_book_rounded, size: 20, color: theme.colorScheme.primary),
+                        const SizedBox(width: 8),
+                        Text(
+                          'Referenzen',
+                          style: theme.textTheme.titleMedium?.copyWith(
+                            fontWeight: FontWeight.bold,
+                            color: theme.colorScheme.primary,
+                          ),
+                        ),
+                      ],
+                    ),
+                    const SizedBox(height: 12),
+                    MarkdownBody(
+                      data: referencesContent,
+                      selectable: true,
+                      onTapLink: (text, href, title) {
+                        if (href != null && !href.startsWith('#')) {
+                          launchUrl(Uri.parse(href), mode: LaunchMode.externalApplication);
+                        }
+                      },
+                      styleSheet: _buildMarkdownStyle(theme).copyWith(
+                        p: theme.textTheme.bodySmall?.copyWith(height: 1.5, color: theme.colorScheme.onSurfaceVariant),
+                        a: TextStyle(
+                          color: theme.colorScheme.primary,
+                          decoration: TextDecoration.underline,
+                          decorationColor: theme.colorScheme.primary.withOpacity(0.4),
+                          fontSize: 12,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ],
+        ],
+      );
+    }
+
+    // Fallback for conditions without wikiContent
     return ListView(
       shrinkWrap: true,
       physics: const NeverScrollableScrollPhysics(),
       padding: const EdgeInsets.only(bottom: 24),
       children: [
         TextButton.icon(
-          onPressed: onBack,
+          onPressed: widget.onBack,
           icon: const Icon(Icons.arrow_back, size: 18),
           label: const Text('Zurück'),
         ),
