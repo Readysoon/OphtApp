@@ -60,22 +60,26 @@ class SymptomSelector extends StatelessWidget {
                         ),
                         child: Stack(
                           children: [
-                            Row(
-                              children: [
-                                Text(symptom.icon, style: const TextStyle(fontSize: 22)),
-                                const SizedBox(width: 10),
-                                Expanded(
-                                  child: Text(
-                                    symptom.name,
-                                    style: theme.textTheme.bodyMedium?.copyWith(
-                                      fontWeight: FontWeight.w500,
-                                      color: isSelected ? theme.colorScheme.primary : null,
+                            Center(
+                              child: Row(
+                                mainAxisSize: MainAxisSize.min,
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Text(symptom.icon, style: const TextStyle(fontSize: 22)),
+                                  const SizedBox(width: 10),
+                                  Flexible(
+                                    child: Text(
+                                      symptom.name,
+                                      style: theme.textTheme.bodyMedium?.copyWith(
+                                        fontWeight: FontWeight.w500,
+                                        color: isSelected ? theme.colorScheme.primary : null,
+                                      ),
+                                      maxLines: 1,
+                                      overflow: TextOverflow.ellipsis,
                                     ),
-                                    maxLines: 1,
-                                    overflow: TextOverflow.ellipsis,
                                   ),
-                                ),
-                              ],
+                                ],
+                              ),
                             ),
                             if (isSelected)
                               Positioned(

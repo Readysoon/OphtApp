@@ -8,31 +8,23 @@ class AppHeader extends StatelessWidget implements PreferredSizeWidget {
 
   @override
   Widget build(BuildContext context) {
+    final screenWidth = MediaQuery.of(context).size.width;
+    final isTablet = screenWidth >= 600;
+    final logoSize = isTablet ? 52.0 : 40.0;
+    final logoScale = isTablet ? 11.0 : 15.0;
+
     return AppBar(
       title: Row(
         children: [
-          Container(
-            width: 40,
-            height: 40,
-            decoration: BoxDecoration(
-              gradient: LinearGradient(
-                colors: [
-                  Theme.of(context).colorScheme.primary,
-                  Theme.of(context).colorScheme.primary.withOpacity(0.8),
-                ],
-                begin: Alignment.topLeft,
-                end: Alignment.bottomRight,
-              ),
-              borderRadius: BorderRadius.circular(12),
-              boxShadow: [
-                BoxShadow(
-                  color: Theme.of(context).colorScheme.primary.withOpacity(0.3),
-                  blurRadius: 8,
-                  offset: const Offset(0, 2),
-                ),
-              ],
+          ClipRRect(
+            borderRadius: BorderRadius.circular(isTablet ? 14 : 12),
+            child: Image.asset(
+              'assets/images/logo.png',
+              width: logoSize,
+              height: logoSize,
+              fit: BoxFit.none,
+              scale: logoScale,
             ),
-            child: const Icon(Icons.visibility, color: Colors.white, size: 22),
           ),
           const SizedBox(width: 12),
           Column(
@@ -40,7 +32,7 @@ class AppHeader extends StatelessWidget implements PreferredSizeWidget {
             mainAxisSize: MainAxisSize.min,
             children: [
               Text(
-                'AugenCheck',
+                'OphtApp',
                 style: Theme.of(context).textTheme.titleMedium?.copyWith(
                       fontWeight: FontWeight.w600,
                     ),

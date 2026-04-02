@@ -44,8 +44,7 @@ class _HomeScreenState extends State<HomeScreen> {
               child: Column(
                 children: [
                   TabBar(
-                    isScrollable: true,
-                    tabAlignment: TabAlignment.start,
+                    isScrollable: false,
                     tabs: const [
                       Tab(icon: Icon(Icons.search), text: 'Symptom-Checker'),
                       Tab(icon: Icon(Icons.menu_book), text: 'Krankheiten-Wiki'),

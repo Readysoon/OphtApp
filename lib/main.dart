@@ -13,6 +13,7 @@ class OphtApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'AugenCheck',
+      debugShowCheckedModeBanner: false,
       theme: appTheme,
       home: const HomeScreen(),
     );
