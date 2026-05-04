@@ -48,25 +48,55 @@ class _CategoryBrowserState extends State<CategoryBrowser> {
     return result;
   }
 
+  /// Strips markdown syntax from text for cleaner snippet display.
+  String _stripMarkdown(String text) {
+    var s = text;
+    // Remove markdown links [text](url) → text
+    s = s.replaceAllMapped(RegExp(r'\[([^\]]+)\]\([^)]+\)'), (m) => m.group(1)!);
+    // Remove headers (## text → text)
+    s = s.replaceAll(RegExp(r'^#{1,6}\s+', multiLine: true), '');
+    // Remove bold/italic markers (** and __ and * and _)
+    s = s.replaceAllMapped(RegExp(r'\*\*([^*]+)\*\*'), (m) => m.group(1)!);
+    s = s.replaceAllMapped(RegExp(r'__([^_]+)__'), (m) => m.group(1)!);
+    s = s.replaceAllMapped(RegExp(r'(?<!\*)\*([^*\n]+)\*(?!\*)'), (m) => m.group(1)!);
+    s = s.replaceAllMapped(RegExp(r'(?<!_)_([^_\n]+)_(?!_)'), (m) => m.group(1)!);
+    // Remove blockquote markers
+    s = s.replaceAll(RegExp(r'^>\s*', multiLine: true), '');
+    // Remove list markers
+    s = s.replaceAll(RegExp(r'^[\s]*[-*+]\s+', multiLine: true), '');
+    s = s.replaceAll(RegExp(r'^[\s]*\d+\.\s+', multiLine: true), '');
+    // Remove table separators (lines with only | - :)
+    s = s.replaceAll(RegExp(r'^[\s|:\-]+$', multiLine: true), '');
+    // Remove pipe characters from tables
+    s = s.replaceAll('|', ' ');
+    // Remove horizontal rules
+    s = s.replaceAll(RegExp(r'^---+$', multiLine: true), '');
+    // Remove inline code
+    s = s.replaceAllMapped(RegExp(r'`([^`]+)`'), (m) => m.group(1)!);
+    // Collapse whitespace
+    s = s.replaceAll(RegExp(r'\s+'), ' ').trim();
+    return s;
+  }
+
   /// Searches for the query in a condition. Returns list of (field, snippet) matches.
   List<({String field, String snippet})> _searchInCondition(Condition cond, String query) {
     final matches = <({String field, String snippet})>[];
     final qLower = query.toLowerCase();
 
-    void addMatch(String field, String text) {
-      final tLower = text.toLowerCase();
+    void addMatch(String field, String rawText) {
+      final cleanText = _stripMarkdown(rawText);
+      final tLower = cleanText.toLowerCase();
       final idx = tLower.indexOf(qLower);
       if (idx == -1) return;
-      // Build snippet: 60 chars before + match + 60 chars after
-      final start = (idx - 60).clamp(0, text.length);
-      final end = (idx + query.length + 60).clamp(0, text.length);
-      var snippet = text.substring(start, end).replaceAll('\n', ' ').replaceAll(RegExp(r'\s+'), ' ').trim();
+      // Build snippet: 70 chars before + match + 90 chars after
+      final start = (idx - 70).clamp(0, cleanText.length);
+      final end = (idx + query.length + 90).clamp(0, cleanText.length);
+      var snippet = cleanText.substring(start, end).trim();
       if (start > 0) snippet = '…$snippet';
-      if (end < text.length) snippet = '$snippet…';
+      if (end < cleanText.length) snippet = '$snippet…';
       matches.add((field: field, snippet: snippet));
     }
 
-    // Check name (case insensitive)
     if (cond.name.toLowerCase().contains(qLower)) {
       matches.add((field: 'Titel', snippet: cond.name));
     }
@@ -81,7 +111,7 @@ class _CategoryBrowserState extends State<CategoryBrowser> {
     }
     for (final t in cond.treatment) {
       if (t.toLowerCase().contains(qLower)) {
-        matches.add((field: 'Therapie', snippet: t));
+        matches.add((field: 'Therapie', snippet: _stripMarkdown(t)));
         break;
       }
     }
