@@ -5711,6 +5711,529 @@ Patienten mit Zentralskotom **können den Fixationspunkt nicht sehen** und fixie
 > **Cave:** Normales Amsler **schließt Makulaerkrankung NICHT aus**! Bei Beschwerden → OCT obligat.
 """,
           ),
+          const Condition(
+            id: 'photostress_test',
+            name: 'Photostresstest (Macular Photostress Recovery Test)',
+            description: 'Misst die Erholungszeit der Makula nach Blendung. Differenziert Makulaerkrankungen von Optikusneuropathien.',
+            symptoms: [],
+            urgency: Urgency.low,
+            treatment: ['Bedside-Test ohne Gerätebedarf', 'Penlight (10 s) oder direktes Ophthalmoskop (30 s)', 'Seitenvergleich mit gesundem Auge'],
+            followUp: 'Bei verlängerter PSRT Hinweis auf Makulopathie → OCT empfohlen',
+            source: null,
+            wikiContent: """
+## Definition und Zweck
+
+Der **Photostresstest** (Macular Photostress Recovery Test, PSRT) ist ein einfacher klinischer Test, der die **Erholungszeit der Makula nach Blendung** misst. Er dient primär dazu, bei Patienten mit ungeklärtem zentralem Visusverlust eine **Makulaerkrankung von einer Optikusneuropathie** zu unterscheiden.¹ ²
+
+> **Grundprinzip:** Bei Makulaerkrankungen ist die Erholungszeit verlängert, bei Optikusneuropathien bleibt sie normal.² ³
+
+---
+
+## Physiologisches Grundprinzip – Der visuelle Zyklus
+
+Der Photostresstest basiert auf der **Photopigment-Bleichung und -Regeneration** in den Zapfen-Photorezeptoren der Makula:
+
+### 1. Bleichung (Photostress)
+Intensives Licht trifft auf die Makula und bewirkt eine **Photoisomerisierung** des Sehpigments: **11-cis-Retinal** wird durch Lichtenergie zu **all-trans-Retinal**. Dieser Prozess "bleicht" das Photopigment – die Zapfen verlieren vorübergehend ihre Lichtempfindlichkeit. Patient sieht ein Nachbild und kann vorübergehend keine feinen Details erkennen.⁴ ⁵
+
+### 2. Regeneration (Recovery)
+Wiederherstellung der Sehfunktion erfordert die Rückumwandlung über den **visuellen Zyklus** im **retinalen Pigmentepithel (RPE)**:⁴ ⁵ ⁶
+
+1. All-trans-Retinal → Reduktion zu all-trans-Retinol (in Photorezeptoren)
+2. Transport zum RPE via **IRBP** (Interphotoreceptor Retinoid-Binding Protein)
+3. Veresterung durch **LRAT** (Lecithin-Retinol-Acyltransferase)
+4. Isomerisierung durch **RPE65** → 11-cis-Retinol
+5. Oxidation zu 11-cis-Retinal
+6. Rücktransport zum Photorezeptor → regeneriertes Sehpigment
+
+> Die Regenerationsrate ist **enzym-limitiert** (nicht erster Ordnung). In menschlichen Zapfen: Ratenkonstante ca. 1,8 min⁻¹ (deutlich schneller als Stäbchen 0,24–0,55 min⁻¹).⁴
+
+### 3. Warum verlängerte PSRT bei Makulaerkrankungen?
+Erkrankungen, die das RPE oder die Photorezeptoren schädigen:
+- **Geschädigtes RPE** kann 11-cis-Retinal langsamer regenerieren
+- **Subretinale Flüssigkeit** stört den Retinoid-Transport
+- **Drusen und Lipofuszin** beeinträchtigen die RPE-Funktion
+- **Makulaödem** verändert die Photorezeptor-Geometrie
+
+→ **Verlängerte Photostress Recovery Time (PSRT)**³ ⁹
+
+### 4. Warum normale PSRT bei Optikusneuropathien?
+Bei Optikusneuropathien sind **Photorezeptoren und RPE intakt**. Schädigung betrifft die postretinale Signalweiterleitung (Ganglienzellen, N. opticus). Visueller Zyklus läuft ungestört → **PSRT normal**.² ³
+
+### Rolle des Makulapigments
+Das **Makulapigment (Lutein, Zeaxanthin)** wirkt als optischer Filter, absorbiert kurzwelliges Licht und schützt die Photorezeptoren vor übermäßiger Bleichung.¹¹ Supplementation mit Lutein/Zeaxanthin verbesserte die PSRT signifikant gegenüber Placebo.¹²
+
+---
+
+## Durchführung – Klassische Methode
+
+### Schritt 1 – Baseline-Visus
+- Bestkorrigierten Fernvisus monokular bestimmen
+- Ergebnis notieren (z.B. 20/25 oder 0,1 logMAR)
+
+### Schritt 2 – Photostress (Blendung)
+- Gegenauge abdecken
+- Patient blickt direkt in eine helle Lichtquelle:
+  - **Margrain & Thomson:** Direktes Ophthalmoskop, **30 Sekunden**, 2–3 cm Abstand¹
+  - **Glaser et al.:** Penlight, **10 Sekunden**, 2–3 cm Abstand²
+- Lichtquelle entfernen
+
+### Schritt 3 – Recovery-Zeit messen
+- Sofort Stoppuhr starten
+- Patient liest die Sehtafel
+- **Endpunkt:** Zeit bis Patient die Zeile **eine Zeile über dem Baseline-Visus** wieder korrekt liest¹
+
+### Schritt 4 – Vergleich
+- Zweites Auge testen
+- Bei unilateraler Erkrankung dient gesundes Auge als **Kontrolle (Seitenvergleich)**²
+
+---
+
+## Normwerte und Einflussfaktoren
+
+| Bedingung | Wert |
+|---|---|
+| Normale PSRT (Ophthalmoskop, 30 s) | Altersabhängig, ca. 15–50 s |
+| Normale PSRT (Penlight, 10 s, Glaser) | ~27 s (junge Erwachsene) |
+| Normale PSRT (Kontrollen 42–70 J.) | 42,0 ± 17,3 s |
+| **PSRT bei Glaukom** | **70,5 ± 35,4 s** (signifikant verlängert) |
+| **PSRT bei AMD** | **>60 s, oft >120 s** |
+| **PSRT bei Optikusneuropathie** | **Normal** |
+| Alterseffekt (ERG-Photostress) | +27 s Zeitkonstante pro Dekade |
+
+### Einflussfaktoren auf die PSRT
+- **Alter:** Einziger signifikanter Faktor – verdoppelt sich nahezu zwischen 20. und 80. Lebensjahr¹ ⁹ ¹⁴
+- **Pupillengröße:** Kein signifikanter Einfluss¹
+- **Ametropie:** Kein signifikanter Einfluss¹
+- **Visus (Baseline):** Kein signifikanter Einfluss¹
+- **Geschlecht/Rasse/Raucherstatus:** Kein signifikanter Einfluss¹⁶
+- **Bleichdauer/-intensität:** Größerer initialer Empfindlichkeitsverlust, aber Erholungsrate weitgehend konstant¹⁰
+- **Medientrübung (Katarakt):** Kann Bleichung reduzieren → potenziell kürzere PSRT¹
+
+---
+
+## Klinische Interpretation
+
+### Verlängerte PSRT → Makulaerkrankung
+
+In Glaser et al. (1977): PSRT in 63 Augen mit Makulopathie verlängert, in 20 Augen mit Optikusneuropathie normal.²
+
+**Erkrankungen mit verlängerter PSRT:**
+- **AMD** (trockene und neovaskuläre Form); korreliert mit Schweregrad³ ⁹
+- **Diabetisches Makulaödem**⁹
+- **Zentrale seröse Chorioretinopathie (CSCR)**¹⁷
+- Epiretinale Membran
+- Makulaforamen
+- Zystoides Makulaödem
+
+### Normale PSRT → Optikusneuropathie
+- Optikusneuritis
+- Ischämische Optikusneuropathie (AION/NAION)
+- Kompressive Optikusneuropathie
+- Toxische/nutritive Optikusneuropathie² ³
+
+### Sonderfall Glaukom
+Auch bei Glaukom kann die PSRT verlängert sein (**70,5 vs. 42,0 s**, p < 0,001).¹³ Erklärt durch retinale Komponente der Glaukomschädigung. Bei extrafovealer SLO-Mikroperimetrie: Verlängerte Zeitkonstante, aber **normale initiale Empfindlichkeitsänderung** (im Gegensatz zur CSCR).¹⁷
+
+---
+
+## Varianten und Weiterentwicklungen
+
+### Macular Automated Photostress (MAP) Test³ ¹⁶
+- Standardisierte Version mit **Humphrey-Perimeter**
+- Foveale Schwelle vor und nach Photostress (1, 2, 4, 6, 10 min)
+- Bei AMD: Baseline-Sensitivität reduziert + Erholungszeit verlängert
+- Glaukom beeinflusste foveale Antwortkurve **nicht** (p = 0,343)
+
+### Pupillen-Photostresstest¹⁰
+- Objektiv: Erholung der Pupillenkontraktion auf Lichtreize
+- **Unabhängig von Patientenkooperation**
+- Bei Optikusneuropathie: Geringerer initialer Empfindlichkeitsverlust
+
+### ERG-Photostresstest¹⁴
+- Erholung des fokalen 41-Hz-ERG nach Bleichung
+- **Objektivere Methode**, gute Repeatability
+- Zeitkonstante: +27 s pro Lebensdekade
+
+### Flash-Recovery-Geräte⁹
+- Standardisierte Messung mit Xenon-Blitz + UV/IR-Filter
+- Newsome et al.: Verschlechterung der trockenen AMD und Makulaödem verlängern PSRT signifikant – **teilweise vor klinischen Symptomen**
+
+### SLO-basierter extrafovealer Photostresstest¹⁷
+- Mikroperimetrie an extrafovealen Punkten
+- Nützlich bei peripheren Glaukomschäden, extrafovealer CSCR
+
+---
+
+## Limitationen
+
+- **Fehlende Standardisierung:** Verschiedene Lichtquellen, Belichtungszeiten, Endpunkte → große Streubreite¹
+- **Subjektiver Endpunkt:** Abhängig von Kooperation und Verständnis
+- **Medientrübung:** Katarakt verfälscht Ergebnisse
+- **Altersabhängigkeit:** Erfordert altersangepasste Normwerte
+- **Nicht spezifisch:** Unterscheidet nicht zwischen verschiedenen Makulopathien
+- **Glaukom als Confounder:** PSRT auch bei Glaukom verlängert¹³
+- **Sensitivität:** Frühe ARM 29%, AMD 50% (Eger Macular Stressometer)¹⁸
+
+---
+
+## Klinische Bedeutung heute
+
+> Trotz seiner Einfachheit wird der Photostresstest in der modernen Ophthalmologie selten routinemäßig eingesetzt, da **OCT und Autofluoreszenz** eine direkte strukturelle Differenzierung ermöglichen.¹⁹ ²⁰
+
+Er bleibt jedoch ein nützliches **Bedside-Tool**, wenn keine Bildgebung verfügbar ist, und kann als **funktioneller Marker für die Integrität des RPE-Photorezeptor-Komplexes** dienen.
+
+> **Klinisch relevant:** Maculopathien werden häufig als Optikusneuropathien fehldiagnostiziert – in einer Fallserie waren **47 Patienten mit Makulopathie fälschlich als Optikusneuropathie überwiesen**.¹⁹
+
+---
+
+## Referenzen
+
+1. Margrain TH, Thomson D. Sources of Variability in the Clinical Photostress Test. [*Ophthalmic Physiol Opt.* 2002](https://doi.org/10.1046/j.1475-1313.2002.00071.x)
+2. Glaser JS, et al. The Photostress Recovery Test in Clinical Assessment. [*Am J Ophthalmol.* 1977](https://doi.org/10.1016/0002-9394(77)90662-7)
+3. Dhalla MS, et al. The Macular Automated Photostress Test. [*Am J Ophthalmol.* 2007](https://doi.org/10.1016/j.ajo.2006.09.034)
+4. Chen C, et al. The First Steps of the Visual Cycle in Human Rods and Cones. [*Invest Ophthalmol Vis Sci.* 2024](https://doi.org/10.1167/iovs.65.1.18)
+5. Choi EH, et al. Retinoids in the Visual Cycle. [*J Lipid Res.* 2020](https://doi.org/10.1194/jlr.TR120000850)
+6. Jiang X, Mahroo OA. Human Retinal Dark Adaptation Tracked With ERG. [*J Physiol.* 2022](https://doi.org/10.1113/JP281717)
+7. Mahroo OA, Lamb TD. Recovery of Photopic ERG After Bleaching. [*J Physiol.* 2004](https://doi.org/10.1113/jphysiol.2003.060509)
+8. Lamb TD, et al. Kinetics of Rhodopsin Regeneration. [*Vision Res.* 2015](https://doi.org/10.1016/j.visres.2015.03.002)
+9. Newsome DA, Negreiro M. Reproducible Macular Light Flash Recovery Time. [*Curr Eye Res.* 2009](https://doi.org/10.3109/02713680903164645)
+10. Zabriskie NA, Kardon RH. The Pupil Photostress Test. [*Ophthalmology.* 1994](https://doi.org/10.1016/s0161-6420(94)31259-9)
+11. Tavazzi S, et al. Macular Pigment in Photostress Attenuation. [*Curr Eye Res.* 2019](https://doi.org/10.1080/02713683.2018.1554150)
+12. Hammond BR, et al. Lutein and Zeaxanthin on Photostress Recovery. [*Invest Ophthalmol Vis Sci.* 2014](https://doi.org/10.1167/iovs.14-15553)
+13. Sherman MD, Henkind P. Photostress Recovery in Chronic Open Angle Glaucoma. [*Br J Ophthalmol.* 1988](https://doi.org/10.1136/bjo.72.2.144)
+14. Wood A, et al. Bleach Duration and Age on ERG Photostress. [*Graefes Arch Clin Exp Ophthalmol.* 2011](https://doi.org/10.1007/s00417-011-1681-1)
+15. Lovasik JV. Electrophysiological Investigation of Macular Photostress. [*Invest Ophthalmol Vis Sci.* 1983](https://pubmed.ncbi.nlm.nih.gov/6826308/)
+16. Dhalla MS, Fantin A. Macular Photostress Testing With Automated Perimeter. [*Retina.* 2005](https://doi.org/10.1097/00006982-200506000-00003)
+17. Horiguchi M, et al. Extrafoveal Photostress Recovery in Glaucoma and CSCR. [*Br J Ophthalmol.* 1998](https://doi.org/10.1136/bjo.82.10.1183)
+18. Bartlett H, et al. Eger Macular Stressometer in ARM. [*Ophthalmic Physiol Opt.* 2004](https://doi.org/10.1111/j.1475-1313.2004.00194.x)
+19. Vosoughi AR, et al. Maculopathies Misreferred as Optic Neuropathies. [*J Neuroophthalmol.* 2024](https://doi.org/10.1097/WNO.0000000000002100)
+20. Biousse V, Newman NJ. Diagnosis and Clinical Features of Optic Neuropathies. [*Lancet Neurol.* 2016](https://doi.org/10.1016/S1474-4422(16)30237-X)
+""",
+            wikiSummary: """
+## Kurzzusammenfassung
+
+**Photostresstest** = Erholungszeit der Makula nach Blendung. **Differenziert Makulopathie vs. Optikusneuropathie**.
+
+---
+
+### Grundprinzip
+- **Bleichung** der Photopigmente durch helles Licht
+- **Regeneration** über visuellen Zyklus im RPE (RPE65, LRAT)
+- **Verlängerte PSRT** = RPE/Photorezeptor-Schädigung
+- **Normale PSRT** = Optikusneuropathie
+
+---
+
+### Durchführung
+1. Baseline-Visus monokular
+2. Penlight 10 s (Glaser) oder Ophthalmoskop 30 s (Margrain)
+3. Stoppuhr: Zeit bis Visus eine Zeile über Baseline
+
+---
+
+### Normwerte
+| Bedingung | PSRT |
+|---|---|
+| Kontrollen | 42 ± 17 s |
+| **AMD** | **>60–120 s** |
+| **Glaukom** | **70 ± 35 s** |
+| Optikusneuritis | Normal |
+
+---
+
+### Klinik heute
+> **Bedside-Tool** ohne Geräte. Heute ergänzt durch OCT, aber **47 Maculopathien wurden fälschlich als Optikusneuropathie überwiesen** in einer Fallserie!
+
+> **Cave:** Auch Glaukom kann PSRT verlängern (retinale Komponente).
+""",
+          ),
+        ],
+      ),
+      Category(
+        id: 'color_vision_tests',
+        name: 'Farbsinnesprüfung',
+        icon: '🎨',
+        description: 'Tests zur Erkennung und Klassifikation von Farbsinnstörungen',
+        conditions: [
+          const Condition(
+            id: 'color_vision_overview',
+            name: 'Farbsinnesprüfung – Übersicht',
+            description: 'Erkennung, Klassifikation und Schweregradbestimmung von Farbsinnstörungen. ~8% der Männer, <1% der Frauen betroffen.',
+            symptoms: [],
+            urgency: Urgency.low,
+            treatment: ['Screening: Ishihara/HRR-Tafeln', 'Klassifikation: D-15, CCT, CAD', 'Goldstandard: Anomaloskop (Nagel)'],
+            followUp: 'Bei medikamentöser Toxizität (Ethambutol, HCQ) regelmäßige Kontrollen',
+            source: null,
+            wikiContent: """
+## Definition und Grundlagen
+
+Die **Farbsinnesprüfung** dient der Erkennung, Klassifikation und Schweregradbestimmung von Farbsinnstörungen. Das menschliche Farbsehen basiert auf drei retinalen Zapfentypen:¹ ² ³ ⁴
+
+- **L-Zapfen** (rot, lange Wellenlängen)
+- **M-Zapfen** (grün, mittlere Wellenlängen)
+- **S-Zapfen** (blau, kurze Wellenlängen)
+
+Störungen entstehen, wenn Zapfen **fehlen (Dichromasie)** oder **funktionell verändert (anomale Trichromasie)** sind.
+
+> **Prävalenz:** ~8% der Männer, <1% der Frauen.
+
+---
+
+## Typen der Farbsinnstörung
+
+### Kongenitale Rot-Grün-Defekte
+**X-chromosomal rezessiv, häufigste Form**
+
+| Typ | Defekt | Klinik |
+|---|---|---|
+| **Protanopie** | L-Zapfen fehlen | Rot stark abgedunkelt; Rot/Orange/Gelb ununterscheidbar²,⁵ |
+| **Protanomalie** | L-Zapfen verändert | Mildere Rot-Schwäche²,⁶ |
+| **Deuteranopie** | M-Zapfen fehlen | Grün-Verlust; Rot/Grün verwechselt, Rot nicht abgedunkelt³,⁵ |
+| **Deuteranomalie** | M-Zapfen verändert | **Häufigste** Farbsinnstörung; mild³,⁴ |
+
+> ~75% aller Rot-Grün-Defekte sind anomale Trichromasien (milder).⁴
+
+### Kongenitale Blau-Gelb-Defekte
+**Selten, autosomal dominant**
+
+- **Tritanopie/Tritanomalie:** S-Zapfen betroffen → Blau/Grün verwechselt; Dunkelblau vs. Schwarz schwer¹ ⁷
+
+### Schwere Formen
+- **Blauzapfen-Monochromasie (BCM):** L+M fehlen (X-chromosomal, ~1:100.000); Visus 20/80–20/200, Nystagmus, Photophobie⁸
+- **Achromatopsie:** Alle Zapfen betroffen (autosomal rezessiv); vollständiger Farbverlust, stark reduzierter Visus⁷ ⁹
+
+---
+
+## Testverfahren
+
+### 1. Pseudoisochromatische Tafeln (PIP)
+
+#### Ishihara-Test
+- Zahlen/Muster aus farbigen Punkten auf Verwechslungsfarben-Hintergrund
+- **Sensitivität 95–99%** für Rot-Grün-Defekte
+- **Limitationen:** Kann Tritan-Defekte nicht erkennen, unterscheidet Protan/Deutan unzuverlässig (alle 18 Protanopen in einer Studie als Deutan fehlklassifiziert)
+- Lerneffekt: Sensitivität sinkt auf ~80% bei geübten Probanden¹⁰ ¹¹
+
+#### Hardy-Rand-Rittler (HRR)-Test
+- Testet **alle drei Farbachsen** (Protan, Deutan, Tritan)
+- Bestimmt **Schweregrad** (mild/mittel/schwer)
+- **100% korrekte Protan-Identifikation** – dem Ishihara überlegen
+- Auch bei reduziertem Visus einsetzbar¹¹ ¹²
+
+### 2. Anordnungstests
+
+#### Farnsworth D-15
+- 15 Farbplättchen in richtiger Reihenfolge anordnen
+- **Fehlerachse** zeigt Typ der Störung
+- Standard für **erworbene Farbsinnstörungen**¹³
+
+#### Lanthony D-15 (desaturiert)
+- Gleiche Methode mit blasseren Farben
+- **Sensitiver für milde Defekte**¹³ ¹⁴
+
+#### Farnsworth-Munsell 100-Hue-Test
+- 85 Farbplättchen
+- Detaillierte Quantifizierung
+- Nachteil: zeitaufwändig (~20–30 min)¹⁵
+
+### 3. Anomaloskop (Nagel) – Goldstandard
+- Zweigeteiltes Feld: Referenzgelb vs. Rot+Grün-Mischung (**Rayleigh-Gleichung**)
+- Patient stellt Mischung über Drehknöpfe ein
+- **Differenzierung Dichromasie vs. anomale Trichromasie + Schweregrad**
+- Normalsichtige finden eine Einstellung; Dichromaten akzeptieren alle; anomale Trichromaten verschoben
+- **Nachteile:** teuer, zeitaufwändig, nur Rot-Grün¹⁶ ¹⁷
+
+### 4. Computergestützte Tests
+
+#### Cone Contrast Test (CCT)
+- Buchstaben mit abnehmendem Kontrast für L-, M-, S-Zapfen isoliert
+- **100% Sensitivität/Spezifität** für Rot-Grün-Defekte
+- Nur ~6 min Testdauer¹⁶
+
+#### Colour Assessment and Diagnosis (CAD)
+- Farbiger Stimulus auf dynamischem Helligkeitsrauschen
+- **6-stufige Kategorisierung** (supernormal bis schwer defizient)
+- **Standard der UK Civil Aviation Authority**¹⁸ ¹⁹
+
+#### Cambridge Colour Test
+- Landolt-C auf pseudoisochromatischem Hintergrund
+- Komplementär zum CAD¹⁸
+
+#### Konan ColourDX HD
+- Zapfen-Kontrasttest
+- **Erkennt HCQ-Toxizität früher** als Standardtests²⁰
+
+---
+
+## Stufendiagnostik
+
+| Stufe | Tests |
+|---|---|
+| **Screening** | Ishihara / HRR |
+| **Klassifikation** | HRR / CCT / CAD |
+| **Definitive Diagnose** | Anomaloskop |
+
+> **Genetische Tests** (Opsin-Gen-Analyse) identifizieren milde Formen – doppelt so viele Betroffene erkannt wie durch PIP allein.²¹
+
+---
+
+## Erkrankungen mit erworbenen Farbsehveränderungen
+
+> Erworbene Defekte betreffen bevorzugt die **Blau-Gelb-Achse**, sind häufig **asymmetrisch, progressiv** und mit anderen Sehstörungen assoziiert.²²
+
+| Erkrankung | Charakteristik |
+|---|---|
+| **Optikusneuritis/MS** | 76% der ON-Augen, 62% der MS-Augen ohne ON-Anamnese²³ ²⁴ |
+| **Glaukom** | Blau-Gelb-Defekte können GF-Verlust vorausgehen¹⁴ ²⁵ |
+| **Diabetische Retinopathie** | ~50% der ETDRS-Patienten betroffen²⁶ |
+| **AMD** | Frühe Blau-Gelb-Sensitivitätsverluste; retikuläre Pseudodrusen²⁷ ²⁸ |
+| **Ethambutol** | 2,25% Optikusneuropathie; bilateral, Zökozentralskotome; bis 50% bleibend²³ ²⁹ |
+| **Hydroxychloroquin** | Bull's-Eye-Makulopathie; Frühzeichen vor OCT²⁰ ³¹ |
+| **Linezolid/Methanol** | Mitochondriale Optikusneuropathie²³ |
+| **PDE-5-Inhibitoren** | Transiente Cyanopsie, reversibel³² |
+| **Lösungsmittel** (Styrol, n-Hexan) | Blau-Gelb-Defekte (70%)³³ ³⁴ |
+
+---
+
+## Klinische Anwendung und Empfehlungen
+
+### Pädiatrisches Screening
+**AAO:** Farbsehtests **nicht routinemäßig**, sondern bei symptomatischen Kindern oder positiver Familienanamnese. PIP-Tafeln als Standard.³⁵
+
+### Erwachsenen-Screening
+Spezialisierte Untersuchung – **nicht routinemäßig** Teil der umfassenden Augenuntersuchung.³⁶ ³⁷
+
+### Medikamenten-Monitoring
+
+#### Ethambutol²⁹ ³⁰
+- Baseline-Visus + Farbdiskriminationstest
+- **Monatliche Farbsehtests** während der gesamten Therapie
+- **Sofortiges Absetzen bei Auffälligkeiten** (ATS/CDC/IDSA)
+- Optikusneuropathie häufiger bei >15 mg/kg/Tag
+- Bei frühzeitigem Absetzen oft reversibel; bis 50% bleibende Verluste
+
+#### Hydroxychloroquin (AAO 2025)³⁸ ³⁹ ⁴⁰
+- Baseline-Fundusuntersuchung
+- **Jährliches Screening ab 5 Jahren Einnahme**
+- **Primäre Tests:** OCT + Weitfeld-FAF
+- Automatisierte Gesichtsfelder nur noch als bestätigender Zusatztest
+- Farbsehtests (z.B. ColourDX) als ergänzende Frühindikatoren
+- Retinopathie-Risiko **<2% über 10 Jahre** bei ≤5 mg/kg/Tag
+- Risikofaktoren: hohe Dosis, Niereninsuffizienz, Tamoxifen, Therapie >5 Jahre
+
+#### Linezolid⁴¹
+- Monitoring auf Visusverlust und Farbsehstörungen
+- Bei Optikusneuritis unter Ethambutol+Linezolid: **beide absetzen**
+
+### Neuroophthalmologische Diagnostik
+- Farbsehtests **zentrales Element** bei Optikusneuropathien
+- Dyschromatopsie: sensitiver Frühindikator bei Optikusneuritis
+- Persistiert auch bei erhaltenem Visus ≥20/40
+- Bei MS auch ohne ON-Anamnese in 62% nachweisbar¹⁴ ²³ ²⁴ ²⁵
+
+### Retinale Erkrankungen
+- DR: Korrelation mit Makulaödem-Schwere (~50% betroffen)
+- AMD: Frühe Stadien messbar betroffen (CAD korreliert mit Progression)
+- **Aktuelle Evidenz reicht NICHT** für Farbsehtests als alleiniges Screening für DR²⁶ ²⁷ ²⁸ ⁴²
+
+### Arbeitsmedizin und Berufseignung
+Normales Farbsehen ist Voraussetzung für sicherheitskritische Berufe (Militär, Luftfahrt, Transport). CCT/CAD ermöglichen differenziertere Beurteilung als PIP. Selbst milde Defekte zeigen signifikant **langsamere Reaktionszeiten** in farbkritischen Umgebungen.¹⁷ ¹⁹
+
+### Hereditäre Netzhautdystrophien⁴³
+- Optionaler Bestandteil der Erstuntersuchung
+- Verlaufskontrollen alle 1–2 Jahre neben Visus, OCT, FAF, Elektrophysiologie
+
+---
+
+## Referenzen
+
+1. Color Vision Deficiency. [*MedlinePlus.* 2015](https://medlineplus.gov/genetics/condition/color-vision-deficiency/)
+2. OPN1LW Gene. [*MedlinePlus.* 2015](https://medlineplus.gov/genetics/gene/opn1lw/)
+3. OPN1MW Gene. [*MedlinePlus.* 2015](https://medlineplus.gov/genetics/gene/opn1mw/)
+4. Rezeanu D, et al. Color Vision Aids for Color Vision Deficiency. [*Opt Express.* 2022](https://doi.org/10.1364/OE.451999)
+5. Graham CH, Hsia Y. Color Defect and Color Theory. [*Science.* 1958](https://doi.org/10.1126/science.127.3300.675)
+6. Deeb SS, et al. Genotype-Phenotype in Red/Green Color-Vision Defects. [*Am J Hum Genet.* 1992](https://pubmed.ncbi.nlm.nih.gov/1415255/)
+7. Kohl S, et al. Achromatopsia. [*GeneReviews.* 2018](https://www.ncbi.nlm.nih.gov/books/NBK1418/)
+8. Hartung KJ, et al. Blue Cone Monochromatism. [*Adv Exp Med Biol.* 2025](https://doi.org/10.1007/978-3-031-74304-0)
+9. Aboshiha J, et al. The Cone Dysfunction Syndromes. [*Br J Ophthalmol.* 2016](https://doi.org/10.1136/bjophthalmol-2014-306505)
+10. Birch J. Efficiency of Ishihara Test for Red-Green CVD. [*Ophthalmic Physiol Opt.* 1997](https://doi.org/10.1046/j.1475-1313.1997.97000341.x)
+11. Davison PA, Scanlon G. Diagnosing Protanopia With Screening Tests. [*Optom Vis Sci.* 2020](https://doi.org/10.1097/OPX.0000000000001535)
+12. Thiadens AA, et al. Accuracy of Color Vision Tests in Cone Disorders. [*Ophthalmic Epidemiol.* 2013](https://doi.org/10.3109/09286586.2013.788229)
+13. Zhao J, et al. Clinical Color Vision Testing and Visual Function. [*Am J Ophthalmol.* 2015](https://doi.org/10.1016/j.ajo.2015.06.029)
+14. Adams AJ, et al. Color Discrimination in Glaucoma. [*Invest Ophthalmol Vis Sci.* 1982](https://pubmed.ncbi.nlm.nih.gov/7076415/)
+15. Bento-Torres NV, et al. Mollon-Reffin's Ellipses and FM 100-Hue. [*PLoS One.* 2016](https://doi.org/10.1371/journal.pone.0152214)
+16. Rabin J, et al. Cone Contrast Test for Rapid Quantification. [*Invest Ophthalmol Vis Sci.* 2011](https://doi.org/10.1167/iovs.10-7008)
+17. Gao H, et al. Color Vision Testing in U.S. Military. [*Mil Med.* 2023](https://doi.org/10.1093/milmed/usac233)
+18. Parente JR, et al. CAD vs Cambridge Colour Test. [*Vision Res.* 2025](https://doi.org/10.1016/j.visres.2024.108490)
+19. Barbur JL, Rodriguez-Carmona M. Colour Vision Requirements in Demanding Occupations. [*Br Med Bull.* 2017](https://doi.org/10.1093/bmb/ldx007)
+20. Aldarwesh A, et al. CS and Color Vision for HCQ Toxicity Detection. [*J Clin Med.* 2026](https://doi.org/10.3390/jcm)
+21. Arnegard S, et al. Standard PIP vs Genetic Testing in CVD. [*Acta Ophthalmol.* 2022](https://doi.org/10.1111/aos.15091)
+22. Simunovic MP. Acquired Color Vision Deficiency. [*Surv Ophthalmol.* 2015](https://doi.org/10.1016/j.survophthal.2015.06.001)
+23. Biousse V, Newman NJ. Diagnosis of Optic Neuropathies. [*Lancet Neurol.* 2016](https://doi.org/10.1016/S1474-4422(16)30237-X)
+24. Warszawer Y, et al. Digital Color Vision in MS Without ON. [*Eur Neurol.* 2025](https://doi.org/10.1159/000541234)
+25. Niwa Y, et al. Acquired CVD in Glaucoma With Rabin CCT. [*Invest Ophthalmol Vis Sci.* 2014](https://doi.org/10.1167/iovs.13-13495)
+26. Fong DS, et al. Impaired Color Vision in DR (ETDRS Report 15). [*Am J Ophthalmol.* 1999](https://doi.org/10.1016/s0002-9394(99)00050-1)
+27. O'Neill-Biba M, et al. Chromatic Sensitivity in AMD vs Diabetes. [*Ophthalmic Physiol Opt.* 2010](https://doi.org/10.1111/j.1475-1313.2010.00767.x)
+28. Vemala R, et al. Early Color Vision Loss in AMD With Drusen. [*Invest Ophthalmol Vis Sci.* 2017](https://doi.org/10.1167/iovs.16-21029)
+29. Nahid P, et al. ATS/CDC/IDSA Guidelines on TB Treatment. [*Clin Infect Dis.* 2016](https://doi.org/10.1093/cid/ciw376)
+30. Ethambutol Hydrochloride. [*FDA Label.* 2024](https://www.accessdata.fda.gov/drugsatfda_docs/label/)
+31. Stelton CR, et al. Hydroxychloroquine Retinopathy. [*Clin Rheumatol.* 2013](https://doi.org/10.1007/s10067-013-2225-3)
+32. Li J, et al. Drug-Induced Ocular Disorders. [*Drug Saf.* 2008](https://doi.org/10.2165/00002018-200831020-00002)
+33. Beckman S, et al. Acquired CVD in Hexane-Exposed Mechanics. [*Am J Epidemiol.* 2016](https://doi.org/10.1093/aje/kww049)
+34. Iregren A, et al. Color Vision and Occupational Chemical Exposures. [*Neurotoxicology.* 2002](https://doi.org/10.1016/s0161-813x(02)00048-0)
+35. Hutchinson AK, et al. Pediatric Eye Evaluations PPP. [*Ophthalmology.* 2023](https://doi.org/10.1016/j.ophtha.2022.10.027)
+36. Chuck RS, et al. Comprehensive Adult Medical Eye Evaluation PPP. [*Ophthalmology.* 2021](https://doi.org/10.1016/j.ophtha.2020.10.024)
+37. Jacobs DS, et al. Refractive Errors PPP. [*Ophthalmology.* 2023](https://doi.org/10.1016/j.ophtha.2022.10.031)
+38. Rosenbaum JT, et al. ACR/AAD/RDS/AAO Joint Statement on HCQ. [*Arthritis Rheumatol.* 2021](https://doi.org/10.1002/art.41683)
+39. Marmor MF, et al. AAO HCQ Retinopathy Screening (2025 Revision). [*Ophthalmology.* 2026](https://doi.org/10.1016/j.ophtha.2025.10.001)
+40. Kim KE, Ahn SJ. HCQ-Induced Retinopathy in Autoimmune Diseases. [*Expert Opin Drug Saf.* 2025](https://doi.org/10.1080/14740338.2024.2436218)
+41. Nahid P, et al. ATS/CDC/ERS/IDSA Drug-Resistant TB Guidelines. [*Am J Respir Crit Care Med.* 2019](https://doi.org/10.1164/rccm.201909-1874ST)
+42. Rodgers M, et al. Color Vision Testing for DR (Systematic Review). [*Health Technol Assess.* 2009](https://doi.org/10.3310/hta13600)
+43. AAO. Inherited Retinal Degenerations Guidelines. [*AAO.* 2022](https://www.aao.org/clinical-statement/guidelines-on-clinical-assessment-patients-inherit)
+""",
+            wikiSummary: """
+## Kurzzusammenfassung
+
+**Farbsinnesprüfung** = Erkennung/Klassifikation/Schweregrad von Farbsinnstörungen.
+
+---
+
+### Häufigste Defekte
+- **Rot-Grün** (X-chrom. rezessiv): 8% Männer
+  - Deuteranomalie (häufigste)
+  - Protanopie (rot fehlt)
+- **Blau-Gelb** (selten, autosomal dominant)
+- **Achromatopsie** (alle Zapfen)
+
+---
+
+### Stufendiagnostik
+| Stufe | Tests |
+|---|---|
+| **Screening** | Ishihara, HRR |
+| **Klassifikation** | D-15, CCT, CAD |
+| **Goldstandard** | **Anomaloskop (Nagel)** |
+
+---
+
+### Wichtigste Tests
+- **Ishihara:** Sens. 95–99% RG; **Tritan nicht erkennbar**
+- **HRR:** Alle Achsen + Schweregrad; 100% Protan
+- **D-15 / Lanthony:** Erworbene Defekte
+- **CCT/CAD:** Computergestützt, schnell, quantitativ
+
+---
+
+### Klinisch wichtig
+- **Ethambutol:** Monatliche Kontrollen!
+- **HCQ (AAO 2025):** Jährlich ab 5 J., OCT + FAF primär
+- **Optikusneuritis/MS:** 62–76% Dyschromatopsie
+- **Glaukom:** Blau-Gelb-Defekte vor GF-Verlust
+
+> **Erworbene Defekte:** vorzugsweise **Blau-Gelb**, asymmetrisch, progressiv.
+""",
+          ),
         ],
       ),
     ],
