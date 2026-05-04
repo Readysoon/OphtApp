@@ -5120,6 +5120,236 @@ Amblyopie, Glaukom (~30% bei Marfan), Netzhautablösung, Katarakt
     ],
   ),
   Category(
+    id: 'examinations',
+    name: 'Untersuchungstechniken',
+    icon: '🔬',
+    description: 'Klinische Untersuchungs- und Diagnostikverfahren',
+    conditions: [
+      const Condition(
+        id: 'visual_acuity',
+        name: 'Sehschärfeprüfung (Visusprüfung)',
+        description: 'Standardisierte Messung der räumlichen Auflösungsfähigkeit des visuellen Systems mittels Optotypen.',
+        symptoms: [],
+        urgency: Urgency.low,
+        treatment: ['ETDRS-Tafel als Goldstandard', 'Snellen-Tafel weit verbreitet', 'LogMAR für Forschung und Verlauf'],
+        followUp: 'Standardteil jeder ophthalmologischen Untersuchung',
+        source: null,
+        wikiContent: '''
+## Definition und Grundlagen
+
+Die Sehschärfe (Visus) misst die räumliche Auflösungsfähigkeit des visuellen Systems – also die Fähigkeit des Auges, feine Details zu erkennen.¹ Sie ist der am häufigsten verwendete Test zur Beurteilung der Sehfunktion und wird standardmäßig monokular mit bestmöglicher Korrektur gemessen.² ³
+
+---
+
+## Grundprinzip – Minimum Angle of Resolution (MAR)
+
+Die Sehschärfe basiert auf dem **minimalen Auflösungswinkel** (MAR = Minimum Angle of Resolution) – dem kleinsten Sehwinkel, unter dem ein Optotyp (Buchstabe, Zahl, Symbol) noch korrekt erkannt werden kann.
+
+- **Normaler Visus** (1,0 bzw. 20/20): MAR = **1 Bogenminute**
+- Je schlechter die Sehschärfe, desto größer der MAR¹ ⁴
+
+---
+
+## Durchführung der Visusprüfung
+
+Die Fernvisusprüfung erfolgt in einem leicht abgedunkelten Raum bei einer Testdistanz von typischerweise **20 Fuß (6 Meter)** oder **4 Meter (ETDRS)**. Der Patient betrachtet eine Tafel mit hochkontrastigen Optotypen (schwarze Zeichen auf weißem Hintergrund).² ⁵
+
+- **Monokular** testen, jeweils mit aktueller Korrektur
+- Gegenauge mit Okkluder oder Pflaster abdecken
+- **Fernvisus:** 6 m / 20 Fuß / 4 m (je nach Tafel)
+- **Nahvisus:** Lesekarte bei 35–40 cm Abstand² ⁶
+
+> **Goldstandard:** Die ETDRS-Tafel (Early Treatment Diabetic Retinopathy Study) gilt als Goldstandard der Visusprüfung in der klinischen Forschung.⁵
+
+---
+
+## Snellen-Visus
+
+### Prinzip und Notation
+Die 1862 von Hermann Snellen entwickelte Tafel ist die weltweit am häufigsten verwendete Sehtafel in der klinischen Praxis.³ Der Visus wird als Bruch angegeben:
+
+**Snellen-Visus = Testdistanz / Distanz, bei der ein Normalsichtiger die Zeile lesen kann**
+
+- **20/20** (oder 6/6): Normaler Visus¹
+- **20/40** (oder 6/12): Visus 0,5 – Patient erkennt bei 20 Fuß, was Normalsichtiger bei 40 Fuß erkennt
+- **20/200** (oder 6/60): Sehr schlechter Visus, gesetzliche Blindheit in vielen Ländern¹
+
+**Dezimalvisus:** Alternativ als Dezimalzahl ausgedrückt (z.B. 20/20 = 1,0; 20/40 = 0,5; 20/200 = 0,1).
+
+### Limitationen der Snellen-Tafel³ ⁶ ⁷
+- **Ungleiche Buchstabenlesbarkeit** (z.B. "L" leichter als "B")
+- **Ungleiche Zeilenbesetzung:** Unterschiedliche Anzahl Buchstaben pro Zeile
+- **Nicht-proportionale Abstände:** Nicht standardisiert, entsprechen nicht WHO-Standards⁶ ⁸
+- **Nicht-logarithmische Größenprogression:** Ungleichmäßige Abstufung
+- **Schlechte Test-Retest-Variabilität:** ±0,33 logMAR (vs. ±0,18 bei ETDRS)⁹
+- **Nicht für parametrische Statistik geeignet:** Keine lineare Skala¹⁰
+- **Systematische Unterschätzung:** ETDRS ergibt im Mittel **6,1 Buchstaben besser**; bei schlechtem Visus (≤20/160) sogar **12,6 Buchstaben** Differenz¹¹
+
+---
+
+## LogMAR-Visus
+
+### Prinzip
+LogMAR steht für **Logarithm of the Minimum Angle of Resolution**.
+
+**logMAR = log₁₀(MAR in Bogenminuten) = -log₁₀(Dezimalvisus)**
+
+| logMAR | Dezimalvisus | Snellen |
+|---|---|---|
+| 0,0 | 1,0 | 20/20 (normaler Visus) |
+| 0,3 | 0,5 | 20/40 |
+| 1,0 | 0,1 | 20/200 = 6/60 |
+| -0,1 | 1,25 | 20/16 (überdurchschnittlich) |
+
+### Vorteile des logMAR-Systems
+- **Lineare, kontinuierliche Skala** → geeignet für parametrische Statistik¹
+- **Gleichmäßige Abstufung:** Jede Zeile = 0,1 logMAR, jeder Buchstabe = 0,02 logMAR¹³
+- **Buchstabe-für-Buchstabe-Auswertung** → höhere Sensitivität¹⁴
+- **Bessere Vergleichbarkeit** zwischen Studien und Verlaufskontrollen¹⁵
+
+---
+
+## LogMAR-Sehtafeln
+
+### Bailey-Lovie-Tafel (1976)¹⁴
+Die erste logMAR-basierte Sehtafel; legte die Designprinzipien fest:
+- **5 Optotypen pro Zeile** (gleiche Anzahl)
+- **Logarithmische Größenprogression:** Faktor 0,1 logMAR pro Zeile (≈ Faktor 0,794)
+- **Proportionale Abstände:** Horizontaler Abstand = Optotypgröße
+- **Optotypen gleicher Lesbarkeit** (Sloan-Buchstaben)
+- Charakteristisches **umgekehrtes Pyramidendesign**
+
+### ETDRS-Tafel (1982) – Goldstandard⁵ ¹³
+Modifizierte Bailey-Lovie-Tafel, entwickelt für die Early Treatment Diabetic Retinopathy Study:
+- Basiert auf den Bailey-Lovie-Designprinzipien
+- **14 Zeilen mit je 5 Buchstaben** (Sloan-Buchstaben: C, D, H, K, N, O, R, S, V, Z)
+- Buchstaben gleicher Schwierigkeit pro Zeile
+- **Standardtestdistanz: 4 Meter** (retroilluminiert)
+- **Messbereich: 1,4 logMAR** (von 20/200 bis 20/10 bei 4 m)
+- Jeder korrekt gelesene Buchstabe = -0,02 logMAR
+- **Test-Retest-Variabilität: ±0,14 bis ±0,18 logMAR** (deutlich besser als Snellen)⁹ ¹⁶
+
+---
+
+## Umrechnungstabelle
+
+| Snellen (Fuß) | Snellen (Meter) | Dezimalvisus | logMAR | ETDRS-Buchstaben |
+|---|---|---|---|---|
+| 20/10 | 6/3 | 2,0 | -0,30 | 100 |
+| 20/16 | 6/5 | 1,25 | -0,10 | 90 |
+| **20/20** | **6/6** | **1,0** | **0,00** | **85** |
+| 20/25 | 6/7,5 | 0,8 | 0,10 | 80 |
+| 20/32 | 6/9,5 | 0,63 | 0,20 | 75 |
+| 20/40 | 6/12 | 0,5 | 0,30 | 70 |
+| 20/50 | 6/15 | 0,4 | 0,40 | 65 |
+| 20/63 | 6/19 | 0,32 | 0,50 | 60 |
+| 20/80 | 6/24 | 0,25 | 0,60 | 55 |
+| 20/100 | 6/30 | 0,2 | 0,70 | 50 |
+| 20/200 | 6/60 | 0,1 | 1,00 | 35 |
+
+### Umrechnungsformeln
+- **logMAR = -log₁₀(Dezimalvisus)**¹⁷
+- **ETDRS-Buchstaben ≈ 85 + 50 × log₁₀(Snellen-Bruch)**¹⁰
+
+> **Cave:** Die Umrechnung von Snellen- oder Dezimalwerten in logMAR ist **nicht vollständig reliabel** – insbesondere bei schlechterem Visus kommt es zu Überschätzungen von bis zu 0,2 logMAR.¹⁷
+
+---
+
+## Vergleich Snellen vs. logMAR-Tafeln
+
+| Merkmal | Snellen-Tafel | LogMAR (ETDRS/Bailey-Lovie) |
+|---|---|---|
+| **Optotypen pro Zeile** | Variabel (1–8) | Konstant (5) |
+| **Größenprogression** | Ungleichmäßig | Logarithmisch (0,1 logMAR/Zeile) |
+| **Buchstabenlesbarkeit** | Unterschiedlich | Standardisiert (Sloan) |
+| **Abstände** | Nicht proportional | Proportional |
+| **Auswertung** | Zeilenzuordnung | Buchstabe-für-Buchstabe |
+| **Test-Retest-Variabilität** | ±0,33 logMAR | ±0,14–0,18 logMAR |
+| **Statistische Eignung** | Nicht parametrisch | Lineare Skala |
+| **Testdauer** | ~19 s | ~35 s (ETDRS), ~21 s (Reduced) |
+| **Klinische Verbreitung** | Sehr hoch (Routine) | Standard in Forschung |
+
+---
+
+## Weitere Sehtafeln und Methoden⁸
+
+- **Tumbling-E-Tafel:** Für Analphabeten/Kinder; erfordert räumliche Orientierungsfähigkeit
+- **HOTV-Tafel:** Für Kinder; nur 4 Buchstaben (H, O, T, V)
+- **LEA-Symbole:** Für Kleinkinder; standardisierte Symbole
+- **Landolt-Ring (Landolt-C):** Internationaler Standard-Optotyp; Ring mit Öffnung in verschiedenen Richtungen
+- **Pelli-Robson-Tafel:** Misst **Kontrastempfindlichkeit** statt Sehschärfe; sensitiver für subtile Sehstörungen¹
+- **Teller Acuity Cards:** Für Säuglinge; basiert auf preferential looking⁶
+
+---
+
+## Klinische Empfehlungen
+
+Die **American Academy of Ophthalmology (AAO)** empfiehlt für die klinische Praxis **Sloan-Buchstaben mit logMAR-Größenprogression (ETDRS-Design)** als bevorzugte Optotypen.⁶ ⁸
+
+> Snellen-Tafeln werden als weniger wünschenswert eingestuft, da Design und Buchstaben nicht standardisiert sind.
+
+Für die klinische Forschung ist die **ETDRS-Tafel der unbestrittene Goldstandard**.⁵ ⁷
+
+> **Trotzdem** verwenden über **49% der ophthalmologischen Publikationen** weiterhin ausschließlich Snellen-Notation, und viele Kliniker haben Schwierigkeiten, logMAR-Werte intuitiv zu interpretieren.¹⁸
+
+---
+
+## Referenzen
+
+1. Toosy AT, et al. Optic Neuritis. [*Lancet Neurol.* 2014](https://doi.org/10.1016/S1474-4422(13)70259-X)
+2. Jacobs DS, et al. Refractive Errors Preferred Practice Pattern®. [*Ophthalmology.* 2023](https://doi.org/10.1016/j.ophtha.2022.10.031)
+3. Hussain B, et al. Changing From Snellen to LogMAR: Debate or Delay? [*Clin Exp Ophthalmol.* 2006](https://doi.org/10.1111/j.1442-9071.2006.01205.x)
+4. McAnany JJ, et al. Object Frequency Characteristics of Visual Acuity. [*Invest Ophthalmol Vis Sci.* 2011](https://doi.org/10.1167/iovs.10-6584)
+5. Snow ZE. Visual Acuity as a Measurement of Visual Function. [*Methods Mol Biol.* 2022](https://doi.org/10.1007/978-1-0716-2055-7_3)
+6. Cruz OA, et al. Amblyopia Preferred Practice Pattern. [*Ophthalmology.* 2023](https://doi.org/10.1016/j.ophtha.2022.10.030)
+7. Lovie-Kitchin JE. Is It Time to Confine Snellen Charts to the Annals of History? [*Ophthalmic Physiol Opt.* 2015](https://doi.org/10.1111/opo.12241)
+8. Hutchinson AK, et al. Pediatric Eye Evaluations Preferred Practice Pattern. [*Ophthalmology.* 2023](https://doi.org/10.1016/j.ophtha.2022.10.027)
+9. Rosser DA, et al. Reduced logMAR Visual Acuity Chart for Routine Clinical Practice. [*Br J Ophthalmol.* 2001](https://doi.org/10.1136/bjo.85.4.432)
+10. Gregori NZ, et al. Novel Method for Analyzing Snellen Visual Acuity Measurements. [*Retina.* 2010](https://doi.org/10.1097/IAE.0b013e3181d87e04)
+11. Yu HJ, et al. Visual Acuity Variability: Snellen vs ETDRS in Prospective Trials. [*Ophthalmol Retina.* 2021](https://doi.org/10.1016/j.oret.2020.07.022)
+12. Yu-Wai-Man P, et al. Surgery for Traumatic Optic Neuropathy. [*Cochrane Database Syst Rev.* 2013](https://doi.org/10.1002/14651858.CD005024.pub3)
+13. Dong LM, et al. Consistency Between Visual Acuity Scores at Different Test Distances. [*Arch Ophthalmol.* 2002](https://doi.org/10.1001/archopht.120.11.1523)
+14. Bailey IL, Lovie-Kitchin JE. Visual Acuity Testing: From Laboratory to Clinic. [*Vision Res.* 2013](https://doi.org/10.1016/j.visres.2013.05.004)
+15. Jonas DE, et al. Vision Screening in Children 6 Months to 5 Years. [*JAMA.* 2017](https://doi.org/10.1001/jama.2017.9900)
+16. Lim LA, et al. Comparison of ETDRS, Reduced logMAR and Snellen Charts. [*Eye.* 2010](https://doi.org/10.1038/eye.2009.222)
+17. Mataftsi A, et al. Is Conversion of Decimal to logMAR Reliable? [*Graefes Arch Clin Exp Ophthalmol.* 2019](https://doi.org/10.1007/s00417-019-04344-9)
+18. Tsou BC, Bressler NM. Visual Acuity Reporting in Clinical Research Publications. [*JAMA Ophthalmol.* 2017](https://doi.org/10.1001/jamaophthalmol.2017.3107)
+''',
+        wikiSummary: '''
+## Kurzzusammenfassung
+
+**Visusprüfung** = Messung der räumlichen Auflösungsfähigkeit. Standard: **monokular**, mit bester Korrektur, **6 m** (Snellen) oder **4 m** (ETDRS).
+
+---
+
+### Notationssysteme
+| System | Normalvisus | Beispiel |
+|---|---|---|
+| **Snellen** | 20/20 oder 6/6 | 20/40 = 0,5 |
+| **Dezimal** | 1,0 | 0,5 |
+| **logMAR** | 0,0 | 0,3 |
+| **ETDRS-Buchstaben** | 85 | 70 |
+
+---
+
+### Goldstandard
+- **Klinische Forschung:** ETDRS-Tafel (4 m, 5 Sloan-Buchstaben/Zeile, 14 Zeilen)
+- **AAO-Empfehlung:** Sloan-Buchstaben mit logMAR-Design
+- **Test-Retest:** ETDRS ±0,14 vs. Snellen ±0,33 logMAR
+
+---
+
+### Wichtig
+- **MAR 1 Bogenminute** = normaler Visus (20/20)
+- **Jede logMAR-Zeile** = 0,1 logMAR, **jeder Buchstabe** = 0,02 logMAR
+- ETDRS misst im Mittel **6,1 Buchstaben besser** als Snellen
+
+> **Cave:** Snellen → logMAR-Umrechnung ist nicht vollständig reliabel (bis 0,2 logMAR Differenz bei schlechtem Visus).
+''',
+      ),
+    ],
+  ),
+  Category(
     id: 'diverses',
     name: 'Diverses',
     icon: '📋',
