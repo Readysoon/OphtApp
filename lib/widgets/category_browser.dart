@@ -78,20 +78,11 @@ class _CategoryBrowserState extends State<CategoryBrowser> {
     return s;
   }
 
-  /// Searches for the query in a condition. Returns matches + relevance score.
-  /// Higher score = more relevant. Score breakdown:
-  ///  - 1000: exact title match
-  ///  - 500: title starts with query
-  ///  - 200: title contains query (word boundary)
-  ///  - 100: title contains query (anywhere)
-  ///  - 50: description contains query
-  ///  - 30: heading in wiki content contains query
-  ///  - 10: wiki content/summary body contains query
-  ///  - 15: treatment contains query
-  ({List<({String field, String snippet})> matches, int score}) _searchInCondition(
-      Condition cond, String query) {
-    final matches = <({String field, String snippet})>[];
-    final qLower = query.toLowerCase();
+  /// Score and matches for a single search term in a condition.
+  ({List<({String field, String snippet, String term})> matches, int score, bool anyMatch})
+      _scoreSingleTerm(Condition cond, String term) {
+    final matches = <({String field, String snippet, String term})>[];
+    final qLower = term.toLowerCase();
     int score = 0;
 
     void addMatch(String field, String rawText) {
@@ -100,47 +91,45 @@ class _CategoryBrowserState extends State<CategoryBrowser> {
       final idx = tLower.indexOf(qLower);
       if (idx == -1) return;
       final start = (idx - 70).clamp(0, cleanText.length);
-      final end = (idx + query.length + 90).clamp(0, cleanText.length);
+      final end = (idx + term.length + 90).clamp(0, cleanText.length);
       var snippet = cleanText.substring(start, end).trim();
       if (start > 0) snippet = '…$snippet';
       if (end < cleanText.length) snippet = '$snippet…';
-      matches.add((field: field, snippet: snippet));
+      matches.add((field: field, snippet: snippet, term: term));
     }
 
-    // Title scoring
     final nameLower = cond.name.toLowerCase();
+    bool titleMatched = false;
     if (nameLower == qLower) {
       score += 1000;
-      matches.add((field: 'Titel', snippet: cond.name));
+      titleMatched = true;
     } else if (nameLower.startsWith(qLower)) {
       score += 500;
-      matches.add((field: 'Titel', snippet: cond.name));
+      titleMatched = true;
     } else if (RegExp('\\b${RegExp.escape(qLower)}\\b').hasMatch(nameLower)) {
       score += 200;
-      matches.add((field: 'Titel', snippet: cond.name));
+      titleMatched = true;
     } else if (nameLower.contains(qLower)) {
       score += 100;
-      matches.add((field: 'Titel', snippet: cond.name));
+      titleMatched = true;
+    }
+    if (titleMatched) {
+      matches.add((field: 'Titel', snippet: cond.name, term: term));
     }
 
-    // Description
     if (cond.description.toLowerCase().contains(qLower)) {
       score += 50;
       addMatch('Beschreibung', cond.description);
     }
 
-    // Wiki content – check headers separately for higher score
     if (cond.wikiContent != null) {
       final headerPattern = RegExp(r'^#{1,6}\s+(.+)$', multiLine: true);
-      bool headerMatched = false;
       for (final m in headerPattern.allMatches(cond.wikiContent!)) {
         if (m.group(1)!.toLowerCase().contains(qLower)) {
-          headerMatched = true;
+          score += 30;
           break;
         }
       }
-      if (headerMatched) score += 30;
-      // Count occurrences in body for additional weighting
       final bodyLower = cond.wikiContent!.toLowerCase();
       int occurrences = 0;
       int searchFrom = 0;
@@ -151,27 +140,61 @@ class _CategoryBrowserState extends State<CategoryBrowser> {
         searchFrom = idx + qLower.length;
       }
       if (occurrences > 0) {
-        score += 10 + (occurrences > 5 ? 5 : occurrences); // cap bonus
+        score += 10 + (occurrences > 5 ? 5 : occurrences);
         addMatch('Inhalt', cond.wikiContent!);
       }
     }
 
-    // Wiki summary
     if (cond.wikiSummary != null && cond.wikiSummary!.toLowerCase().contains(qLower)) {
       score += 15;
       addMatch('Kurzfassung', cond.wikiSummary!);
     }
 
-    // Treatment
     for (final t in cond.treatment) {
       if (t.toLowerCase().contains(qLower)) {
         score += 15;
-        matches.add((field: 'Therapie', snippet: _stripMarkdown(t)));
+        matches.add((field: 'Therapie', snippet: _stripMarkdown(t), term: term));
         break;
       }
     }
 
-    return (matches: matches, score: score);
+    return (matches: matches, score: score, anyMatch: matches.isNotEmpty);
+  }
+
+  /// Multi-term search: query is split into space-separated terms.
+  /// Conditions matching MORE terms get a big score boost.
+  ({List<({String field, String snippet, String term})> matches, int score, int termsMatched})
+      _searchInCondition(Condition cond, String query) {
+    // Split query into terms (min 2 chars each)
+    final terms = query
+        .split(RegExp(r'\s+'))
+        .where((t) => t.trim().length >= 2)
+        .toList();
+    if (terms.isEmpty) return (matches: [], score: 0, termsMatched: 0);
+
+    final allMatches = <({String field, String snippet, String term})>[];
+    int totalScore = 0;
+    int termsMatched = 0;
+
+    for (final term in terms) {
+      final r = _scoreSingleTerm(cond, term);
+      if (r.anyMatch) {
+        termsMatched++;
+        totalScore += r.score;
+        allMatches.addAll(r.matches);
+      }
+    }
+
+    // Big bonus when multiple terms match the same condition
+    if (terms.length > 1 && termsMatched > 1) {
+      // Multiplier: 2 terms → 1.5x, all terms → 2x+
+      final ratio = termsMatched / terms.length;
+      totalScore = (totalScore * (1 + ratio)).round();
+      // Extra bonus per matched term
+      totalScore += termsMatched * 50;
+    }
+
+    return (matches: allMatches, score: totalScore, termsMatched: termsMatched);
   }
 
   @override
@@ -216,7 +239,7 @@ class _CategoryBrowserState extends State<CategoryBrowser> {
             controller: _searchController,
             onChanged: (value) => setState(() => _searchQuery = value),
             decoration: InputDecoration(
-              hintText: 'Stichwort suchen (z.B. Glaukom, Pelli-Robson)…',
+              hintText: 'Suche – mehrere Wörter mit Leerzeichen (z.B. hordeolum chalazion)…',
               prefixIcon: const Icon(Icons.search, size: 20),
               suffixIcon: _searchQuery.isNotEmpty
                   ? IconButton(
@@ -248,13 +271,26 @@ class _CategoryBrowserState extends State<CategoryBrowser> {
 
   List<Widget> _buildSearchResults(ThemeData theme) {
     final query = _searchQuery.trim();
+    final terms = query.split(RegExp(r'\s+')).where((t) => t.length >= 2).toList();
     final allConditions = _collectAllConditions(categories, []);
-    final results = <({Condition cond, List<String> path, List<({String field, String snippet})> matches, int score})>[];
+    final results = <({
+      Condition cond,
+      List<String> path,
+      List<({String field, String snippet, String term})> matches,
+      int score,
+      int termsMatched,
+    })>[];
 
     for (final entry in allConditions) {
       final r = _searchInCondition(entry.condition, query);
       if (r.matches.isNotEmpty) {
-        results.add((cond: entry.condition, path: entry.path, matches: r.matches, score: r.score));
+        results.add((
+          cond: entry.condition,
+          path: entry.path,
+          matches: r.matches,
+          score: r.score,
+          termsMatched: r.termsMatched,
+        ));
       }
     }
     // Sort by score descending (most relevant first)
@@ -280,11 +316,15 @@ class _CategoryBrowserState extends State<CategoryBrowser> {
       ];
     }
 
+    final headerText = terms.length > 1
+        ? '${results.length} Treffer · ${terms.length} Begriffe'
+        : '${results.length} Treffer';
+
     return [
       Padding(
         padding: const EdgeInsets.symmetric(horizontal: 4, vertical: 4),
         child: Text(
-          '${results.length} Treffer',
+          headerText,
           style: theme.textTheme.labelSmall?.copyWith(color: theme.colorScheme.onSurfaceVariant),
         ),
       ),
@@ -292,7 +332,8 @@ class _CategoryBrowserState extends State<CategoryBrowser> {
             condition: r.cond,
             path: r.path,
             matches: r.matches,
-            query: query,
+            terms: terms,
+            termsMatched: r.termsMatched,
             onTap: () => setState(() => _selectedCondition = r.cond),
           )),
     ];
@@ -330,42 +371,74 @@ class _SearchResultCard extends StatelessWidget {
     required this.condition,
     required this.path,
     required this.matches,
-    required this.query,
+    required this.terms,
+    required this.termsMatched,
     required this.onTap,
   });
 
   final Condition condition;
   final List<String> path;
-  final List<({String field, String snippet})> matches;
-  final String query;
+  final List<({String field, String snippet, String term})> matches;
+  final List<String> terms;
+  final int termsMatched;
   final VoidCallback onTap;
 
-  /// Builds a RichText with the query highlighted in the snippet.
+  /// Color for highlighting different terms (cycle through palette).
+  Color _termColor(BuildContext context, String term) {
+    final theme = Theme.of(context);
+    final palette = [
+      theme.colorScheme.primaryContainer,
+      Colors.amber.shade200,
+      Colors.lightBlue.shade200,
+      Colors.pink.shade200,
+      Colors.green.shade200,
+    ];
+    final idx = terms.indexOf(term);
+    if (idx == -1) return palette[0];
+    return palette[idx % palette.length];
+  }
+
+  /// Highlights ALL search terms in the snippet (not just one).
   Widget _highlightedSnippet(BuildContext context, String snippet) {
     final theme = Theme.of(context);
-    final qLower = query.toLowerCase();
-    final sLower = snippet.toLowerCase();
     final spans = <TextSpan>[];
-    var idx = 0;
-    while (idx < snippet.length) {
-      final found = sLower.indexOf(qLower, idx);
-      if (found == -1) {
-        spans.add(TextSpan(text: snippet.substring(idx)));
-        break;
+    final sLower = snippet.toLowerCase();
+
+    // Find all term positions in the snippet
+    final positions = <({int start, int end, String term})>[];
+    for (final term in terms) {
+      final tLower = term.toLowerCase();
+      var searchFrom = 0;
+      while (true) {
+        final found = sLower.indexOf(tLower, searchFrom);
+        if (found == -1) break;
+        positions.add((start: found, end: found + term.length, term: term));
+        searchFrom = found + term.length;
       }
-      if (found > idx) {
-        spans.add(TextSpan(text: snippet.substring(idx, found)));
+    }
+    // Sort positions and merge overlapping
+    positions.sort((a, b) => a.start.compareTo(b.start));
+
+    var cursor = 0;
+    for (final pos in positions) {
+      if (pos.start < cursor) continue; // overlapping/duplicate
+      if (pos.start > cursor) {
+        spans.add(TextSpan(text: snippet.substring(cursor, pos.start)));
       }
       spans.add(TextSpan(
-        text: snippet.substring(found, found + query.length),
+        text: snippet.substring(pos.start, pos.end),
         style: TextStyle(
           fontWeight: FontWeight.bold,
-          backgroundColor: theme.colorScheme.primaryContainer.withOpacity(0.6),
-          color: theme.colorScheme.onPrimaryContainer,
+          backgroundColor: _termColor(context, pos.term),
+          color: Colors.black87,
         ),
       ));
-      idx = found + query.length;
+      cursor = pos.end;
     }
+    if (cursor < snippet.length) {
+      spans.add(TextSpan(text: snippet.substring(cursor)));
+    }
+
     return RichText(
       text: TextSpan(
         style: theme.textTheme.bodySmall?.copyWith(
@@ -382,6 +455,13 @@ class _SearchResultCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
+
+    // Group matches by term for compact display
+    final byTerm = <String, List<({String field, String snippet, String term})>>{};
+    for (final m in matches) {
+      byTerm.putIfAbsent(m.term, () => []).add(m);
+    }
+
     return Card(
       child: InkWell(
         onTap: onTap,
@@ -391,57 +471,138 @@ class _SearchResultCard extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              // Breadcrumb path
-              if (path.isNotEmpty)
-                Text(
-                  path.join(' › '),
-                  style: theme.textTheme.labelSmall?.copyWith(
-                    color: theme.colorScheme.primary,
-                    fontWeight: FontWeight.w500,
+              // Breadcrumb path + termsMatched badge
+              Row(
+                children: [
+                  Expanded(
+                    child: path.isEmpty
+                        ? const SizedBox()
+                        : Text(
+                            path.join(' › '),
+                            style: theme.textTheme.labelSmall?.copyWith(
+                              color: theme.colorScheme.primary,
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
                   ),
-                ),
+                  if (terms.length > 1)
+                    Container(
+                      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
+                      decoration: BoxDecoration(
+                        color: termsMatched == terms.length
+                            ? Colors.green.shade100
+                            : theme.colorScheme.surfaceContainerHighest,
+                        borderRadius: BorderRadius.circular(8),
+                      ),
+                      child: Text(
+                        '$termsMatched/${terms.length} Begriffe',
+                        style: theme.textTheme.labelSmall?.copyWith(
+                          fontSize: 10,
+                          color: termsMatched == terms.length
+                              ? Colors.green.shade900
+                              : theme.colorScheme.onSurfaceVariant,
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
+                    ),
+                ],
+              ),
               const SizedBox(height: 4),
-              // Condition name
               Text(
                 condition.name,
                 style: theme.textTheme.titleSmall?.copyWith(fontWeight: FontWeight.w600),
               ),
               const SizedBox(height: 8),
-              // Match snippets
-              ...matches.take(3).map((m) => Padding(
-                    padding: const EdgeInsets.only(bottom: 6),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Container(
-                          padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
-                          decoration: BoxDecoration(
-                            color: theme.colorScheme.surfaceContainerHighest,
-                            borderRadius: BorderRadius.circular(4),
-                          ),
-                          child: Text(
-                            m.field,
-                            style: theme.textTheme.labelSmall?.copyWith(
-                              fontSize: 10,
-                              color: theme.colorScheme.onSurfaceVariant,
-                            ),
-                          ),
-                        ),
-                        const SizedBox(height: 4),
-                        _highlightedSnippet(context, m.snippet),
-                      ],
-                    ),
-                  )),
-              if (matches.length > 3)
-                Text(
-                  '+ ${matches.length - 3} weitere Treffer',
-                  style: theme.textTheme.labelSmall?.copyWith(color: theme.colorScheme.primary),
-                ),
+              // Show snippets per term (max 1 per term, then 2 most relevant overall)
+              ..._buildSnippets(context, byTerm),
             ],
           ),
         ),
       ),
     );
+  }
+
+  List<Widget> _buildSnippets(
+    BuildContext context,
+    Map<String, List<({String field, String snippet, String term})>> byTerm,
+  ) {
+    final theme = Theme.of(context);
+    final widgets = <Widget>[];
+    final shownMatches = <({String field, String snippet, String term})>[];
+
+    // First: take 1 best snippet per matched term
+    for (final term in terms) {
+      final list = byTerm[term];
+      if (list != null && list.isNotEmpty) {
+        shownMatches.add(list.first);
+      }
+    }
+    // Then fill up to 4 with additional from any term
+    for (final list in byTerm.values) {
+      for (final m in list) {
+        if (shownMatches.length >= 4) break;
+        if (!shownMatches.contains(m)) shownMatches.add(m);
+      }
+      if (shownMatches.length >= 4) break;
+    }
+
+    for (final m in shownMatches) {
+      widgets.add(Padding(
+        padding: const EdgeInsets.only(bottom: 6),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Row(
+              children: [
+                Container(
+                  padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
+                  decoration: BoxDecoration(
+                    color: theme.colorScheme.surfaceContainerHighest,
+                    borderRadius: BorderRadius.circular(4),
+                  ),
+                  child: Text(
+                    m.field,
+                    style: theme.textTheme.labelSmall?.copyWith(
+                      fontSize: 10,
+                      color: theme.colorScheme.onSurfaceVariant,
+                    ),
+                  ),
+                ),
+                if (terms.length > 1) ...[
+                  const SizedBox(width: 4),
+                  Container(
+                    padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
+                    decoration: BoxDecoration(
+                      color: _termColor(context, m.term),
+                      borderRadius: BorderRadius.circular(4),
+                    ),
+                    child: Text(
+                      m.term,
+                      style: theme.textTheme.labelSmall?.copyWith(
+                        fontSize: 10,
+                        color: Colors.black87,
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
+                  ),
+                ],
+              ],
+            ),
+            const SizedBox(height: 4),
+            _highlightedSnippet(context, m.snippet),
+          ],
+        ),
+      ));
+    }
+
+    final remaining = matches.length - shownMatches.length;
+    if (remaining > 0) {
+      widgets.add(Text(
+        '+ $remaining weitere Treffer',
+        style: theme.textTheme.labelSmall?.copyWith(color: theme.colorScheme.primary),
+      ));
+    }
+    return widgets;
   }
 }
 
