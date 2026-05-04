@@ -5503,6 +5503,214 @@ CS-Defizite oft **früher** als Visusverlust bei:
 > **MACUSTAR:** CS bestes chart-basiertes Diskriminationsmerkmal für intermediäre AMD (AUC 0,77).
 """,
           ),
+          const Condition(
+            id: 'amsler_test',
+            name: 'Amsler-Test (Amsler-Gitter)',
+            description: 'Einfacher Test zur Erkennung von Metamorphopsien und zentralen Skotomen im 10°-Gesichtsfeld – wichtigstes Tool für AMD-Heimüberwachung.',
+            symptoms: [],
+            urgency: Urgency.low,
+            treatment: ['Standardtest: Tafel 1 (weißes Gitter auf schwarz)', 'Monokular bei 28-33 cm Abstand', 'Häusliche Selbstüberwachung bei AMD'],
+            followUp: 'Bei neuen Verzerrungen/Skotomen sofortige ophthalmologische Kontrolle mit OCT',
+            source: null,
+            wikiContent: """
+## Definition und Geschichte
+
+Das **Amsler-Gitter** ist ein einfaches, kostengünstiges Testinstrument zur Erkennung von **Metamorphopsien** (Verzerrungen gerader Linien) und **Skotomen** (Gesichtsfeldausfällen) im **zentralen Gesichtsfeld (10° um die Fovea)**. Entwickelt in den 1940er-1950er Jahren vom Schweizer Ophthalmologen **Marc Amsler**.¹ ²
+
+> Trotz moderner Bildgebung (OCT) bleibt es aufgrund seiner Einfachheit und Zugänglichkeit ein wertvolles Instrument in der Primärversorgung und im **häuslichen Monitoring**.³
+
+---
+
+## Aufbau des Standard-Amsler-Gitters (Tafel Nr. 1)
+
+- **Quadratisches Gitter** aus gleichmäßig angeordneten horizontalen und vertikalen Linien
+- **Gesamtgröße:** 10 × 10 cm (bei 28–30 cm Testdistanz)
+- **400 kleine Quadrate** (20 × 20 Linien), jedes Quadrat 5 mm Seitenlänge
+- **Zentraler Fixationspunkt** (weiß oder schwarz)
+- **Abdeckung:** Zentrales Gesichtsfeld 20° (10° in jede Richtung)
+- **Jedes kleine Quadrat = 1° Sehwinkel**¹ ³
+
+> Zwei Varianten: schwarzes Gitter auf weißem Hintergrund oder **weißes Gitter auf schwarzem Hintergrund** (letzteres oft sensitiver).¹
+
+---
+
+## Die 7 Amsler-Tafeln
+
+| Tafel | Beschreibung | Anwendung |
+|---|---|---|
+| **1 (Standard)** | Weißes Gitter auf schwarz, zentraler Fixationspunkt | Screening Metamorphopsie/Skotome |
+| **2** | Wie 1, plus diagonale Linien | Patienten mit Zentralskotom (Diagonalen helfen Fixation) |
+| **3** | Rotes Gitter auf schwarz | Farbskotome, papillomakuläre Defekte (Optikusneuritis) |
+| **4** | Nur Punkte (keine Linien) | Reduziert Filling-in → sensitiver für Skotome |
+| **5** | Horizontale Linien | Spezifisch Metamorphopsie in einer Richtung |
+| **6** | Engere Linienabstände im Zentrum | Höhere foveale Auflösung |
+| **7** | Feineres zentrales Gitter (8°) | Subtile foveale Veränderungen |
+
+> In der klinischen Praxis wird fast ausschließlich **Tafel 1** verwendet.² ³
+
+---
+
+## Physiologisches Funktionsprinzip
+
+### Detektion von Metamorphopsie⁵ ⁶
+**Metamorphopsie** entsteht durch eine **Verschiebung oder Verlagerung der Photorezeptoren** in der Makula. Wenn retinale Pathologien (subretinale Flüssigkeit, Makulaödem, epiretinale Membran) die normale Anordnung stören, werden die Lichtreize an der ursprünglichen Position interpretiert → **gerade Linien erscheinen wellig, verbogen oder verzerrt**.
+
+### Art der Verzerrung als DD-Hinweis
+- **Kissenförmig (Pincushion):** Photorezeptoren zentripetal verlagert → typisch für **Makulaforamen**⁶
+- **Tonnenförmig (Barrel):** Photorezeptoren zentrifugal verlagert
+- **Zentrale Metamorphopsie:** Typisch für **neovaskuläre AMD**¹
+- **Diffuse Metamorphopsie:** Eher trockene AMD oder epiretinale Membran¹
+
+### Detektion von Skotomen¹ ⁷
+Bei Zerstörung von Photorezeptoren (geographische Atrophie, Narbe) → fehlende visuelle Information → Bereiche erscheinen **fehlend, verschwommen oder grau** (relatives oder absolutes Skotom).
+
+---
+
+## Durchführung¹ ³
+
+1. **Nahkorrektur aufsetzen** (Lesebrille); Testdistanz **28–33 cm**
+2. **Monokular** testen: ein Auge abdecken
+3. Patient fixiert den **zentralen Punkt** und hält die Fixation stabil
+4. Folgende **Fragen** stellen:
+   - "Können Sie den zentralen Punkt sehen?"
+   - "Können Sie alle 4 Ecken des Gitters gleichzeitig sehen?"
+   - "Sind alle Linien gerade und gleichmäßig?"
+   - "Gibt es Bereiche, die fehlen, verschwommen, verzerrt oder wellig erscheinen?"
+5. Patient markiert auffällige Bereiche auf einer **Kopie des Gitters**
+6. **Zweites Auge** testen
+
+---
+
+## Pathologische Befunde
+
+| Befund | Bedeutung |
+|---|---|
+| **Metamorphopsie** (wellige/verbogene Linien) | Makulaödem, subretinale Flüssigkeit, epiretinale Membran, Makulaforamen |
+| **Skotom** (fehlende/graue Bereiche) | Geographische Atrophie, Narbe, fortgeschrittene Makulopathie |
+| **Mikropsie/Makropsie** (kleinere/größere Quadrate) | Netzhautödem oder Atrophie |
+| **Fehlender Fixationspunkt** | Zentralskotom → fortgeschrittene Makulaerkrankung |
+
+---
+
+## Klinische Indikationen
+
+- **AMD-Monitoring:** Hauptindikation – Selbstüberwachung zur Früherkennung der Konversion trocken → neovaskulär⁸
+- **Diabetisches Makulaödem**³
+- **Zentrale seröse Chorioretinopathie (CSCR)**³
+- **Epiretinale Membran**⁵
+- **Makulaforamen**⁶
+- **Glaukom:** Detektion moderater bis schwerer zentraler GF-Defekte (Sens. 68%, Spez. 92%)⁹
+- **Optikusneuritis:** Tafel 3 (rotes Gitter) besonders sensitiv
+
+> Die **AAO** empfiehlt in den AMD PPP, dass Patienten mit früher AMD und/oder Familienanamnese ihre Sehfunktion mittels **monokularer Testung** (Amsler-Gitter oder elektronisches Home-Monitoring) selbst überwachen sollten.⁸
+
+---
+
+## Diagnostische Genauigkeit
+
+Systematische Metaanalyse von Bjerager et al. (2023):¹
+
+| Vergleich | Sensitivität | Spezifität |
+|---|---|---|
+| Neovaskuläre AMD vs. gesunde Kontrollen | **67%** (51–79%) | **99%** (85–100%) |
+| Neovaskuläre AMD vs. trockene AMD | 71% (60–80%) | 63% (49–51%) |
+| Glaukomatöse zentrale Defekte (10-2 VF) | 68% | 92% |
+
+> **Klinisch bedeutsam:** Im klinisch relevanten Szenario (neovaskuläre vs. trockene AMD) verfehlt das Amsler-Gitter **1 von 3 Augen** mit neovaskulärer AMD.¹
+
+---
+
+## Limitationen
+
+### Perceptual Completion (Filling-in-Phänomen)
+**Die wichtigste Limitation:** Das Gehirn ergänzt fehlende visuelle Information automatisch anhand des umgebenden Musters. Da das Gitter hochregelmäßig ist, kann das visuelle System Skotome **"auffüllen"** → Patient sieht ein vollständiges Gitter trotz vorhandenem Skotom.¹⁰ ¹¹
+
+> Studien zeigen, dass die Sensitivität dadurch auf **unter 50%** fallen kann.
+
+### Troxler-Effekt (Fade-from-View)
+Bei stabiler Fixation auf den zentralen Punkt **verblassen periphere Teile** des Gitters physiologisch → Detektion peripherer Defekte erschwert.⁷
+
+### Fixationsinstabilität
+Patienten mit Zentralskotom **können den Fixationspunkt nicht sehen** und fixieren exzentrisch → unzuverlässige Ergebnisse.¹⁰
+
+### Weitere Limitationen
+- **Subjektiv:** Abhängig von Patientencompliance, Verständnis und Motivation
+- **Keine Quantifizierung:** Nur qualitative Ergebnisse⁷
+- **Nur statisch:** Keine dynamischen Veränderungen erfassbar
+- **Häuslich vs. überwacht:** Sensitivität im häuslichen Setting noch niedriger¹
+- **Falsch-positive:** Patienten mit trockener AMD/großen Drusen können Verzerrungen berichten, die nicht auf CNV hinweisen¹
+
+---
+
+## Modernere Alternativen
+
+| Verfahren | Beschreibung |
+|---|---|
+| **Preferential Hyperacuity Perimetry (ForeseeHome)** | Computerbasiert, Vernier-Akuität; höhere Sensitivität, aber mehr falsch-positive¹ |
+| **M-Charts** | Quantifizieren Metamorphopsie in Bogenminuten; etwas sensitiver¹ ⁵ |
+| **MacuFlow** | Bewegtes Gitter (Optic-Flow), reduziert Troxler-Effekt⁷ |
+| **Smartphone-Apps (Alley, myVisionTrack)** | Digitale Metamorphopsie-Tests mit adaptiven Algorithmen¹ |
+| **3D-Computer-Automated Threshold Amsler Grid** | Detektiert Metamorphopsie, die Standard-Amsler nicht erfasst¹ |
+
+---
+
+## Zusammenfassung
+
+> Das Amsler-Gitter bleibt trotz seiner Limitationen ein **wertvolles, kostengünstiges Screening-Instrument** für zentrale Gesichtsfelddefekte, insbesondere zur **häuslichen Selbstüberwachung bei AMD-Patienten**.³ ⁸
+
+**Stärken:** Hohe **Spezifität (99%** vs. gesunde Kontrollen), einfache Handhabung.
+
+**Schwächen:** Moderate **Sensitivität (67–71%)**, Filling-in-Phänomen.
+
+> **Wichtig:** Ein normales Amsler-Gitter **schließt eine Makulaerkrankung NICHT aus**.¹ ¹¹ Neue Symptome oder Veränderungen sollten stets eine zeitnahe ophthalmologische Untersuchung mit **OCT** veranlassen.⁸
+
+---
+
+## Referenzen
+
+1. Bjerager J, et al. Diagnostic Accuracy of Amsler Grid for Neovascular AMD: Meta-Analysis. [*JAMA Ophthalmol.* 2023](https://doi.org/10.1001/jamaophthalmol.2023.0468)
+2. Marmor MF. A Brief History of Macular Grids. [*Surv Ophthalmol.* 2000](https://doi.org/10.1016/s0039-6257(00)00112-0)
+3. Estreicher A, et al. The Amsler Grid in Everyday Practice. [*Clin Ophthalmol.* 2025](https://doi.org/10.2147/OPTH.S507934)
+4. Apte RS. Age-Related Macular Degeneration. [*N Engl J Med.* 2021](https://doi.org/10.1056/NEJMcp2102061)
+5. Hanumunthadu D, et al. Clinical Update on Metamorphopsia. [*Curr Eye Res.* 2021](https://doi.org/10.1080/02713683.2020.1857776)
+6. Saito Y, et al. Visual Performance and Metamorphopsia in Macular Holes. [*Arch Ophthalmol.* 2000](https://doi.org/10.1001/archopht.118.1.41)
+7. Frisén L. The Amsler Grid in Modern Clothes. [*Br J Ophthalmol.* 2009](https://doi.org/10.1136/bjo.2008.150565)
+8. Vemulakonda GA, et al. AMD Preferred Practice Pattern. [*Ophthalmology.* 2025](https://doi.org/10.1016/j.ophtha.2024.10.020)
+9. Su D, et al. Amsler Grid Test in Glaucomatous Central VF Defects. [*Ophthalmology.* 2016](https://doi.org/10.1016/j.ophtha.2015.10.046)
+10. Achard OA, et al. Role of Completion Phenomenon in Amsler Grid. [*Am J Ophthalmol.* 1995](https://doi.org/10.1016/s0002-9394(14)70863-4)
+11. Crossland M, Rubin G. The Amsler Chart: Absence of Evidence Is Not Evidence of Absence. [*Br J Ophthalmol.* 2007](https://doi.org/10.1136/bjo.2006.113159)
+""",
+            wikiSummary: """
+## Kurzzusammenfassung
+
+**Amsler-Gitter** = einfacher Test zur Detektion von **Metamorphopsien** und **zentralen Skotomen** (10° um Fovea). Wichtigstes Tool für **AMD-Heimüberwachung**.
+
+---
+
+### Durchführung
+- Tafel 1 (Standard): 10×10 cm, 400 Quadrate
+- **Monokular**, Testdistanz 28–33 cm
+- Mit Lesebrille, zentraler Fixationspunkt
+
+---
+
+### Diagnostische Genauigkeit
+| Szenario | Sensitivität | Spezifität |
+|---|---|---|
+| Neovask. AMD vs. gesund | **67%** | **99%** |
+| Neovask. vs. trockene AMD | 71% | 63% |
+
+---
+
+### Hauptlimitationen
+- **Filling-in-Phänomen:** Gehirn füllt Skotome auf → Sens. <50%
+- **Troxler-Effekt:** Periphere Teile verblassen
+- Subjektiv, nicht quantifizierbar
+- Verfehlt **1 von 3** neovaskulären AMD
+
+> **Cave:** Normales Amsler **schließt Makulaerkrankung NICHT aus**! Bei Beschwerden → OCT obligat.
+""",
+          ),
         ],
       ),
     ],
