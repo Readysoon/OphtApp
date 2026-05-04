@@ -11,9 +11,20 @@ class CategoryBrowser extends StatefulWidget {
 }
 
 class _CategoryBrowserState extends State<CategoryBrowser> {
-  Category? _selectedCategory;
+  final List<Category> _categoryPath = [];
   Condition? _selectedCondition;
   Examination? _selectedExamination;
+
+  Condition? _findConditionRecursive(String id, List<Category> cats) {
+    for (final cat in cats) {
+      for (final cond in cat.conditions) {
+        if (cond.id == id) return cond;
+      }
+      final inSub = _findConditionRecursive(id, cat.subCategories);
+      if (inSub != null) return inSub;
+    }
+    return null;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -28,22 +39,17 @@ class _CategoryBrowserState extends State<CategoryBrowser> {
         condition: _selectedCondition!,
         onBack: () => setState(() => _selectedCondition = null),
         onNavigateToCondition: (conditionId) {
-          for (final cat in categories) {
-            for (final cond in cat.conditions) {
-              if (cond.id == conditionId) {
-                setState(() => _selectedCondition = cond);
-                return;
-              }
-            }
-          }
+          final cond = _findConditionRecursive(conditionId, categories);
+          if (cond != null) setState(() => _selectedCondition = cond);
         },
       );
     }
-    if (_selectedCategory != null) {
+    if (_categoryPath.isNotEmpty) {
       return _CategoryDetail(
-        category: _selectedCategory!,
-        onBack: () => setState(() => _selectedCategory = null),
+        category: _categoryPath.last,
+        onBack: () => setState(() => _categoryPath.removeLast()),
         onSelectCondition: (c) => setState(() => _selectedCondition = c),
+        onSelectSubCategory: (c) => setState(() => _categoryPath.add(c)),
       );
     }
 
@@ -60,7 +66,7 @@ class _CategoryBrowserState extends State<CategoryBrowser> {
         const SizedBox(height: 20),
         ...categories.map((cat) => _CategoryTile(
               category: cat,
-              onTap: () => setState(() => _selectedCategory = cat),
+              onTap: () => setState(() => _categoryPath.add(cat)),
             )),
         const SizedBox(height: 28),
         Text(
@@ -109,7 +115,16 @@ class _CategoryTile extends StatelessWidget {
                     ),
                     const SizedBox(height: 4),
                     Text(
-                      '${category.conditions.length} Erkrankungen',
+                      () {
+                        final parts = <String>[];
+                        if (category.subCategories.isNotEmpty) {
+                          parts.add('${category.subCategories.length} Unterkategorien');
+                        }
+                        if (category.conditions.isNotEmpty) {
+                          parts.add('${category.conditions.length} Erkrankungen');
+                        }
+                        return parts.join(' · ');
+                      }(),
                       style: theme.textTheme.labelSmall?.copyWith(color: theme.colorScheme.primary),
                     ),
                   ],
@@ -173,11 +188,13 @@ class _CategoryDetail extends StatelessWidget {
     required this.category,
     required this.onBack,
     required this.onSelectCondition,
+    required this.onSelectSubCategory,
   });
 
   final Category category;
   final VoidCallback onBack;
   final ValueChanged<Condition> onSelectCondition;
+  final ValueChanged<Category> onSelectSubCategory;
 
   @override
   Widget build(BuildContext context) {
@@ -210,6 +227,47 @@ class _CategoryDetail extends StatelessWidget {
           ],
         ),
         const SizedBox(height: 20),
+        ...category.subCategories.map((sub) => Card(
+              child: InkWell(
+                onTap: () => onSelectSubCategory(sub),
+                borderRadius: BorderRadius.circular(16),
+                child: Padding(
+                  padding: const EdgeInsets.all(16),
+                  child: Row(
+                    children: [
+                      Text(sub.icon, style: const TextStyle(fontSize: 22)),
+                      const SizedBox(width: 12),
+                      Expanded(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(sub.name, style: theme.textTheme.titleSmall?.copyWith(fontWeight: FontWeight.w600)),
+                            const SizedBox(height: 4),
+                            Text(
+                              sub.description,
+                              style: theme.textTheme.bodySmall?.copyWith(color: theme.colorScheme.onSurfaceVariant),
+                              maxLines: 1,
+                              overflow: TextOverflow.ellipsis,
+                            ),
+                            const SizedBox(height: 4),
+                            Text(
+                              () {
+                                final parts = <String>[];
+                                if (sub.subCategories.isNotEmpty) parts.add('${sub.subCategories.length} Unterkategorien');
+                                if (sub.conditions.isNotEmpty) parts.add('${sub.conditions.length} Erkrankungen');
+                                return parts.join(' · ');
+                              }(),
+                              style: theme.textTheme.labelSmall?.copyWith(color: theme.colorScheme.primary),
+                            ),
+                          ],
+                        ),
+                      ),
+                      Icon(Icons.chevron_right, color: theme.colorScheme.onSurfaceVariant),
+                    ],
+                  ),
+                ),
+              ),
+            )),
         ...category.conditions.map((c) => Card(
               child: InkWell(
                 onTap: () => onSelectCondition(c),

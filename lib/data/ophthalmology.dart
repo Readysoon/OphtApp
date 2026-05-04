@@ -38,13 +38,15 @@ class Category {
   final String icon;
   final String description;
   final List<Condition> conditions;
+  final List<Category> subCategories;
 
   const Category({
     required this.id,
     required this.name,
     required this.icon,
     required this.description,
-    required this.conditions,
+    this.conditions = const [],
+    this.subCategories = const [],
   });
 }
 
@@ -5124,56 +5126,70 @@ Amblyopie, Glaukom (~30% bei Marfan), Netzhautablösung, Katarakt
     name: 'Untersuchungstechniken',
     icon: '🔬',
     description: 'Klinische Untersuchungs- und Diagnostikverfahren',
-    conditions: [
-      const Condition(
+    subCategories: [
+      Category(
         id: 'psychophysical_tests',
         name: 'Psychophysische Tests',
-        description: 'Sehschärfen- und Kontrastempfindlichkeitsmessung – psychophysische Tests zur Beurteilung der visuellen Funktion.',
-        symptoms: [],
-        urgency: Urgency.low,
-        treatment: ['Visusprüfung: ETDRS oder Snellen', 'Kontrastempfindlichkeit: Pelli-Robson, Mars Letter, qCSF', 'Standardteil jeder Untersuchung'],
-        followUp: 'Standard in jeder ophthalmologischen Untersuchung; CS-Tests bei spezifischen Indikationen',
-        source: null,
-        wikiContent: """
-## Übersicht
+        icon: '🧠',
+        description: 'Sehschärfen- und Kontrastempfindlichkeitsmessung',
+        conditions: [
+          const Condition(
+            id: 'visual_acuity',
+            name: 'Sehschärfeprüfung (Visusprüfung)',
+            description: 'Standardisierte Messung der räumlichen Auflösungsfähigkeit des visuellen Systems mittels Optotypen.',
+            symptoms: [],
+            urgency: Urgency.low,
+            treatment: ['ETDRS-Tafel als Goldstandard', 'Snellen-Tafel weit verbreitet', 'LogMAR für Forschung und Verlauf'],
+            followUp: 'Standardteil jeder ophthalmologischen Untersuchung',
+            source: null,
+            wikiContent: """
+## Definition und Grundlagen
 
-**Psychophysische Tests** beurteilen die Sehfunktion durch standardisierte Reizvorlagen und Patientenantworten. Die wichtigsten Verfahren sind die **Sehschärfeprüfung** (Visus) und die **Kontrastempfindlichkeit** (Contrast Sensitivity, CS). Während der Visus die räumliche Auflösung bei maximalem Kontrast misst, erfasst die CS die visuelle Leistung unter alltagsnahen Bedingungen.
+Die Sehschärfe (Visus) misst die räumliche Auflösungsfähigkeit des visuellen Systems – also die Fähigkeit des Auges, feine Details zu erkennen.¹ Sie ist der am häufigsten verwendete Test zur Beurteilung der Sehfunktion und wird standardmäßig **monokular mit bestmöglicher Korrektur** gemessen.² ³
 
 ---
 
-## 1. Sehschärfeprüfung (Visusprüfung)
+## Grundprinzip – Minimum Angle of Resolution (MAR)
 
-Die Sehschärfe (Visus) misst die räumliche Auflösungsfähigkeit des visuellen Systems – also die Fähigkeit des Auges, feine Details zu erkennen.¹ Sie wird standardmäßig **monokular mit bestmöglicher Korrektur** gemessen.² ³
-
-### Grundprinzip – Minimum Angle of Resolution (MAR)
 Die Sehschärfe basiert auf dem **minimalen Auflösungswinkel** (MAR) – dem kleinsten Sehwinkel, unter dem ein Optotyp noch korrekt erkannt werden kann.
 
 - **Normaler Visus** (1,0 bzw. 20/20): MAR = **1 Bogenminute**
 - Je schlechter die Sehschärfe, desto größer der MAR¹ ⁴
 
-### Durchführung
+---
+
+## Durchführung
+
+Die Fernvisusprüfung erfolgt in einem leicht abgedunkelten Raum bei einer Testdistanz von typischerweise **20 Fuß (6 Meter)** oder **4 Meter (ETDRS)**.² ⁵
+
 - **Monokular** testen mit aktueller Korrektur (Gegenauge mit Okkluder abdecken)
 - **Fernvisus:** 6 m / 20 Fuß / 4 m (je nach Tafel)
 - **Nahvisus:** Lesekarte bei 35–40 cm² ⁵ ⁶
 
-> **Goldstandard:** ETDRS-Tafel (Early Treatment Diabetic Retinopathy Study) in der klinischen Forschung.⁵
+> **Goldstandard:** Die ETDRS-Tafel gilt als Goldstandard der Visusprüfung in der klinischen Forschung.⁵
 
-### Snellen-Visus
+---
+
+## Snellen-Visus
+
 1862 von Hermann Snellen entwickelt, weltweit am häufigsten verwendet.³ Notation als Bruch:
 
 **Snellen-Visus = Testdistanz / Distanz, bei der ein Normalsichtiger die Zeile lesen kann**
 
-- **20/20** (oder 6/6): Normaler Visus
-- **20/40**: Visus 0,5 (Patient erkennt bei 20 Fuß, was Normalsichtiger bei 40 Fuß erkennt)
+- **20/20** (oder 6/6): Normaler Visus¹
+- **20/40**: Visus 0,5
 - **20/200**: Gesetzliche Blindheit in vielen Ländern¹
 
-#### Limitationen der Snellen-Tafel³ ⁶ ⁷
+### Limitationen³ ⁶ ⁷
 - Ungleiche Buchstabenlesbarkeit, ungleiche Zeilenbesetzung
 - Nicht-proportionale Abstände, nicht-logarithmische Größenprogression
-- **Test-Retest-Variabilität ±0,33 logMAR** (vs. ±0,18 ETDRS)⁹
+- **Test-Retest-Variabilität ±0,33 logMAR** (vs. ±0,18 bei ETDRS)⁹
 - ETDRS misst im Mittel **6,1 Buchstaben besser**; bei Visus ≤20/160 sogar **12,6 Buchstaben** Differenz¹⁰
 
-### LogMAR-Visus
+---
+
+## LogMAR-Visus
+
 **logMAR = log₁₀(MAR in Bogenminuten) = -log₁₀(Dezimalvisus)**
 
 | logMAR | Dezimalvisus | Snellen |
@@ -5183,26 +5199,30 @@ Die Sehschärfe basiert auf dem **minimalen Auflösungswinkel** (MAR) – dem kl
 | 1,0 | 0,1 | 20/200 |
 | -0,1 | 1,25 | 20/16 |
 
-#### Vorteile¹ ¹¹
+### Vorteile¹ ¹¹
 - **Lineare, kontinuierliche Skala** → parametrische Statistik möglich
 - **Gleichmäßige Abstufung:** 0,1 logMAR/Zeile, 0,02 logMAR/Buchstabe
 - **Buchstabe-für-Buchstabe-Auswertung** → höhere Sensitivität
 
-### LogMAR-Sehtafeln
+---
 
-#### Bailey-Lovie-Tafel (1976)¹²
+## LogMAR-Sehtafeln
+
+### Bailey-Lovie-Tafel (1976)¹²
 - **5 Optotypen pro Zeile** (gleiche Anzahl)
-- **Logarithmische Größenprogression** (Faktor 0,1 logMAR/Zeile)
+- **Logarithmische Größenprogression** (0,1 logMAR/Zeile)
 - **Sloan-Buchstaben** gleicher Lesbarkeit
 - Charakteristisches umgekehrtes Pyramidendesign
 
-#### ETDRS-Tafel (1982) – Goldstandard⁵ ¹¹
+### ETDRS-Tafel (1982) – Goldstandard⁵ ¹¹
 - 14 Zeilen mit je 5 Sloan-Buchstaben (C, D, H, K, N, O, R, S, V, Z)
 - Standarddistanz: **4 Meter** (retroilluminiert)
 - Messbereich: 1,4 logMAR
 - **Test-Retest ±0,14 bis ±0,18 logMAR**
 
-### Umrechnungstabelle
+---
+
+## Umrechnungstabelle
 
 | Snellen | Dezimal | logMAR | ETDRS-Buchstaben |
 |---|---|---|---|
@@ -5216,7 +5236,9 @@ Die Sehschärfe basiert auf dem **minimalen Auflösungswinkel** (MAR) – dem kl
 
 > **Cave:** Snellen → logMAR-Umrechnung ist nicht vollständig reliabel – bis zu 0,2 logMAR Differenz bei schlechtem Visus.¹³
 
-### Vergleich Snellen vs. logMAR
+---
+
+## Vergleich Snellen vs. logMAR
 
 | Merkmal | Snellen | LogMAR (ETDRS) |
 |---|---|---|
@@ -5226,90 +5248,162 @@ Die Sehschärfe basiert auf dem **minimalen Auflösungswinkel** (MAR) – dem kl
 | Test-Retest | ±0,33 logMAR | ±0,14–0,18 logMAR |
 | Statistische Eignung | Nicht parametrisch | Lineare Skala |
 
-### Weitere Sehtafeln⁶
+---
+
+## Weitere Sehtafeln⁶
 - **Tumbling-E-Tafel:** Für Analphabeten/Kinder
 - **HOTV-Tafel:** Für Kinder (4 Buchstaben H, O, T, V)
 - **LEA-Symbole:** Für Kleinkinder
 - **Landolt-Ring:** Internationaler Standard-Optotyp
 - **Teller Acuity Cards:** Für Säuglinge (preferential looking)
 
-### Klinische Empfehlungen
+---
+
+## Klinische Empfehlungen
+
 Die **AAO** empfiehlt **Sloan-Buchstaben mit logMAR-Design** (ETDRS) als bevorzugte Optotypen.⁶ Trotzdem nutzen über **49% der Publikationen** weiterhin Snellen.¹⁴
 
 ---
 
-## 2. Kontrastempfindlichkeit (Contrast Sensitivity)
+## Referenzen
 
-Die **Kontrastempfindlichkeit (CS)** beschreibt die Fähigkeit des visuellen Systems, feine Unterschiede in **Helligkeit (Luminanz)** zwischen Objekt und Umgebung wahrzunehmen. Während der Visus nur die räumliche Auflösung bei **maximalem Kontrast** misst, erfasst die CS die gesamte visuelle Leistungsfähigkeit unter **alltagsnahen Bedingungen**.¹⁵ ¹⁶
+1. Toosy AT, et al. Optic Neuritis. [*Lancet Neurol.* 2014](https://doi.org/10.1016/S1474-4422(13)70259-X)
+2. Jacobs DS, et al. Refractive Errors PPP. [*Ophthalmology.* 2023](https://doi.org/10.1016/j.ophtha.2022.10.031)
+3. Hussain B, et al. Snellen vs LogMAR. [*Clin Exp Ophthalmol.* 2006](https://doi.org/10.1111/j.1442-9071.2006.01205.x)
+4. McAnany JJ, et al. Object Frequency of Visual Acuity. [*Invest Ophthalmol Vis Sci.* 2011](https://doi.org/10.1167/iovs.10-6584)
+5. Snow ZE. Visual Acuity as Measurement. [*Methods Mol Biol.* 2022](https://doi.org/10.1007/978-1-0716-2055-7_3)
+6. Cruz OA, et al. Amblyopia PPP. [*Ophthalmology.* 2023](https://doi.org/10.1016/j.ophtha.2022.10.030)
+7. Lovie-Kitchin JE. Confining Snellen Charts? [*Ophthalmic Physiol Opt.* 2015](https://doi.org/10.1111/opo.12241)
+8. Hutchinson AK, et al. Pediatric Eye Evaluations PPP. [*Ophthalmology.* 2023](https://doi.org/10.1016/j.ophtha.2022.10.027)
+9. Rosser DA, et al. Reduced logMAR Chart. [*Br J Ophthalmol.* 2001](https://doi.org/10.1136/bjo.85.4.432)
+10. Yu HJ, et al. Snellen vs ETDRS. [*Ophthalmol Retina.* 2021](https://doi.org/10.1016/j.oret.2020.07.022)
+11. Dong LM, et al. Visual Acuity at Different Distances. [*Arch Ophthalmol.* 2002](https://doi.org/10.1001/archopht.120.11.1523)
+12. Bailey IL, Lovie-Kitchin JE. Visual Acuity Testing. [*Vision Res.* 2013](https://doi.org/10.1016/j.visres.2013.05.004)
+13. Mataftsi A, et al. Decimal to logMAR Conversion. [*Graefes Arch Clin Exp Ophthalmol.* 2019](https://doi.org/10.1007/s00417-019-04344-9)
+14. Tsou BC, Bressler NM. Visual Acuity Reporting. [*JAMA Ophthalmol.* 2017](https://doi.org/10.1001/jamaophthalmol.2017.3107)
+""",
+            wikiSummary: """
+## Kurzzusammenfassung
 
-### Definition
+**Visusprüfung** = Messung räumlicher Auflösung. Standard: monokular, beste Korrektur, **6 m / 4 m**.
+
+---
+
+### Notationssysteme
+| System | Normalvisus | Beispiel |
+|---|---|---|
+| **Snellen** | 20/20 oder 6/6 | 20/40 = 0,5 |
+| **Dezimal** | 1,0 | 0,5 |
+| **logMAR** | 0,0 | 0,3 |
+| **ETDRS-Buchst.** | 85 | 70 |
+
+---
+
+### Goldstandard
+- **Klinische Forschung:** ETDRS-Tafel (4 m, 5 Sloan-Buchstaben/Zeile)
+- **AAO-Empfehlung:** Sloan-Buchstaben mit logMAR-Design
+- **Test-Retest:** ETDRS ±0,14 vs. Snellen ±0,33 logMAR
+
+---
+
+### Wichtig
+- **MAR 1 Bogenminute** = normaler Visus (20/20)
+- ETDRS misst im Mittel **6,1 Buchstaben besser** als Snellen
+""",
+          ),
+          const Condition(
+            id: 'contrast_sensitivity',
+            name: 'Kontrastempfindlichkeit',
+            description: 'Misst die Fähigkeit, feine Helligkeitsunterschiede wahrzunehmen – komplementär zur Sehschärfe.',
+            symptoms: [],
+            urgency: Urgency.low,
+            treatment: ['Pelli-Robson-Tafel (Goldstandard klinisch)', 'Mars Letter Test (kompakter)', 'qCSF (computerbasiert, adaptiv)'],
+            followUp: 'Bei spezifischen Indikationen (Glaukom, AMD, Katarakt, Optikusneuritis)',
+            source: null,
+            wikiContent: """
+## Definition und Grundlagen
+
+Die **Kontrastempfindlichkeit (CS)** beschreibt die Fähigkeit des visuellen Systems, feine Unterschiede in **Helligkeit (Luminanz)** zwischen einem Objekt und seiner Umgebung wahrzunehmen.¹ ²
+
+> Während der Visus nur die räumliche Auflösung bei **maximalem Kontrast** misst, erfasst die CS die gesamte Bandbreite der visuellen Leistungsfähigkeit unter **alltagsnahen Bedingungen**.²
 
 **Michelson-Kontrast = (L_max − L_min) / (L_max + L_min)**
 
 **CS = 1 / Kontrastschwelle**
 
-Angabe in **log-Einheiten (logCS)**: Normalwert ca. **1,5–2,0 logCS** (Kontrastschwelle 1–3%).¹⁷ ¹⁸
+Angabe in **log-Einheiten (logCS):** Normalwert ca. **1,5–2,0 logCS** (Kontrastschwelle 1–3%).³ ⁴
 
-### Kontrastempfindlichkeitsfunktion (CSF)
+---
 
-Die **CSF** beschreibt die CS als Funktion der **Ortsfrequenz** (cycles per degree, cpd):¹⁹ ²⁰
+## Kontrastempfindlichkeitsfunktion (CSF)
 
-#### Charakteristische Form (umgekehrte U-Form, bandpass)
+Die **CSF** beschreibt die CS als Funktion der **Ortsfrequenz** (cycles per degree, cpd):⁵ ⁶
+
+### Charakteristische Form (umgekehrte U-Form, bandpass)
 - **Niedrige Ortsfrequenzen (0,5–1 cpd):** Moderate Empfindlichkeit (grobe Strukturen)
-- **Mittlere Ortsfrequenzen (2–6 cpd):** **Maximale Empfindlichkeit (Peak)** – relevant für Gesichtserkennung¹⁹ ²¹
-- **Hohe Ortsfrequenzen (>6 cpd):** Abfallende Empfindlichkeit (Auflösungsgrenze = Visus)²² ²³
+- **Mittlere Ortsfrequenzen (2–6 cpd):** **Maximale Empfindlichkeit (Peak)** – relevant für Gesichtserkennung⁵ ⁷
+- **Hohe Ortsfrequenzen (>6 cpd):** Abfallende Empfindlichkeit (Auflösungsgrenze = Visus)⁸ ⁹
 
-> Der **Visus repräsentiert nur einen einzigen Punkt** auf der CSF-Kurve – die höchste Ortsfrequenz bei maximalem Kontrast.¹⁶
+> Der **Visus repräsentiert nur einen einzigen Punkt** auf der CSF-Kurve – die höchste Ortsfrequenz bei maximalem Kontrast.²
 
-### Neurophysiologische Grundlagen¹⁹
+---
+
+## Neurophysiologische Grundlagen⁵
 - **Magnozelluläres System:** Niedrige Ortsfrequenzen, Bewegung; empfindlich bei niedrigen Kontrasten (1–2%)
 - **Parvozelluläres System:** Hohe Ortsfrequenzen, Farbsehen
+- Verschiedene Erkrankungen können selektiv unterschiedliche CSF-Bereiche beeinträchtigen⁵ ¹⁰
 
-### Klinische Bedeutung
+---
 
-> **Visus allein reicht nicht aus:** Patienten mit normalem Visus (20/20) können erhebliche CS-Einschränkungen haben.²⁴ ²⁵
+## Klinische Bedeutung
 
-Bei **Makulaerkrankungen mit gutem Visus** (≥20/30) ist die CSF signifikant reduziert (1,5–6 cpd).²⁵ Ausmaß: Retinitis pigmentosa > AMD > Glaukom > Katarakt.²⁴
+> **Visus allein reicht nicht aus:** Patienten mit normalem Visus (20/20) können erhebliche CS-Einschränkungen haben.¹¹ ¹²
 
-#### Alltagsrelevanz¹⁵ ²⁶
+Bei **Makulaerkrankungen mit gutem Visus** (≥20/30) ist die CSF signifikant reduziert (1,5–6 cpd).¹² Ausmaß: Retinitis pigmentosa > AMD > Glaukom > Katarakt.¹¹
+
+### Alltagsrelevanz¹ ¹³
 - Gesichtserkennung
 - Treppenstufen erkennen → **erhöhtes Sturzrisiko**
 - Lesen kontrastarmer Texte
 - Autofahren bei Dämmerung/Nacht
 
-> Reduktion um 0,3 logCS war assoziiert mit erhöhten Odds für **Glaukom (OR 1,35), Katarakt (OR 1,35), DR (OR 2,05) und AMD (OR 2,08)**.²⁶
+> Reduktion um 0,3 logCS war assoziiert mit erhöhten Odds für **Glaukom (OR 1,35), Katarakt (OR 1,35), DR (OR 2,05) und AMD (OR 2,08)**.¹³
 
-### Testverfahren
+---
 
-#### Pelli-Robson-Tafel (Goldstandard klinisch)¹⁷ ²⁷
+## Testverfahren
+
+### Pelli-Robson-Tafel (Goldstandard klinisch)³ ¹⁴
 - **8 Zeilen × 6 Buchstaben** (2 Tripletts/Zeile, alle gleich groß)
 - **Kontrastabstufung 0,15 logCS pro Triplett**
 - **Testdistanz 1 m** bei ~1–2 cpd (Peak der CSF)
-- Auswertung: Letztes Triplett mit ≥2/3 korrekt, oder buchstabenweise
-- **Normwerte:** ~1,65 logCS bei jungen Erwachsenen; Abnahme ~0,004 logCS/Jahr¹⁸ ²⁸
-- **Test-Retest:** ±0,18 logCS (normal), ±0,33 (AMD)²⁹
+- Auswertung: Letztes Triplett mit ≥2/3 korrekt
+- **Normwerte:** ~1,65 logCS bei jungen Erwachsenen; Abnahme ~0,004 logCS/Jahr⁴ ¹⁷
+- **Test-Retest:** ±0,18 logCS (normal), ±0,33 (AMD)¹⁸
 
-#### Mars Letter Contrast Sensitivity Test²⁹ ³⁰
+### Mars Letter Contrast Sensitivity Test¹⁶ ¹⁸
 - Kompaktes Format (23 × 35,5 cm), Distanz 50 cm
 - Feinere Kontrastabstufung (0,04 logCS/Buchstabe)
-- **Beste Repeatability:** ±0,12–0,13 logCS
+- **Beste Repeatability:** ±0,12–0,13 logCS¹⁹
 
-#### VISTECH/CSV-1000-Tafel¹⁵ ¹²
+### VISTECH/CSV-1000-Tafel¹ ¹⁴
 - Mehrere Ortsfrequenzen (3, 6, 12, 18 cpd)
 - Sinusoidale Streifenmuster (Gratings)
 - Erfasst gesamte CSF-Kurve
 
-#### SPARCS (Computer-basiert)³¹
+### SPARCS (Computer-basiert)²¹
 - Zentrales + peripheres Sehen (4 Quadranten)
 - Adaptiver Algorithmus
 - ICC Test-Retest 0,61
 
-#### Quick CSF (qCSF)²⁵ ³²
+### Quick CSF (qCSF)¹² ²³
 - **Adaptiver Bayesianischer Algorithmus**
 - Schätzt gesamte CSF-Kurve aus wenigen Trials (~2–5 min)
 - Ergebnis: **AULCSF** (Area Under the Log CSF)
 
-### Vergleich der wichtigsten Tests
+---
+
+## Vergleich der wichtigsten Tests
 
 | Test | Ortsfrequenzen | Repeatability | Besonderheit |
 |---|---|---|---|
@@ -5319,108 +5413,97 @@ Bei **Makulaerkrankungen mit gutem Visus** (≥20/30) ist die CSF signifikant re
 | **SPARCS** | Mehrere | ICC 0,61 | Zentral + peripher |
 | **qCSF** | Adaptiv | Gut | Schnell, AULCSF |
 
-### Klinische Indikationen
+---
 
-Die CS-Testung gehört laut AAO **nicht zur Routineuntersuchung**, sondern zur spezialisierten klinischen Evaluation.³³
+## Klinische Indikationen
 
-- **Katarakt:** Bei subjektiven Beschwerden trotz gutem Visus; OP-Indikationsunterstützung³⁴
-- **Glaukom:** CS-Verlust kann **früher als Visusverlust** auftreten²⁶ ³⁵
-- **AMD:** CSF reduziert bei niedrigen/mittleren Frequenzen, **selbst bei Visus ≥20/30**²⁵
+Die CS-Testung gehört laut AAO **nicht zur Routineuntersuchung**.²⁴ ²⁵
+
+- **Katarakt:** Bei subjektiven Beschwerden trotz gutem Visus²⁶
+- **Glaukom:** CS-Verlust **früher als Visusverlust**¹³ ²²
+- **AMD:** CSF reduziert, **selbst bei Visus ≥20/30**¹² ¹⁷
 - **Optikusneuritis/MS:** Pelli-Robson sensitiver als Hochkontrast-Visus³
-- **Amblyopie:** CS-Defizite auch bei normalem Visus¹⁶
+- **Amblyopie:** CS-Defizite auch bei normalem Visus²
 - **Refraktive Chirurgie:** Qualitätskontrolle nach LASIK/PRK
-- **Low Vision:** Planung von Hilfsmitteln¹⁵
+- **Low Vision:** Planung von Hilfsmitteln¹
 
-> **MACUSTAR-Studie:** CS war unter den chart-basierten Tests **bestes Diskriminationsmerkmal** zwischen gesunden Augen und intermediärer AMD (AUC 0,77 vs. 0,69–0,71 für Visus-Tests).³⁶
+> **MACUSTAR-Studie:** CS war bestes Diskriminationsmerkmal zwischen gesunden Augen und intermediärer AMD (AUC 0,77 vs. 0,69–0,71 für Visus-Tests).²⁷
 
-### Einflussfaktoren auf die CS
+---
 
-- **Alter:** Physiologische Abnahme ~0,004 logCS/Jahr²⁸
-- **Beleuchtung:** Mesopische Bedingungen decken Defizite früher auf²⁸
+## Einflussfaktoren auf die CS
+
+- **Alter:** Physiologische Abnahme ~0,004 logCS/Jahr¹⁷
+- **Beleuchtung:** Mesopische Bedingungen decken Defizite früher auf¹⁷
 - **Pupillengröße:** Miosis reduziert CS bei niedrigen Frequenzen
 - **Refraktionsfehler:** Unkorrigierter Astigmatismus/Myopie
 - **Medientrübung:** Katarakt, Hornhautödem
-
-### Zusammenfassung
-
-> Die CS ist ein **komplementäres Maß zur Sehschärfe**, das die visuelle Funktion unter alltagsnahen Bedingungen besser abbildet. CS-Defizite können auftreten, **bevor der Visus messbar abnimmt**.¹⁶ ²⁴ ²⁵
 
 ---
 
 ## Referenzen
 
-1. Toosy AT, et al. Optic Neuritis. [*Lancet Neurol.* 2014](https://doi.org/10.1016/S1474-4422(13)70259-X)
-2. Jacobs DS, et al. Refractive Errors PPP. [*Ophthalmology.* 2023](https://doi.org/10.1016/j.ophtha.2022.10.031)
-3. Hussain B, et al. Snellen vs LogMAR. [*Clin Exp Ophthalmol.* 2006](https://doi.org/10.1111/j.1442-9071.2006.01205.x)
-4. McAnany JJ, et al. Object Frequency Characteristics of Visual Acuity. [*Invest Ophthalmol Vis Sci.* 2011](https://doi.org/10.1167/iovs.10-6584)
-5. Snow ZE. Visual Acuity as Measurement of Visual Function. [*Methods Mol Biol.* 2022](https://doi.org/10.1007/978-1-0716-2055-7_3)
-6. Cruz OA, et al. Amblyopia PPP. [*Ophthalmology.* 2023](https://doi.org/10.1016/j.ophtha.2022.10.030)
-7. Lovie-Kitchin JE. Confining Snellen Charts to History? [*Ophthalmic Physiol Opt.* 2015](https://doi.org/10.1111/opo.12241)
-8. Hutchinson AK, et al. Pediatric Eye Evaluations PPP. [*Ophthalmology.* 2023](https://doi.org/10.1016/j.ophtha.2022.10.027)
-9. Rosser DA, et al. Reduced logMAR Chart. [*Br J Ophthalmol.* 2001](https://doi.org/10.1136/bjo.85.4.432)
-10. Yu HJ, et al. Snellen vs ETDRS in Trials. [*Ophthalmol Retina.* 2021](https://doi.org/10.1016/j.oret.2020.07.022)
-11. Dong LM, et al. Visual Acuity at Different Distances. [*Arch Ophthalmol.* 2002](https://doi.org/10.1001/archopht.120.11.1523)
-12. Bailey IL, Lovie-Kitchin JE. Visual Acuity Testing. [*Vision Res.* 2013](https://doi.org/10.1016/j.visres.2013.05.004)
-13. Mataftsi A, et al. Decimal to logMAR Conversion. [*Graefes Arch Clin Exp Ophthalmol.* 2019](https://doi.org/10.1007/s00417-019-04344-9)
-14. Tsou BC, Bressler NM. Visual Acuity Reporting. [*JAMA Ophthalmol.* 2017](https://doi.org/10.1001/jamaophthalmol.2017.3107)
-15. Jackson ML, et al. Vision Rehabilitation PPP. [*Ophthalmology.* 2023](https://doi.org/10.1016/j.ophtha.2022.10.029)
-16. Jindra LF, Zemon V. Contrast Sensitivity Testing. [*J Cataract Refract Surg.* 1989](https://doi.org/10.1016/s0886-3350(89)80112-2)
-17. Cryotherapy ROP Cooperative Group. Contrast Sensitivity at Age 10. [*Arch Ophthalmol.* 2001](https://doi.org/10.1001/archopht.119.8.1129)
-18. Haymes SA, et al. Letter Contrast Sensitivity Test. [*Invest Ophthalmol Vis Sci.* 2006](https://doi.org/10.1167/iovs.05-1057)
-19. Zemon V, et al. CSF and Neurophysiological Bases. [*Vision Res.* 2023](https://doi.org/10.1016/j.visres.2023.108270)
-20. Chen G, et al. Noise and CSF. [*PLoS One.* 2014](https://doi.org/10.1371/journal.pone.0090579)
-21. Leroux CE, et al. CS and MTF Correlation. [*Optom Vis Sci.* 2021](https://doi.org/10.1097/OPX.0000000000001717)
-22. Lu ZL, et al. VA-CSF Functional Relationship. [*Invest Ophthalmol Vis Sci.* 2024](https://doi.org/10.1167/iovs.65.1.1)
-23. Chung ST, Legge GE. CSF Shape Normal vs Low Vision. [*Invest Ophthalmol Vis Sci.* 2016](https://doi.org/10.1167/iovs.15-18084)
-24. Xiong YZ, et al. Acuity-CS Relationship and Eye Disease. [*Invest Ophthalmol Vis Sci.* 2020](https://doi.org/10.1167/iovs.61.6.40)
-25. Wai KM, et al. CSF in Macular Disease With Good VA. [*Br J Ophthalmol.* 2022](https://doi.org/10.1136/bjophthalmol-2020-318052)
-26. Flaharty K, et al. CS, Eye Disease and QoL. [*Am J Ophthalmol.* 2024](https://doi.org/10.1016/j.ajo.2023.10.016)
-27. Leat SJ, Woo GC. CS Tests and Reading Speed. [*Eye.* 1997](https://doi.org/10.1038/eye.1997.211)
-28. Maynard ML, et al. Mesopic Pelli-Robson and AMD. [*Acta Ophthalmol.* 2016](https://doi.org/10.1111/aos.12846)
-29. Dougherty BE, et al. Mars Letter CS Test Evaluation. [*Optom Vis Sci.* 2005](https://doi.org/10.1097/01.OPX.0000178060.45554.0c)
-30. Thayaparan K, et al. Two New CS Charts. [*Br J Ophthalmol.* 2007](https://doi.org/10.1136/bjo.2006.107995)
-31. Gupta L, et al. SPARCS vs Pelli-Robson. [*Eye.* 2017](https://doi.org/10.1038/eye.2017.16)
-32. Stalin A, Dalton K. qCSF in Low Vision. [*Invest Ophthalmol Vis Sci.* 2020](https://doi.org/10.1167/iovs.61.6.32)
-33. Chuck RS, et al. Comprehensive Adult Eye Evaluation PPP. [*Ophthalmology.* 2021](https://doi.org/10.1016/j.ophtha.2020.10.024)
-34. Miller KM, et al. Cataract in Adult Eye PPP. [*Ophthalmology.* 2022](https://doi.org/10.1016/j.ophtha.2021.10.006)
-35. Hirji SH, et al. Glaucoma Macular Damage and CS. [*JAMA Ophthalmol.* 2021](https://doi.org/10.1001/jamaophthalmol.2021.0010)
-36. Dunbar HMP, et al. Chart-Based Tests in AMD: MACUSTAR. [*JAMA Ophthalmol.* 2022](https://doi.org/10.1001/jamaophthalmol.2022.2099)
+1. Jackson ML, et al. Vision Rehabilitation PPP. [*Ophthalmology.* 2023](https://doi.org/10.1016/j.ophtha.2022.10.029)
+2. Jindra LF, Zemon V. Contrast Sensitivity Testing. [*J Cataract Refract Surg.* 1989](https://doi.org/10.1016/s0886-3350(89)80112-2)
+3. Toosy AT, et al. Optic Neuritis. [*Lancet Neurol.* 2014](https://doi.org/10.1016/S1474-4422(13)70259-X)
+4. Cryotherapy ROP Group. CS at Age 10. [*Arch Ophthalmol.* 2001](https://doi.org/10.1001/archopht.119.8.1129)
+5. Zemon V, et al. CSF and Neurophysiological Bases. [*Vision Res.* 2023](https://doi.org/10.1016/j.visres.2023.108270)
+6. Chen G, et al. Noise and CSF. [*PLoS One.* 2014](https://doi.org/10.1371/journal.pone.0090579)
+7. Leroux CE, et al. CS and MTF. [*Optom Vis Sci.* 2021](https://doi.org/10.1097/OPX.0000000000001717)
+8. Lu ZL, et al. VA-CSF Functional Relationship. [*Invest Ophthalmol Vis Sci.* 2024](https://doi.org/10.1167/iovs.65.1.1)
+9. Chung ST, Legge GE. CSF Shape. [*Invest Ophthalmol Vis Sci.* 2016](https://doi.org/10.1167/iovs.15-18084)
+10. Meng J, et al. Stimulus Spatial Frequency. [*Exp Brain Res.* 2013](https://doi.org/10.1007/s00221-013-3573-6)
+11. Xiong YZ, et al. Acuity-CS Relationship. [*Invest Ophthalmol Vis Sci.* 2020](https://doi.org/10.1167/iovs.61.6.40)
+12. Wai KM, et al. CSF in Macular Disease. [*Br J Ophthalmol.* 2022](https://doi.org/10.1136/bjophthalmol-2020-318052)
+13. Flaharty K, et al. CS, Eye Disease and QoL. [*Am J Ophthalmol.* 2024](https://doi.org/10.1016/j.ajo.2023.10.016)
+14. Leat SJ, Woo GC. CS Tests and Reading Speed. [*Eye.* 1997](https://doi.org/10.1038/eye.1997.211)
+15. Bhorade AM, et al. Vision in Clinic vs Home. [*JAMA Ophthalmol.* 2013](https://doi.org/10.1001/jamaophthalmol.2013.4995)
+16. Dougherty BE, et al. Mars Letter CS Test. [*Optom Vis Sci.* 2005](https://doi.org/10.1097/01.OPX.0000178060.45554.0c)
+17. Maynard ML, et al. Mesopic Pelli-Robson and AMD. [*Acta Ophthalmol.* 2016](https://doi.org/10.1111/aos.12846)
+18. Haymes SA, et al. Letter CS Test. [*Invest Ophthalmol Vis Sci.* 2006](https://doi.org/10.1167/iovs.05-1057)
+19. Thayaparan K, et al. Two New CS Charts. [*Br J Ophthalmol.* 2007](https://doi.org/10.1136/bjo.2006.107995)
+20. Thurman SM, et al. Predicting CSF From Acuity. [*J Vis.* 2016](https://doi.org/10.1167/16.15.15)
+21. Gupta L, et al. SPARCS vs Pelli-Robson. [*Eye.* 2017](https://doi.org/10.1038/eye.2017.16)
+22. Hirji SH, et al. Glaucoma Macular Damage and CS. [*JAMA Ophthalmol.* 2021](https://doi.org/10.1001/jamaophthalmol.2021.0010)
+23. Stalin A, Dalton K. qCSF in Low Vision. [*Invest Ophthalmol Vis Sci.* 2020](https://doi.org/10.1167/iovs.61.6.32)
+24. Chuck RS, et al. Comprehensive Adult Eye Evaluation PPP. [*Ophthalmology.* 2021](https://doi.org/10.1016/j.ophtha.2020.10.024)
+25. Jacobs DS, et al. Refractive Errors PPP. [*Ophthalmology.* 2023](https://doi.org/10.1016/j.ophtha.2022.10.031)
+26. Miller KM, et al. Cataract in Adult Eye PPP. [*Ophthalmology.* 2022](https://doi.org/10.1016/j.ophtha.2021.10.006)
+27. Dunbar HMP, et al. MACUSTAR Chart-Based Tests. [*JAMA Ophthalmol.* 2022](https://doi.org/10.1001/jamaophthalmol.2022.2099)
 """,
-        wikiSummary: """
+            wikiSummary: """
 ## Kurzzusammenfassung
 
-**Psychophysische Tests** = Sehschärfe (Visus) + Kontrastempfindlichkeit (CS).
+**Kontrastempfindlichkeit (CS)** = Wahrnehmung feiner Helligkeitsunterschiede. Komplementär zum Visus.
 
 ---
 
-### Visus
-- Misst räumliche Auflösung bei **maximalem Kontrast**
-- **Goldstandard:** ETDRS-Tafel (logMAR)
-- 20/20 = 1,0 = logMAR 0,0 = MAR 1 Bogenminute
-
-### Kontrastempfindlichkeit
-- Misst Wahrnehmung **feiner Helligkeitsunterschiede**
+### CSF-Kurve
+- **Bandpass-Form** (umgekehrtes U)
+- **Peak bei 2–6 cpd** (Gesichtserkennung)
 - Normalwert: **1,5–2,0 logCS**
-- **Pelli-Robson** = klinischer Goldstandard
+
+---
+
+### Goldstandard-Tests
+| Test | Repeatability | Besonderheit |
+|---|---|---|
+| **Pelli-Robson** | ±0,18 logCS | Klinischer Goldstandard |
+| **Mars Letter** | ±0,12–0,13 logCS | Beste Repeatability |
+| **qCSF** | Gut | Schnell, gesamte CSF |
 
 ---
 
 ### Klinische Bedeutung
-> Patienten können **normalen Visus (20/20)** haben und dennoch erhebliche **CS-Einschränkungen** zeigen.
+> Patienten mit **normalem Visus (20/20)** können erhebliche **CS-Einschränkungen** zeigen.
 
 CS-Defizite oft **früher** als Visusverlust bei:
-- Glaukom, AMD, Katarakt, RP
+- Glaukom, AMD, Katarakt, RP, MS
 
----
-
-### Vergleich
-| Test | Was wird gemessen? |
-|---|---|
-| Visus | Auflösung bei 100% Kontrast |
-| CS | Schwelle bei verschiedenen Kontrasten/Frequenzen |
-
-> **AAO empfiehlt:** Visus mit **ETDRS/Sloan-Buchstaben**, CS bei spezifischen Indikationen (nicht Routine).
+> **MACUSTAR:** CS bestes chart-basiertes Diskriminationsmerkmal für intermediäre AMD (AUC 0,77).
 """,
+          ),
+        ],
       ),
     ],
   ),
