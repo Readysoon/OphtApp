@@ -14,6 +14,14 @@ class _CategoryBrowserState extends State<CategoryBrowser> {
   final List<Category> _categoryPath = [];
   Condition? _selectedCondition;
   Examination? _selectedExamination;
+  final TextEditingController _searchController = TextEditingController();
+  String _searchQuery = '';
+
+  @override
+  void dispose() {
+    _searchController.dispose();
+    super.dispose();
+  }
 
   Condition? _findConditionRecursive(String id, List<Category> cats) {
     for (final cat in cats) {
@@ -24,6 +32,60 @@ class _CategoryBrowserState extends State<CategoryBrowser> {
       if (inSub != null) return inSub;
     }
     return null;
+  }
+
+  /// Collects all conditions with their category path (breadcrumb) for searching.
+  List<({Condition condition, List<String> path})> _collectAllConditions(
+      List<Category> cats, List<String> currentPath) {
+    final result = <({Condition condition, List<String> path})>[];
+    for (final cat in cats) {
+      final newPath = [...currentPath, cat.name];
+      for (final cond in cat.conditions) {
+        result.add((condition: cond, path: newPath));
+      }
+      result.addAll(_collectAllConditions(cat.subCategories, newPath));
+    }
+    return result;
+  }
+
+  /// Searches for the query in a condition. Returns list of (field, snippet) matches.
+  List<({String field, String snippet})> _searchInCondition(Condition cond, String query) {
+    final matches = <({String field, String snippet})>[];
+    final qLower = query.toLowerCase();
+
+    void addMatch(String field, String text) {
+      final tLower = text.toLowerCase();
+      final idx = tLower.indexOf(qLower);
+      if (idx == -1) return;
+      // Build snippet: 60 chars before + match + 60 chars after
+      final start = (idx - 60).clamp(0, text.length);
+      final end = (idx + query.length + 60).clamp(0, text.length);
+      var snippet = text.substring(start, end).replaceAll('\n', ' ').replaceAll(RegExp(r'\s+'), ' ').trim();
+      if (start > 0) snippet = '…$snippet';
+      if (end < text.length) snippet = '$snippet…';
+      matches.add((field: field, snippet: snippet));
+    }
+
+    // Check name (case insensitive)
+    if (cond.name.toLowerCase().contains(qLower)) {
+      matches.add((field: 'Titel', snippet: cond.name));
+    }
+    if (cond.description.toLowerCase().contains(qLower)) {
+      addMatch('Beschreibung', cond.description);
+    }
+    if (cond.wikiContent != null) {
+      addMatch('Inhalt', cond.wikiContent!);
+    }
+    if (cond.wikiSummary != null) {
+      addMatch('Kurzfassung', cond.wikiSummary!);
+    }
+    for (final t in cond.treatment) {
+      if (t.toLowerCase().contains(qLower)) {
+        matches.add((field: 'Therapie', snippet: t));
+        break;
+      }
+    }
+    return matches;
   }
 
   @override
@@ -53,33 +115,244 @@ class _CategoryBrowserState extends State<CategoryBrowser> {
       );
     }
 
+    final theme = Theme.of(context);
+    final isSearching = _searchQuery.trim().length >= 2;
+
     return ListView(
       shrinkWrap: true,
       physics: const NeverScrollableScrollPhysics(),
       padding: const EdgeInsets.only(bottom: 24),
       children: [
-        Text(
-          'Kategorien',
-          style: Theme.of(context).textTheme.titleLarge?.copyWith(fontWeight: FontWeight.w600),
-          textAlign: TextAlign.center,
+        // Search field
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 4, vertical: 8),
+          child: TextField(
+            controller: _searchController,
+            onChanged: (value) => setState(() => _searchQuery = value),
+            decoration: InputDecoration(
+              hintText: 'Stichwort suchen (z.B. Glaukom, Pelli-Robson)…',
+              prefixIcon: const Icon(Icons.search, size: 20),
+              suffixIcon: _searchQuery.isNotEmpty
+                  ? IconButton(
+                      icon: const Icon(Icons.close, size: 18),
+                      onPressed: () {
+                        setState(() {
+                          _searchController.clear();
+                          _searchQuery = '';
+                        });
+                      },
+                    )
+                  : null,
+              filled: true,
+              fillColor: theme.colorScheme.surfaceContainerHighest.withOpacity(0.4),
+              border: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(14),
+                borderSide: BorderSide.none,
+              ),
+              contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+              isDense: true,
+            ),
+          ),
         ),
-        const SizedBox(height: 20),
-        ...categories.map((cat) => _CategoryTile(
-              category: cat,
-              onTap: () => setState(() => _categoryPath.add(cat)),
-            )),
-        const SizedBox(height: 28),
-        Text(
-          'Spezialuntersuchungen',
-          style: Theme.of(context).textTheme.titleLarge?.copyWith(fontWeight: FontWeight.w600),
-          textAlign: TextAlign.center,
-        ),
-        const SizedBox(height: 16),
-        ...examinations.map((exam) => _ExaminationTile(
-              examination: exam,
-              onTap: () => setState(() => _selectedExamination = exam),
-            )),
+        const SizedBox(height: 12),
+        if (isSearching) ..._buildSearchResults(theme) else ..._buildCategoryList(theme),
       ],
+    );
+  }
+
+  List<Widget> _buildSearchResults(ThemeData theme) {
+    final query = _searchQuery.trim();
+    final allConditions = _collectAllConditions(categories, []);
+    final results = <({Condition cond, List<String> path, List<({String field, String snippet})> matches})>[];
+
+    for (final entry in allConditions) {
+      final matches = _searchInCondition(entry.condition, query);
+      if (matches.isNotEmpty) {
+        results.add((cond: entry.condition, path: entry.path, matches: matches));
+      }
+    }
+
+    if (results.isEmpty) {
+      return [
+        Padding(
+          padding: const EdgeInsets.all(24),
+          child: Center(
+            child: Column(
+              children: [
+                Icon(Icons.search_off, size: 48, color: theme.colorScheme.onSurfaceVariant),
+                const SizedBox(height: 8),
+                Text(
+                  'Keine Ergebnisse für "$query"',
+                  style: theme.textTheme.bodyMedium?.copyWith(color: theme.colorScheme.onSurfaceVariant),
+                ),
+              ],
+            ),
+          ),
+        ),
+      ];
+    }
+
+    return [
+      Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 4, vertical: 4),
+        child: Text(
+          '${results.length} Treffer',
+          style: theme.textTheme.labelSmall?.copyWith(color: theme.colorScheme.onSurfaceVariant),
+        ),
+      ),
+      ...results.map((r) => _SearchResultCard(
+            condition: r.cond,
+            path: r.path,
+            matches: r.matches,
+            query: query,
+            onTap: () => setState(() => _selectedCondition = r.cond),
+          )),
+    ];
+  }
+
+  List<Widget> _buildCategoryList(ThemeData theme) {
+    return [
+      Text(
+        'Kategorien',
+        style: theme.textTheme.titleLarge?.copyWith(fontWeight: FontWeight.w600),
+        textAlign: TextAlign.center,
+      ),
+      const SizedBox(height: 20),
+      ...categories.map((cat) => _CategoryTile(
+            category: cat,
+            onTap: () => setState(() => _categoryPath.add(cat)),
+          )),
+      const SizedBox(height: 28),
+      Text(
+        'Spezialuntersuchungen',
+        style: theme.textTheme.titleLarge?.copyWith(fontWeight: FontWeight.w600),
+        textAlign: TextAlign.center,
+      ),
+      const SizedBox(height: 16),
+      ...examinations.map((exam) => _ExaminationTile(
+            examination: exam,
+            onTap: () => setState(() => _selectedExamination = exam),
+          )),
+    ];
+  }
+}
+
+class _SearchResultCard extends StatelessWidget {
+  const _SearchResultCard({
+    required this.condition,
+    required this.path,
+    required this.matches,
+    required this.query,
+    required this.onTap,
+  });
+
+  final Condition condition;
+  final List<String> path;
+  final List<({String field, String snippet})> matches;
+  final String query;
+  final VoidCallback onTap;
+
+  /// Builds a RichText with the query highlighted in the snippet.
+  Widget _highlightedSnippet(BuildContext context, String snippet) {
+    final theme = Theme.of(context);
+    final qLower = query.toLowerCase();
+    final sLower = snippet.toLowerCase();
+    final spans = <TextSpan>[];
+    var idx = 0;
+    while (idx < snippet.length) {
+      final found = sLower.indexOf(qLower, idx);
+      if (found == -1) {
+        spans.add(TextSpan(text: snippet.substring(idx)));
+        break;
+      }
+      if (found > idx) {
+        spans.add(TextSpan(text: snippet.substring(idx, found)));
+      }
+      spans.add(TextSpan(
+        text: snippet.substring(found, found + query.length),
+        style: TextStyle(
+          fontWeight: FontWeight.bold,
+          backgroundColor: theme.colorScheme.primaryContainer.withOpacity(0.6),
+          color: theme.colorScheme.onPrimaryContainer,
+        ),
+      ));
+      idx = found + query.length;
+    }
+    return RichText(
+      text: TextSpan(
+        style: theme.textTheme.bodySmall?.copyWith(
+          color: theme.colorScheme.onSurfaceVariant,
+          height: 1.4,
+        ),
+        children: spans,
+      ),
+      maxLines: 3,
+      overflow: TextOverflow.ellipsis,
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    return Card(
+      child: InkWell(
+        onTap: onTap,
+        borderRadius: BorderRadius.circular(16),
+        child: Padding(
+          padding: const EdgeInsets.all(16),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              // Breadcrumb path
+              if (path.isNotEmpty)
+                Text(
+                  path.join(' › '),
+                  style: theme.textTheme.labelSmall?.copyWith(
+                    color: theme.colorScheme.primary,
+                    fontWeight: FontWeight.w500,
+                  ),
+                ),
+              const SizedBox(height: 4),
+              // Condition name
+              Text(
+                condition.name,
+                style: theme.textTheme.titleSmall?.copyWith(fontWeight: FontWeight.w600),
+              ),
+              const SizedBox(height: 8),
+              // Match snippets
+              ...matches.take(3).map((m) => Padding(
+                    padding: const EdgeInsets.only(bottom: 6),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Container(
+                          padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
+                          decoration: BoxDecoration(
+                            color: theme.colorScheme.surfaceContainerHighest,
+                            borderRadius: BorderRadius.circular(4),
+                          ),
+                          child: Text(
+                            m.field,
+                            style: theme.textTheme.labelSmall?.copyWith(
+                              fontSize: 10,
+                              color: theme.colorScheme.onSurfaceVariant,
+                            ),
+                          ),
+                        ),
+                        const SizedBox(height: 4),
+                        _highlightedSnippet(context, m.snippet),
+                      ],
+                    ),
+                  )),
+              if (matches.length > 3)
+                Text(
+                  '+ ${matches.length - 3} weitere Treffer',
+                  style: theme.textTheme.labelSmall?.copyWith(color: theme.colorScheme.primary),
+                ),
+            ],
+          ),
+        ),
+      ),
     );
   }
 }
