@@ -78,17 +78,27 @@ class _CategoryBrowserState extends State<CategoryBrowser> {
     return s;
   }
 
-  /// Searches for the query in a condition. Returns list of (field, snippet) matches.
-  List<({String field, String snippet})> _searchInCondition(Condition cond, String query) {
+  /// Searches for the query in a condition. Returns matches + relevance score.
+  /// Higher score = more relevant. Score breakdown:
+  ///  - 1000: exact title match
+  ///  - 500: title starts with query
+  ///  - 200: title contains query (word boundary)
+  ///  - 100: title contains query (anywhere)
+  ///  - 50: description contains query
+  ///  - 30: heading in wiki content contains query
+  ///  - 10: wiki content/summary body contains query
+  ///  - 15: treatment contains query
+  ({List<({String field, String snippet})> matches, int score}) _searchInCondition(
+      Condition cond, String query) {
     final matches = <({String field, String snippet})>[];
     final qLower = query.toLowerCase();
+    int score = 0;
 
     void addMatch(String field, String rawText) {
       final cleanText = _stripMarkdown(rawText);
       final tLower = cleanText.toLowerCase();
       final idx = tLower.indexOf(qLower);
       if (idx == -1) return;
-      // Build snippet: 70 chars before + match + 90 chars after
       final start = (idx - 70).clamp(0, cleanText.length);
       final end = (idx + query.length + 90).clamp(0, cleanText.length);
       var snippet = cleanText.substring(start, end).trim();
@@ -97,25 +107,71 @@ class _CategoryBrowserState extends State<CategoryBrowser> {
       matches.add((field: field, snippet: snippet));
     }
 
-    if (cond.name.toLowerCase().contains(qLower)) {
+    // Title scoring
+    final nameLower = cond.name.toLowerCase();
+    if (nameLower == qLower) {
+      score += 1000;
+      matches.add((field: 'Titel', snippet: cond.name));
+    } else if (nameLower.startsWith(qLower)) {
+      score += 500;
+      matches.add((field: 'Titel', snippet: cond.name));
+    } else if (RegExp('\\b${RegExp.escape(qLower)}\\b').hasMatch(nameLower)) {
+      score += 200;
+      matches.add((field: 'Titel', snippet: cond.name));
+    } else if (nameLower.contains(qLower)) {
+      score += 100;
       matches.add((field: 'Titel', snippet: cond.name));
     }
+
+    // Description
     if (cond.description.toLowerCase().contains(qLower)) {
+      score += 50;
       addMatch('Beschreibung', cond.description);
     }
+
+    // Wiki content – check headers separately for higher score
     if (cond.wikiContent != null) {
-      addMatch('Inhalt', cond.wikiContent!);
+      final headerPattern = RegExp(r'^#{1,6}\s+(.+)$', multiLine: true);
+      bool headerMatched = false;
+      for (final m in headerPattern.allMatches(cond.wikiContent!)) {
+        if (m.group(1)!.toLowerCase().contains(qLower)) {
+          headerMatched = true;
+          break;
+        }
+      }
+      if (headerMatched) score += 30;
+      // Count occurrences in body for additional weighting
+      final bodyLower = cond.wikiContent!.toLowerCase();
+      int occurrences = 0;
+      int searchFrom = 0;
+      while (true) {
+        final idx = bodyLower.indexOf(qLower, searchFrom);
+        if (idx == -1) break;
+        occurrences++;
+        searchFrom = idx + qLower.length;
+      }
+      if (occurrences > 0) {
+        score += 10 + (occurrences > 5 ? 5 : occurrences); // cap bonus
+        addMatch('Inhalt', cond.wikiContent!);
+      }
     }
-    if (cond.wikiSummary != null) {
+
+    // Wiki summary
+    if (cond.wikiSummary != null && cond.wikiSummary!.toLowerCase().contains(qLower)) {
+      score += 15;
       addMatch('Kurzfassung', cond.wikiSummary!);
     }
+
+    // Treatment
     for (final t in cond.treatment) {
       if (t.toLowerCase().contains(qLower)) {
+        score += 15;
         matches.add((field: 'Therapie', snippet: _stripMarkdown(t)));
         break;
       }
     }
-    return matches;
+
+    return (matches: matches, score: score);
   }
 
   @override
@@ -193,14 +249,16 @@ class _CategoryBrowserState extends State<CategoryBrowser> {
   List<Widget> _buildSearchResults(ThemeData theme) {
     final query = _searchQuery.trim();
     final allConditions = _collectAllConditions(categories, []);
-    final results = <({Condition cond, List<String> path, List<({String field, String snippet})> matches})>[];
+    final results = <({Condition cond, List<String> path, List<({String field, String snippet})> matches, int score})>[];
 
     for (final entry in allConditions) {
-      final matches = _searchInCondition(entry.condition, query);
-      if (matches.isNotEmpty) {
-        results.add((cond: entry.condition, path: entry.path, matches: matches));
+      final r = _searchInCondition(entry.condition, query);
+      if (r.matches.isNotEmpty) {
+        results.add((cond: entry.condition, path: entry.path, matches: r.matches, score: r.score));
       }
     }
+    // Sort by score descending (most relevant first)
+    results.sort((a, b) => b.score.compareTo(a.score));
 
     if (results.isEmpty) {
       return [
