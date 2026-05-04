@@ -6471,6 +6471,245 @@ Trotz dicker Hornhaut wird IOD durch GAT **unterschätzt** (veränderte Hydratat
           ),
         ],
       ),
+      Category(
+        id: 'gonioscopy',
+        name: 'Gonioskopie',
+        icon: '🔭',
+        description: 'Beurteilung des Kammerwinkels (Angulus iridocornealis)',
+        conditions: [
+          const Condition(
+            id: 'gonioscopy_overview',
+            name: 'Gonioskopie',
+            description: 'Goldstandard zur Beurteilung des Kammerwinkels und Differenzierung Offen-/Engwinkelglaukom.',
+            symptoms: [],
+            urgency: Urgency.low,
+            treatment: ['Indirekte Gonioskopie: Goldmann (3-Spiegel) oder Zeiss/Posner/Sussman (4-Spiegel)', 'Direkte Gonioskopie: Koeppe-Linse', 'Indentationsgonioskopie zur DD appositional vs. synechial'],
+            followUp: 'Erstdiagnose obligat bei jedem Glaukomverdacht; periodisch im Verlauf',
+            source: null,
+            wikiContent: """
+## Definition
+
+Die **Gonioskopie** ist der anerkannte **Goldstandard** zur Beurteilung des **Kammerwinkels (Angulus iridocornealis)** und ein unverzichtbarer Bestandteil jeder vollständigen Glaukom-Untersuchung. Sie ermöglicht die Unterscheidung zwischen **Offenwinkel- und Engwinkelglaukom** sowie die Erkennung sekundärer Ursachen einer IOD-Erhöhung.¹ ² ³
+
+---
+
+## Warum ist die Gonioskopie notwendig?
+
+Der Kammerwinkel ist bei normaler Untersuchung **nicht direkt einsehbar**, da das Licht an der Grenzfläche zwischen Hornhaut und Luft **totalreflektiert** wird. Ein Gonioskopie-Kontaktglas hebt diese Totalreflexion auf und ermöglicht die direkte oder indirekte Visualisierung der Kammerwinkelstrukturen.³ ⁴
+
+---
+
+## Anatomie des Kammerwinkels – sichtbare Strukturen
+
+Von **anterior nach posterior** sind folgende Strukturen im offenen Kammerwinkel erkennbar:²
+
+1. **Schwalbe-Linie:** Vordere Grenze des Trabekelwerks; Übergang Hornhautendothel → TM. Feine, glänzende Linie.
+2. **Trabekelwerk (TM):** Hauptabflussweg des Kammerwassers
+   - **Nicht-pigmentiertes TM** (anterior) – heller, weniger sichtbar
+   - **Pigmentiertes TM** (posterior) – dunkler, über Schlemm-Kanal; Hauptabfluss
+3. **Schlemm-Kanal:** Hinter dem pigmentierten TM; gelegentlich als rötliche Linie sichtbar (Blutreflux)
+4. **Skleralsporn:** Weißliche Linie zwischen TM und Ziliarkörperband – wichtiger Orientierungspunkt
+5. **Ziliarkörperband:** Posteriorste sichtbare Struktur; grau-braunes Band. Nur bei weit offenem Winkel sichtbar.
+6. **Irisansatz (Iriswurzel):** Ansatzpunkt der Iris am Ziliarkörper
+
+---
+
+## Gonioskopie-Linsen
+
+### Indirekte Gonioskopie (häufiger in der Praxis)⁵ ⁶
+
+#### Goldmann-Linse (1- oder 3-Spiegel)
+- Großer Durchmesser, **erfordert Kopplungsmedium** (Methylcellulose)
+- Exzellente optische Qualität
+- **Kein Kompressionsartefakt** → Winkel im Naturzustand
+- Patient muss in Richtung des Spiegels blicken
+- **Nachteil:** Keine Indentationsgonioskopie möglich⁵ ⁷ ⁸
+
+#### Zeiss-/Posner-/Sussman-Linse (4-Spiegel)
+- Kleiner Durchmesser, **kein Kopplungsmedium nötig** (nur Tränenfilm)
+- **Indentationsgonioskopie möglich:** Druck auf Hornhaut → Kammerwasser in den Winkel
+- Unterscheidet **appositional (reversibel) vs. synechial (permanent)**
+- Besonders wichtig bei Verdacht auf **Engwinkelglaukom**⁵ ⁷ ⁹
+
+### Direkte Gonioskopie
+
+#### Koeppe-Linse
+- Direkt auf Hornhaut des **liegenden** Patienten gesetzt
+- Betrachtung mit Handmikroskop
+- **Zuverlässigste Beurteilung** ob Winkel offen/geschlossen
+- Keine artifizielle Winkelverbreiterung
+- Anwendung: **intraoperativ und bei Kindern in Narkose**⁵
+
+---
+
+## Durchführung – Schritt für Schritt
+
+1. **Topische Anästhesie** applizieren
+2. **Raumbeleuchtung dunkel** – um Winkel im natürlichen (engsten) Zustand zu beurteilen⁹
+3. **Spaltlampen-Einstellung:** Kurzer, heller Lichtspalt (~1 mm), **nicht durch die Pupille** → vermeidet Miosis (artifizielle Winkelerweiterung)⁹
+4. **Linse aufsetzen:**
+   - Goldmann: Kopplungsmedium auftragen
+   - Zeiss/Sussman: Nur mit Tränenfilm
+5. **10 Sekunden warten** – Pupille im Ruhezustand → kann Pupillarblock-Konfiguration demaskieren⁹
+6. **Alle 4 Quadranten beurteilen** (superior, inferior, nasal, temporal)² ⁸
+7. **Blickrichtung:** Bei engem Winkel Patient leicht in Richtung des Spiegels blicken lassen¹ ⁹
+8. **Indentationsgonioskopie:** Mit 4-Spiegel-Linse leichten Druck ausüben:
+   - Winkel öffnet sich → **appositionale Verlegung (reversibel)**
+   - Winkel bleibt geschlossen → **periphere anteriore Synechien (PAS)** = permanent⁷ ⁹
+9. **Bei Hornhautödem** (z.B. akuter Winkelblock): Topisches **Glycerin** zur Transparenzverbesserung⁹
+
+---
+
+## Klassifikationssysteme
+
+### 1. Shaffer-System (am weitesten verbreitet)² ⁸
+
+| Grad | Winkelweite | Klinik |
+|---|---|---|
+| **4** | ~40° | Weit offen – Ziliarkörperband sichtbar |
+| **3** | ~30° | Offen – Skleralsporn sichtbar |
+| **2** | ~20° | Eng – nur anteriores TM sichtbar; Verschluss möglich |
+| **1** | ~10° | Sehr eng – nur Schwalbe-Linie; **hohes Verschlussrisiko** |
+| **0** | 0° | Geschlossen – keine Strukturen sichtbar |
+
+> Gesamt-Score = Summe aller 4 Quadranten (0–16; höher = weiter offen).⁷
+
+### 2. Scheie-System (umgekehrte Nummerierung!)²
+
+| Grad | Sichtbar |
+|---|---|
+| 0 | Ziliarkörperband (weit offen) |
+| I | Skleralsporn |
+| II | Anteriores TM |
+| III | Nur Schwalbe-Linie |
+| IV | Keine Strukturen (geschlossen) |
+
+### 3. Spaeth-System (am detailliertesten)¹ ²
+Drei Parameter:
+- **Geometrischer Winkel** in Grad
+- **Irisprofil** (konvex, flach, konkav)
+- **Irisansatzpunkt** (Buchstabe A–E)
+
+> AAO empfiehlt Spaeth wegen hoher Korrelation mit Ultraschall-Biomikroskopie.
+
+---
+
+## Pathologische Befunde
+
+| Befund | Bedeutung |
+|---|---|
+| **Periphere anteriore Synechien (PAS)** | Permanente Verwachsungen → Engwinkelglaukom |
+| **Kammerwinkelrezession** | Ziliarkörperriss nach Trauma → Sekundärglaukom |
+| **Pigmentdispersion** (Sampaolesi-Linie) | Pigmentdispersionsglaukom |
+| **Pseudoexfoliationsmaterial** | Pseudoexfoliationsglaukom |
+| **Neovaskularisation** | Neovaskuläres Glaukom (z.B. PDR) |
+| **Entzündliche Präzipitate** | Sekundärglaukom bei Uveitis |
+| **Plateau-Iris-Konfiguration** | Flache Iris mit engem Winkel trotz offener Pupille |
+
+---
+
+## Indikationen (AAO)
+
+- **Erstdiagnose jedes Glaukoms oder Glaukomverdachts** (obligat)
+- Verdacht auf Engwinkelkomponente oder Vorderkammerabflachung
+- Unerklärter IOD-Anstieg
+- Kammerwinkelanomalien
+- **Vor und nach Laser-Iridotomie**
+- Periodisch im Verlauf bei allen Glaukompatienten¹ ⁹ ¹⁰ ¹¹
+
+---
+
+## Limitationen und alternative Bildgebung
+
+> Die Gonioskopie ist **hochgradig subjektiv** mit schlechter Reproduzierbarkeit – Befunde variieren je nach Lichtmenge, mechanischer Kompression und Untersucher-Erfahrung.⁴ ¹²
+
+### Vordersegment-OCT (AS-OCT)⁴ ¹² ¹³
+- Berührungsfreie, hochauflösende Querschnittsbilder
+- Automatisierte Winkelmessung möglich
+- **Höhere Detektionsrate** geschlossener Winkel als Gonioskopie
+- **Aber:** Erkennt Pigmentierung, Neovaskularisation und PAS nicht zuverlässig → kann Gonioskopie noch nicht ersetzen
+
+### Ultraschall-Biomikroskopie (UBM)⁴
+- Auflösung 25–50 µm
+- Visualisiert auch **posteriore Strukturen** (Ziliarkörper, Zonulafasern, Choroidea)
+- Besonders nützlich für: **Plateau-Iris, Ziliarblock**
+
+---
+
+## Vorteile und Limitationen
+
+| Vorteile | Limitationen |
+|---|---|
+| Goldstandard seit Jahrzehnten | Hochgradig subjektiv, schlechte Reproduzierbarkeit |
+| Erkennt Pigmentierung, PAS, Neovaskularisation | Erfordert Übung, lange Lernkurve |
+| Indentationsgonioskopie (appositional vs. synechial) | Befunde variieren mit Licht und Kompression |
+| Kostengünstig, einfache Technik | Erfordert Patientenkooperation und Anästhesie |
+| Beurteilung aller 4 Quadranten | Bei Hornhautödem eingeschränkt |
+
+---
+
+## Referenzen
+
+1. Gedde SJ, et al. Primary Open-Angle Glaucoma PPP. [*Ophthalmology.* 2021](https://doi.org/10.1016/j.ophtha.2020.10.022)
+2. Jindal A, et al. Non-Contact Tests for Primary Angle Closure Glaucoma. [*Cochrane Database Syst Rev.* 2020](https://doi.org/10.1002/14651858.CD012947.pub2)
+3. Quigley HA. Open-Angle Glaucoma. [*N Engl J Med.* 1993](https://doi.org/10.1056/NEJM199304153281507)
+4. Weinreb RN, et al. Pathophysiology and Treatment of Glaucoma: Review. [*JAMA.* 2014](https://doi.org/10.1001/jama.2014.3192)
+5. Campbell DG. Diagnostic Techniques in Angle-Closure Glaucoma. [*Am J Ophthalmol.* 1979](https://doi.org/10.1016/0002-9394(79)90043-6)
+6. Garudadri CS. Pseudo-Gonio Synechia Artifact. [*Indian J Ophthalmol.* 2009](https://doi.org/10.4103/0301-4738.49397)
+7. Yuan Y, et al. Long-Term Risk in Primary Angle Closure Suspect. [*JAMA Ophthalmol.* 2024](https://doi.org/10.1001/jamaophthalmol.2024.0123)
+8. He M, et al. Laser Peripheral Iridotomy for Angle Closure Prevention. [*Lancet.* 2019](https://doi.org/10.1016/S0140-6736(19)31964-1)
+9. Gedde SJ, et al. Primary Angle-Closure Disease PPP. [*Ophthalmology.* 2021](https://doi.org/10.1016/j.ophtha.2020.10.021)
+10. Gedde SJ, et al. Primary Open-Angle Glaucoma Suspect PPP. [*Ophthalmology.* 2021](https://doi.org/10.1016/j.ophtha.2020.10.023)
+11. Michels TC, Ivan O. Glaucoma: Diagnosis and Management. [*Am Fam Physician.* 2023](https://www.aafp.org/pubs/afp/issues/2023/0500/glaucoma.html)
+12. Riva I, et al. Anterior Chamber Angle Assessment Techniques. [*J Clin Med.* 2020](https://doi.org/10.3390/jcm9123814)
+13. Craven ER, et al. AS-OCT vs Gonioscopy in OAG/OHT. [*Clin Ophthalmol.* 2022](https://doi.org/10.2147/OPTH.S370212)
+""",
+            wikiSummary: """
+## Kurzzusammenfassung
+
+**Gonioskopie** = Goldstandard zur Beurteilung des Kammerwinkels. Obligat bei **jedem Glaukomverdacht**.
+
+---
+
+### Sichtbare Strukturen (anterior → posterior)
+1. **Schwalbe-Linie**
+2. **Trabekelwerk** (nicht-pigmentiert + pigmentiert)
+3. **Schlemm-Kanal**
+4. **Skleralsporn**
+5. **Ziliarkörperband**
+6. **Irisansatz**
+
+---
+
+### Linsen
+| Linse | Spiegel | Kopplungsmedium | Indentation |
+|---|---|---|---|
+| **Goldmann** | 3 | Ja | Nein |
+| **Zeiss/Posner/Sussman** | 4 | Nein | **Ja** |
+| **Koeppe** (direkt) | – | Ja | – |
+
+---
+
+### Shaffer-Klassifikation
+| Grad | Winkel | Sichtbar |
+|---|---|---|
+| 4 | 40° | Ziliarkörperband |
+| 3 | 30° | Skleralsporn |
+| 2 | 20° | Anteriores TM |
+| 1 | 10° | Schwalbe-Linie |
+| 0 | 0° | Geschlossen |
+
+---
+
+### Indentationsgonioskopie
+- **Winkel öffnet sich** → appositional (reversibel)
+- **Bleibt geschlossen** → PAS (permanent)
+
+> **Cave:** Subjektiv, Reproduzierbarkeit schlecht. AS-OCT ergänzt zunehmend, ersetzt aber Gonioskopie nicht (PAS, Pigment, Neovask. nicht erkennbar).
+""",
+          ),
+        ],
+      ),
     ],
   ),
   Category(
