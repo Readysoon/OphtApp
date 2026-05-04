@@ -11,7 +11,6 @@ class AppHeader extends StatelessWidget implements PreferredSizeWidget {
     final screenWidth = MediaQuery.of(context).size.width;
     final isTablet = screenWidth >= 600;
     final logoSize = isTablet ? 52.0 : 40.0;
-    final logoScale = isTablet ? 11.0 : 15.0;
 
     return AppBar(
       title: Row(
@@ -22,8 +21,20 @@ class AppHeader extends StatelessWidget implements PreferredSizeWidget {
               'assets/images/logo.png',
               width: logoSize,
               height: logoSize,
-              fit: BoxFit.none,
-              scale: logoScale,
+              fit: BoxFit.cover,
+              errorBuilder: (context, error, stackTrace) => Container(
+                width: logoSize,
+                height: logoSize,
+                decoration: BoxDecoration(
+                  color: Theme.of(context).colorScheme.primaryContainer,
+                  borderRadius: BorderRadius.circular(isTablet ? 14 : 12),
+                ),
+                child: Icon(
+                  Icons.visibility,
+                  size: logoSize * 0.6,
+                  color: Theme.of(context).colorScheme.primary,
+                ),
+              ),
             ),
           ),
           const SizedBox(width: 12),
