@@ -374,7 +374,7 @@ final List<Category> categories = [
         wikiContent: '''
 ## Definition
 
-Ein Chalazion ist eine **chronische lipogranulomatöse Entzündung** des Augenlids, die durch Obstruktion der Talgdrüsen der Lidplatte entsteht – entweder der **Meibom-Drüsen** (tiefes Chalazion) oder der **Zeis-Drüsen** (oberflächliches Chalazion).¹ Es handelt sich um eine der häufigsten Liderkrankungen in allen Altersgruppen.² Die American Academy of Ophthalmology beschreibt Chalazion, Hordeolum und Blepharitis als ein **Kontinuum von Erkrankungen**.
+Ein Chalazion ist eine **chronische lipogranulomatöse Entzündung** des Augenlids, die durch Obstruktion der Talgdrüsen der Lidplatte entsteht – entweder der **Meibom-Drüsen** (tiefes Chalazion) oder der **Zeis-Drüsen** (oberflächliches Chalazion).¹ Es handelt sich um eine der häufigsten Liderkrankungen in allen Altersgruppen.² Die American Academy of Ophthalmology beschreibt Chalazion, [Hordeolum](#hordeolum) und Blepharitis als ein **Kontinuum von Erkrankungen**.
 
 ---
 
@@ -403,8 +403,10 @@ Mehrere ätiologische Faktoren tragen zur Chalazion-Entstehung bei:
 - Kosmetische Beeinträchtigung
 - Bei großen Läsionen: Astigmatismus durch Druck auf die Hornhaut
 
+![Chalazion – Typische schmerzlose Schwellung am Oberlid](asset:assets/images/chalazion_symptom.png)
+
 ### Klinische Befunde
-- **Palpable Masse** im mittleren Lidbereich (nicht am Lidrand wie beim Hordeolum)⁶
+- **Palpable Masse** im mittleren Lidbereich (nicht am Lidrand wie beim [Hordeolum](#hordeolum))⁶
 - **Gut abgegrenzte, feste Schwellung** in der Tarsalplatte
 - Bei Ektropionierung des Lids: sichtbare **lipogranulomatöse Veränderungen** der Tarsalkonjunktiva⁷
 - Mögliche **Rötung und Schwellung** der umgebenden Haut
@@ -424,7 +426,7 @@ Die Diagnose erfolgt primär **klinisch** durch Inspektion und Palpation. Die Sp
 - Tränenfilm (Qualität, Stabilität)
 
 ### Differenzialdiagnose
-- **Hordeolum (Gerstenkorn):** Akute, schmerzhafte, purulente Entzündung am Lidrand
+- **[Hordeolum (Gerstenkorn)](#hordeolum):** Akute, schmerzhafte, purulente Entzündung am Lidrand
 - **Talgdrüsenkarzinom:** Bei rezidivierenden oder atypischen Chalazien sollte eine histologische Untersuchung erfolgen
 - **Basalzellkarzinom:** Kann als chronische Lidläsion imponieren
 - **Pyogenes Granulom:** Nach Trauma oder Chirurgie
@@ -464,6 +466,8 @@ Die Behandlung erfolgt stufenweise, wobei es **keinen einheitlichen Therapiestan
   - Erfolgsrate **79%**
   - Transkonjunktivaler Zugang bevorzugt (keine sichtbare Narbe)
   - Histologische Untersuchung bei rezidivierenden oder atypischen Läsionen empfohlen⁸
+
+![Chalazion – Inzision und Kürettage: Transkonjunktivaler Zugang mit Desmarres-Lidhalter](asset:assets/images/chalazion_incision.png)
 
 ### Lichtbasierte Therapien
 
@@ -551,7 +555,7 @@ Die Prognose des Chalazions ist insgesamt **günstig**. Viele Chalazien resolvie
 
 ### Klinik
 - Schmerzlose, feste Schwellung im Lid (nicht am Lidrand)
-- DD: Hordeolum (akut, schmerzhaft), Talgdrüsenkarzinom (bei Rezidiven)
+- DD: [Hordeolum](#hordeolum) (akut, schmerzhaft), Talgdrüsenkarzinom (bei Rezidiven)
 
 ---
 
@@ -987,12 +991,179 @@ Alle 6–12 Monate für 5 Jahre, dann jährlich lebenslang (NCCN).
       const Condition(
         id: 'hordeolum',
         name: 'Hordeolum (Gerstenkorn)',
-        description: 'Akute bakterielle Infektion einer Liddrüse.',
+        description: 'Akute eitrige Entzündung des Augenlids, meist durch Staphylokokken-Infektion verursacht.',
         symptoms: ['swelling', 'pain', 'redness'],
         urgency: Urgency.low,
-        treatment: ['Warme Kompressen', 'Antibiotische Salbe (z.B. Floxal)', 'Spontane Entleerung abwarten'],
-        followUp: 'Bei Zunahme oder Fieber sofort Arzt',
+        treatment: ['Warme Kompressen mehrmals täglich 10-15 Min.', 'Lidhygiene', 'Bei Persistenz: Inzision und Drainage'],
+        followUp: 'Bei Zunahme oder Fieber sofort Arzt; Kontrolle nach 1-2 Wochen bei Persistenz',
         source: null,
+        wikiContent: '''
+## Definition
+
+Ein Hordeolum ist eine **akute, eitrige Entzündung** des Augenlids, meist durch bakterielle Infektion (v.a. **Staphylococcus aureus**) verursacht.¹ Im Gegensatz zum [Chalazion](#chalazion), das eine chronische lipogranulomatöse Entzündung darstellt, ist das Hordeolum eine akute Infektion.
+
+---
+
+## Klassifikation
+
+| Typ | Betroffene Drüsen | Lokalisation |
+|---|---|---|
+| **Hordeolum externum** | Zeis-Drüsen (Talg), Moll-Drüsen (Schweiß), Wimpernfollikel | Lidrand, äußerlich sichtbar |
+| **Hordeolum internum** | Meibom-Drüsen (Tarsalplatte) | Tiefer im Lid, konjunktival sichtbar |
+
+---
+
+## Pathogenese
+
+Die Pathogenese basiert auf einer **Obstruktion der Drüsenausführungsgänge** mit nachfolgender eitriger Entzündung durch **Staphylococcus aureus**.⁴ ⁵
+
+### Risikofaktoren
+
+- **Blepharitis:** Chronische Lidentzündung als Hauptrisikofaktor (staphylokokkale, seborrhoische oder MGD-assoziiert)⁵
+- **Demodex-Milben:** 59,5% Prävalenz bei rezidivierenden Hordeola vs. 17,5% bei Kontrollen; besonders bei Erwachsenen in den 20ern⁶
+- **Immundefizienz:** z.B. selektiver IgM-Mangel bei rezidivierenden Fällen⁴
+- **Meibom-Drüsen-Dysfunktion:** Prädisponiert für posteriore Blepharitis und Hordeola⁵
+- **Seborrhoische Dermatitis:** Häufig assoziiert
+
+---
+
+## Klinik
+
+### Symptome
+- **Akuter Beginn** (im Gegensatz zum subakuten [Chalazion](#chalazion))
+- **Schmerz**, Rötung, Schwellung
+- Fremdkörpergefühl, Tränen
+
+### Klinische Befunde
+- **Hordeolum externum:** Gut abgegrenzte, **schmerzhafte Schwellung am Lidrand**, oft mit zentralem Eiterpunkt⁷
+- **Hordeolum internum:** Schwellung im mittleren Lidbereich, bei Ektropionierung **konjunktivale Rötung und Eiterung** sichtbar
+- Lokale Wärme und Druckschmerz
+- Mögliche Lymphknotenschwellung präaurikulär
+
+---
+
+## Diagnostik
+
+Die Diagnose erfolgt primär **klinisch** durch Inspektion und Palpation. Bei rezidivierenden Hordeola: **Wimpernepilation zur Demodex-Untersuchung** empfohlen.⁶
+
+### Differenzialdiagnose: Hordeolum vs. Chalazion
+
+| Merkmal | Hordeolum | [Chalazion](#chalazion) |
+|---|---|---|
+| Verlauf | **Akut** | Subakut/chronisch |
+| Schmerz | **Schmerzhaft** | Schmerzlos/minimal |
+| Entzündung | **Eitrig** (purulent) | Lipogranulomatös |
+| Lokalisation | Lidrand | Mittleres Lid |
+| Ätiologie | Bakterielle Infektion | Drüsenobstruktion |
+
+---
+
+## Therapie
+
+> **Wichtig:** In vielen Fällen **spontane Drainage und Abheilung** innerhalb einer Woche ohne Behandlung.¹
+
+### Konservative Therapie (Erstlinie)
+
+- **Warme Kompressen:** Mehrmals täglich für 10–15 Minuten zur Förderung der Drainage¹ ⁵
+- **Lidhygiene:** Reinigung mit verdünntem Baby-Shampoo oder Hypochlorous Acid 0,01%⁸ ⁵
+- **Lidmassage:** Zur Expression der Drüsensekrete
+
+### Topische Antibiotika
+
+- Antibiotikasalben (z.B. Erythromycin, Bacitracin) werden häufig verschrieben
+- **Jedoch:** Studien zeigen, dass Antibiotika die Heilungsrate bei Hordeola **nicht signifikant verbessern** (RR 0,99; 95% CI 0,96–1,02)⁹
+
+### Intense Pulsed Light (IPL)
+
+- Neuere Studie zeigt **signifikant kürzere Erholungszeit** und niedrigere OP-Rate im Vergleich zur medikamentösen Therapie¹⁰
+- Signifikante Reduktion des OSDI-Scores nach IPL-Behandlung
+
+### Chirurgische Therapie
+
+- **Inzision und Drainage:** Bei persistierenden, fluktuierenden Läsionen
+- Indiziert wenn konservative Maßnahmen nach 1–2 Wochen versagen
+
+### Komplikationen bei Nichtbehandlung
+
+- Ausbreitung auf benachbarte Drüsen und Gewebe
+- Entwicklung zu einem **[Chalazion](#chalazion)** (chronisch)
+- Selten: **Präseptale Zellulitis**¹ ³
+
+---
+
+## Prophylaxe
+
+### Tägliche Lidhygiene
+- Warme Kompressen und Lidrandmassage
+- Regelmäßige Lidreinigung
+
+### Behandlung der Grunderkrankung
+- Blepharitis-Therapie (staphylokokkal, seborrhoisch, MGD)
+- Demodex-Behandlung bei Nachweis (Tea Tree Oil, Lotilaner 0,25%, Ivermectin)⁶
+
+### Bei rezidivierenden Hordeola
+Wimpernepilation zur Demodex-Diagnostik empfohlen, besonders bei:⁶
+- Kurzer Zeitraum zwischen Rezidiven
+- Externer Lokalisation
+- Multiplen Läsionen
+- Anteriorer Blepharitis
+
+---
+
+## Referenzen
+
+1. Lindsley K, et al. Non-Surgical Interventions for Acute Internal Hordeolum. [*Cochrane Database Syst Rev.* 2017](https://doi.org/10.1002/14651858.CD007742.pub4)
+2. Kim ES, et al. The Lowly Chalazion. [*Surv Ophthalmol.* 2023](https://doi.org/10.1016/j.survophthal.2022.11.002)
+3. Cheng K, et al. Acupuncture for Acute Hordeolum. [*Cochrane Database Syst Rev.* 2017](https://doi.org/10.1002/14651858.CD011075.pub2)
+4. Kiratli HK, et al. Multiple Recurrent Hordeola Associated With Selective IgM Deficiency. [*J AAPOS.* 2001](https://doi.org/10.1067/mpa.2001.111018)
+5. Lin A, et al. Blepharitis Preferred Practice Pattern. [*Ophthalmology.* 2024](https://doi.org/10.1016/j.ophtha.2023.12.036)
+6. Jun SY, et al. Clinical Characteristics of Demodex-Associated Recurrent Hordeola. [*Sci Rep.* 2021](https://doi.org/10.1038/s41598-021-00599-7)
+7. Carlisle RT, et al. Differential Diagnosis of the Swollen Red Eyelid. [*Am Fam Physician.* 2015](https://pubmed.ncbi.nlm.nih.gov/26176369/)
+8. Yang S, et al. The Microbiome of Meibomian Gland Secretions From Patients With Internal Hordeolum. [*Dis Markers.* 2022](https://doi.org/10.1155/2022/7550090)
+9. Alsoudi AF, et al. Efficacy of Care and Antibiotic Use for Chalazia and Hordeola. [*Eye Contact Lens.* 2022](https://doi.org/10.1097/ICL.0000000000000859)
+10. Lu Y, et al. Short-Term Efficacy of Intense Pulsed Light in the Treatment of Hordeolum. [*Medicine.* 2026](https://doi.org/10.1097/MD.0000000000047845)
+''',
+        wikiSummary: '''
+## Kurzzusammenfassung
+
+**Hordeolum (Gerstenkorn)** = akute eitrige Entzündung durch **Staphylococcus aureus**-Infektion der Liddrüsen.
+
+---
+
+### Klassifikation
+- **Externum:** Zeis-/Moll-Drüsen am Lidrand
+- **Internum:** Meibom-Drüsen in der Tarsalplatte
+
+---
+
+### Klinik
+- Akuter Beginn, schmerzhaft, Rötung, Schwellung
+- DD: [Chalazion](#chalazion) (chronisch, schmerzlos)
+
+---
+
+### Therapie-Stufenschema
+
+1. **Konservativ:** Warme Kompressen + Lidhygiene + Lidmassage
+2. **Bei Persistenz (1–2 Wo):** Inzision und Drainage
+3. **Antibiotika:** Verbessern Heilungsrate **nicht** signifikant (RR 0,99)
+
+---
+
+### Wichtige Zahlen
+| Merkmal | Detail |
+|---|---|
+| Häufigster Erreger | Staphylococcus aureus |
+| Demodex bei Rezidiven | 59,5% vs. 17,5% |
+| Antibiotika-Effekt | RR 0,99 (nicht signifikant) |
+
+---
+
+### Prophylaxe
+Tägliche Lidhygiene + Behandlung der zugrundeliegenden **Blepharitis/MGD**. Bei Rezidiven: Demodex-Diagnostik (Wimpernepilation).
+
+> **Cave:** Bei Nichtbehandlung Entwicklung zum **[Chalazion](#chalazion)** oder selten **präseptale Zellulitis**!
+''',
       ),
       const Condition(
         id: 'dacryocystitis',
@@ -1133,6 +1304,803 @@ Alle 6–12 Monate für 5 Jahre, dann jährlich lebenslang (NCCN).
         treatment: ['Botulinumtoxin-Injektion in den M. orbicularis (Goldstandard)', 'Bei Kontraindikation: medikamentös oder Operation'],
         followUp: 'Wiederholung Botox alle 2–4 Monate',
         source: null,
+      ),
+      const Condition(
+        id: 'capillary_hemangioma',
+        name: 'Kapilläres Hämangiom (Infantiles Hämangiom)',
+        description: 'Häufigster gutartiger Tumor des Säuglingsalters (5% aller Säuglinge). Periokuläre IH sind Hochrisiko-Läsionen wegen Amblyopiegefahr.',
+        symptoms: ['swelling', 'lid_drooping'],
+        urgency: Urgency.medium,
+        treatment: ['Propranolol 2-3 mg/kg/Tag (First-Line)', 'Topisches Timolol 0,5% bei kleinen IH', 'Intralesionale Steroide', 'Chirurgische Resektion bei Amblyopierisiko'],
+        followUp: 'Ophthalmologische Evaluation bei allen periokulären IH; regelmäßige Kontrollen; Propranolol mind. 6 Monate',
+        source: null,
+        wikiContent: '''
+## Definition
+
+Das infantile Hämangiom (IH), auch kapilläres Hämangiom oder "Erdbeer-Hämangiom" genannt, ist der **häufigste gutartige Tumor des Säuglingsalters** mit einer Prävalenz von bis zu **5% aller Säuglinge**.¹ Es handelt sich um einen vaskulären Tumor, der typischerweise in den ersten Lebenswochen erscheint, eine Wachstumsphase durchläuft und anschließend spontan involviert.²
+
+---
+
+## Epidemiologie
+
+- **Prävalenz:** Bis zu 5% aller Säuglinge¹
+- **Geschlecht:** Häufiger bei **Mädchen**³
+- **Risikofaktoren:** Frühgeburtlichkeit, niedriges Geburtsgewicht, kaukasische Abstammung³
+
+---
+
+## Pathogenese
+
+Die Pathogenese ist nicht vollständig geklärt:³
+- **Aberrante Reaktion pluripotenter Stammzellen** auf Stimuli wie Hypoxie
+- Beteiligung des **Renin-Angiotensin-Systems**
+- Vaskuläre Proliferation mit charakteristischem Wachstums- und Involutionsmuster
+
+---
+
+## Natürlicher Verlauf
+
+Das IH zeigt einen **charakteristischen triphasischen Verlauf:**¹ ⁴
+
+| Phase | Zeitraum | Charakteristika |
+|---|---|---|
+| **Proliferation** | 1–3 Monate (Max.), bis 5 Mo. | Schnelles Wachstum, rote Farbe |
+| **Plateau** | 5–12 Monate | Wachstumsstopp |
+| **Involution** | 1–4 Jahre (90% bis 4 J.) | Farbänderung rot → grau-weiß |
+
+> **Wichtig:** Ca. **85–90%** der IH sind **selbstlimitierend** und benötigen keine Therapie.⁴
+
+---
+
+## Klassifikation
+
+### Nach Tiefe³
+- **Superfizielle IH:** Hellrot, erdbeerartig, oberflächlich
+- **Tiefe IH:** Bläulich, subkutan, späterer Beginn
+- **Gemischte IH:** Kombination aus oberflächlichen und tiefen Anteilen
+
+---
+
+## Periokuläre Hämangiome – Besondere Bedeutung
+
+Periokuläre IH sind **Hochrisiko-Läsionen** aufgrund des Potenzials für **permanente Sehstörungen**.¹ ⁴
+
+### Okuläre Komplikationen
+
+| Komplikation | Häufigkeit | Mechanismus |
+|---|---|---|
+| **Astigmatismus** | 33–44% | Hornhautdeformation durch Tumordruck |
+| **Amblyopie** | 3–10% | Deprivation, Refraktionsfehler, Strabismus |
+| **Visuelle Obstruktion** | 29% | Mechanische Ptosis durch Tumorgewicht |
+| **Ptosis** | 4% | Lidbelastung durch Tumormasse |
+| **Strabismus** | 1% | Augenmuskelbeeinträchtigung |
+| **Proptosis** | selten | Orbitale Ausdehnung |
+
+### Risikofaktoren für okuläre Komplikationen⁹ ¹⁰
+- **Durchmesser >1 cm** (stärkster Prädiktor, OR 14,13)⁹
+- **Tiefe oder gemischte Komponente** (OR 3,4–3,8)⁶
+- **Oberlidbeteiligung**⁹
+- **Mediale Lokalisation**¹⁰
+
+### PHACE-Syndrom – Okuläre Manifestationen¹ ⁴
+- Mikrophthalmie, Optikusatrophie/-hypoplasie
+- Kolobome, Katarakt, Strabismus, Exophthalmus
+
+---
+
+## Diagnostik
+
+### Klinische Diagnose³
+- Typisches Erscheinungsbild und Verlauf
+- Anamnese (Auftreten in ersten Lebenswochen)
+
+### Bildgebung
+- **Hochfrequenz-Ultraschall:** Bei subkutanen Läsionen
+- **MRT:** Bei Verdacht auf tiefe orbitale Beteiligung
+
+### Ophthalmologische Untersuchung⁹ ¹⁰
+- **Obligat bei allen periokulären IH**
+- Refraktionsbestimmung (Skiaskopie)
+- Amblyopie-Screening
+- Motilitätsprüfung, Funduskopie
+
+---
+
+## Therapie
+
+### Therapieoptionen
+
+| Therapie | Indikation | Dosierung | Besonderheiten |
+|---|---|---|---|
+| **Orales Propranolol** | Therapie der Wahl | 2–3 mg/kg/Tag | Mind. 6–12 Monate |
+| **Topisches Timolol** | Kleine, superfizielle IH | 0,5% Gel, 2x/Tag | 92% Besserung nach 6–9 Mo. |
+| **Intralesionale Steroide** | Fokale, bulky IH | Triamcinolon ± Betamethason | Cave: Netzhautarterienembolie |
+| **Chirurgische Resektion** | Amblyogene IH | Frühzeitig (3 Mo. optimal) | Astigmatismus: 2,76→0,80 D |
+| **Laser (PDL)** | Superfizielle IH, Residuen | Nach Involution | Für Teleangiektasien |
+
+### Propranolol – Therapie der Wahl¹
+- **Dosis:** 2–3 mg/kg/Tag (aufgeteilt auf 2–3 Gaben)
+- **Beginn:** Idealerweise vor 5 Wochen, spätestens mit 1 Monat bei Hochrisiko-IH
+- **Dauer:** Mindestens 6 Monate, oft bis 12 Monate
+- **Monitoring:** Herzfrequenz, Blutdruck, Blutzucker (initial)
+- **Effektivität periokular:** 70,5% deutliche Besserung, 29,5% leichte Besserung¹³
+
+> **Früher Therapiebeginn ist entscheidend:** Patienten ≤3 Monate zeigen in **96,3%** eine deutliche Besserung nach 4 Wochen, vs. nur 29,4% bei >3 Monate.¹³
+
+### Intralesionale Kortikosteroide¹
+- Triamcinolon ± Betamethason für fokale, bulky Läsionen
+- **Cave bei Oberlid-IH:** Risiko der **zentralen Netzhautarterienembolie** bei hohem Injektionsdruck
+
+---
+
+## Empfehlungen für periokuläre IH
+
+1. **Frühzeitige Überweisung** (idealerweise bis 1 Monat) an Spezialisten¹
+2. **Ophthalmologische Evaluation** bei allen periokulären IH⁹ ¹⁰
+3. **Prompte Therapieeinleitung** bei Risikofaktoren (>1 cm, tiefe Komponente, Oberlid)⁹
+4. **Propranolol als First-Line-Therapie**¹³
+5. **Regelmäßige ophthalmologische Kontrollen** während und nach Therapie
+6. **Screening auf PHACE-Syndrom** bei großem segmentalem Gesichts-IH¹
+
+---
+
+## Prognose
+
+- **85–90% selbstlimitierend** ohne Therapie⁴
+- **Amblyopie-Rate** deutlich reduziert seit Propranolol-Ära⁶
+- **Astigmatismus** signifikante Reduktion unter systemischer Therapie (40% → 18%)⁶
+- **Residuen nach Involution:** Fibrös-fettige Gewebereste, Teleangiektasien, Hautatrophie möglich
+
+---
+
+## Referenzen
+
+1. Krowchuk DP, et al. Clinical Practice Guideline for Management of Infantile Hemangiomas. [*Pediatrics.* 2019](https://doi.org/10.1542/peds.2018-3475)
+2. Satterfield KR, et al. Current Treatment of Infantile Hemangiomas. [*Surv Ophthalmol.* 2019](https://doi.org/10.1016/j.survophthal.2019.02.005)
+3. Rodríguez Bandera AI, et al. Infantile Hemangioma Part 1: Epidemiology, Pathogenesis, Clinical Presentation. [*J Am Acad Dermatol.* 2021](https://doi.org/10.1016/j.jaad.2021.08.019)
+4. Léauté-Labrèze C, et al. Infantile Haemangioma. [*Lancet.* 2017](https://doi.org/10.1016/S0140-6736(16)00645-0)
+5. Zhao J, et al. Periocular Infantile Hemangiomas: Characteristics, Ocular Sequelae, Outcomes. [*Pediatr Dermatol.* 2019](https://doi.org/10.1111/pde.13925)
+6. Suh KY, et al. Infantile Hemangiomas With Minimal or Arrested Growth. [*Arch Dermatol.* 2010](https://doi.org/10.1001/archdermatol.2010.197)
+7. Samuelov L, et al. Risk Factors for Ocular Complications in Periocular IH. [*Pediatr Dermatol.* 2018](https://doi.org/10.1111/pde.13525)
+8. O TM, et al. Distribution and Clinical Characteristics of Periorbital IH. [*Facial Plast Surg Aesthet Med.* 2023](https://doi.org/10.1089/fpsam.2022.0099)
+9. Sebaratnam DF, et al. Infantile Hemangioma Part 2: Management. [*J Am Acad Dermatol.* 2021](https://doi.org/10.1016/j.jaad.2021.08.020)
+10. Arneja JS, et al. Resection of Amblyogenic Periocular Hemangiomas. [*Plast Reconstr Surg.* 2010](https://doi.org/10.1097/PRS.0b013e3181c49708)
+11. Chen WL, et al. Comprehensive Management of IH Involving the Periorbital Region. [*Ann Plast Surg.* 2022](https://doi.org/10.1097/SAP.0000000000003272)
+''',
+        wikiSummary: '''
+## Kurzzusammenfassung
+
+**Infantiles Hämangiom** = häufigster gutartiger Tumor des Säuglingsalters (**5%** aller Säuglinge). Triphasisch: Proliferation → Plateau → Involution.
+
+---
+
+### Okuläre Komplikationen
+| Komplikation | Häufigkeit |
+|---|---|
+| Astigmatismus | 33–44% |
+| Visuelle Obstruktion | 29% |
+| Amblyopie | 3–10% |
+
+### Risikofaktoren
+**>1 cm** (OR 14,13), tiefe Komponente, Oberlid, medial
+
+---
+
+### Therapie
+- **First-Line:** Propranolol 2–3 mg/kg/Tag (≤3 Mo: 96,3% Besserung!)
+- **Kleine IH:** Timolol 0,5% (92% Besserung)
+- **85–90% selbstlimitierend** – keine Therapie nötig
+
+> **Cave:** Periokuläre IH = Hochrisiko! **Frühzeitige Überweisung** (bis 1 Monat). Alle brauchen **ophthalmologische Evaluation**.
+''',
+      ),
+      const Condition(
+        id: 'benign_adnexal_tumors',
+        name: 'Benigne Tumoren der Adnexe',
+        description: 'Tumoren der Schweißdrüsen, Haarfollikel und Talgdrüsen – 67,8% aller okulären Adnextumoren sind benigne.',
+        symptoms: ['swelling'],
+        urgency: Urgency.low,
+        treatment: ['Chirurgische Exzision (je nach Typ)', 'CO₂-Laser bei Syringomen', 'Mohs-Chirurgie bei Trichoepitheliomen'],
+        followUp: 'Histologische Sicherung; bei Talgdrüsenadenom Muir-Torre-Syndrom ausschließen',
+        source: null,
+        wikiContent: '''
+## Übersicht
+
+Adnexale Tumoren des Augenlides umfassen eine Vielzahl von benignen Neoplasien, die von **Schweißdrüsen (ekkrin und apokrin), Haarfollikeln und Talgdrüsen** ausgehen.¹ Die meisten okulären Adnextumoren sind benigne Lidläsionen (67,8%), wobei Epidermoidzysten (36%), Hidrozystome (9,2%) und Talgdrüsenzysten (6,1%) am häufigsten sind.²
+
+### Klassifikation
+
+| Ursprung | Tumoren |
+|---|---|
+| **Schweißdrüsen (apokrin)** | Hidrozystom (Moll-Drüse), Hidradenoma papilliferum, Syringocystadenoma |
+| **Schweißdrüsen (ekkrin)** | Ekkrines Hidrozystom (sehr selten am Lid), Syringom, Porom |
+| **Haarfollikel** | Pilomatrixom, Trichoepitheliom, Trichoblastom |
+| **Talgdrüsen** | Talgdrüsenadenom, Talgdrüsenhyperplasie |
+
+---
+
+## 1. Schweißdrüsentumoren
+
+### Hidrozystom (Schweißdrüsenzyste)
+- **Definition:** Benigne zystische Tumoren der Schweißdrüsen; am Lid fast ausschließlich **apokrinen Ursprungs** (Moll-Drüsen)³
+- **Epidemiologie:** Zweithäufigster benigner Adnextumor des Lides (9,2%)²
+- **Klinisches Bild:** Transluzente, bläulich-klare oder pigmentierte zystische Papeln; Lidrand und Kanthi; 1–5 mm
+- Pigmentierte Varianten (13%) enthalten Lipofuszin-Pigmente (Chromhidrose)
+- **Histologie:** Zyste mit doppelschichtigem kuboidalem Epithel; innere Schicht mit **apikaler Dekapitationssekretion** (apokrin); CK7+, GCDFP-15+³
+- **Therapie:** Chirurgische Exzision; Punktion/Drainage hat hohe Rezidivrate¹
+
+### Syringom
+- **Definition:** Benigner Adnextumor mit Differenzierung zum ekkrinen Schweißdrüsengang
+- **Epidemiologie:** Häufig bei adoleszenten Frauen; Prädilektion: Periorbitalregion (besonders Unterlider)
+- **Klinisches Bild:** Multiple, kleine (1–3 mm), hautfarbene bis gelbliche Papeln; symmetrisch infraorbital
+- **Histologie:** Charakteristische **"Kaulquappen"-förmige** (tadpole/comma-shaped) Strukturen; dilatierte ekkrine Gänge
+- **Assoziationen:** Down-Syndrom (häufigste Assoziation)
+- **Therapie:**
+  - **CO₂-Laser (Multiple-Drilling-Methode):** Gute kosmetische Ergebnisse ohne Narben
+  - **Intralesionale Elektrodesikkation:** Sicher, narbenfreie Methode
+  - Herausforderung: Häufige Rezidive bei allen Modalitäten
+
+### Pleomorphes Adenom (Chondroides Syringom)
+- **Definition:** Seltener benigner gemischter Tumor der Schweißdrüsen
+- **Klinisches Bild:** Langsam wachsende, gut umschriebene dermale Masse; am Lidrand aus Moll-Drüsen
+- **Histologie:** Verzweigte duktale Strukturen; myxoides und sklerotisches Stroma; kann Knorpel enthalten
+- **Therapie:** Vollständige chirurgische Exzision¹
+
+---
+
+## 2. Haarfollikeltumoren
+
+### Pilomatrixom (Epithelioma calcificans Malherbe)
+- **Definition:** Benigner Tumor mit Differenzierung zur Haarmatrixzelle⁷ ⁸
+- **Epidemiologie:** Häufiger bei Kindern/Jugendlichen (69% in ersten 2 Dekaden); weibliche Prädominanz (62,5%); am Lid meist Oberlid (62,5%)⁷
+- **Klinisches Bild:** Fester, subkutaner Knoten; oft bläulich-rötlich; kann steinhart sein (Verkalkung); **klinisch häufig fehldiagnostiziert** (nur 18,75–50% korrekt erkannt)⁷
+- **Histologie:**
+  - **Basophile Zellen:** Peripher, proliferativ
+  - **Transitionalzellen:** Übergangszellen mit Apoptose
+  - **Schattenzellen (Ghost Cells):** **Pathognomonisch**; eosinophile Zellen ohne Kern
+  - Fremdkörper-Riesenzellen, Verkalkung, Ossifikation möglich
+- **Pathogenese:** Mutation im β-Catenin-Gen (CTNNB1); Apoptose als Hauptmechanismus der Schattenzellbildung
+- **Assoziationen:** Turner-Syndrom (Prävalenz 2,6% vs. 0,003%), Myotone Dystrophie, Gardner-Syndrom
+- **Therapie:** Einfache chirurgische Exzision; keine Rezidive bei vollständiger Entfernung⁷ ⁸
+
+### Trichoepitheliom
+- **Definition:** Benigner Tumor mit Differenzierung zum Haarfollikel
+- **Klinisches Bild:** Hautfarbene, runde Papel oder Plaque; Gesicht (Nasolabialfalte, periorbital); **klinisch oft mit Basalzellkarzinom verwechselt**
+- **Histologie:** Basaloide Zellnester mit peripherer Palisadenstellung; Hornzysten; **kein Clefting** (im Gegensatz zum BCC); CK20-positive Merkel-Zellen
+- **Desmoplastisches Trichoepitheliom (DTE):** Solitäre, ringförmige, zentral eingedrückte Papel; DD morpheiformes BCC
+- **Therapie:**
+  - **Mohs-Chirurgie:** Keine Rezidive (0%) bei 42 Monaten Nachbeobachtung
+  - Standardexzision: 13,1% Rezidivrate
+  - **Argon-Laser:** Erfolgreiche Behandlung multipler Trichoepitheliome
+
+---
+
+## 3. Talgdrüsentumoren
+
+### Talgdrüsenadenom
+- **Definition:** Benigner Tumor der Talgdrüsen
+- **Klinisches Bild:** Gelbliche, lobulierte Papel oder Knoten; meist am Kopf
+- **Histologie:** Gut umschriebene Lobuli aus reifen Sebozyten; zentrale lipidhaltige Zellen
+- **Assoziationen:** **Muir-Torre-Syndrom** (mit viszeralen Malignomen assoziiert)
+- **Therapie:** Chirurgische Exzision; bei Muir-Torre-Syndrom **Screening auf viszerale Malignome**¹
+
+---
+
+## Differenzialdiagnostik
+
+| Läsion | Unterscheidungsmerkmale |
+|---|---|
+| **Hidrozystom vs. Epidermoidzyste** | Hidrozystom: transluzent, bläulich, am Lidrand |
+| **Trichoepitheliom vs. BCC** | Trichoepitheliom: kein Clefting, CK20+ Merkel-Zellen |
+| **DTE vs. morpheiformes BCC** | DTE: CD34+ Stroma, CK20+ Merkel-Zellen |
+| **Pilomatrixom vs. Dermoidzyste** | Pilomatrixom: steinhart, Schattenzellen |
+
+---
+
+## Therapieübersicht
+
+| Tumor | Therapie der Wahl | Alternativen |
+|---|---|---|
+| **Hidrozystom** | Chirurgische Exzision | Punktion (hohe Rezidivrate) |
+| **Syringom** | CO₂-Laser (Multiple-Drilling) | Elektrodesikkation |
+| **Pilomatrixom** | Einfache Exzision | – |
+| **Trichoepitheliom** | Mohs-Chirurgie (0% Rezidiv) | Exzision, Argon-Laser |
+| **Pleomorphes Adenom** | Vollständige Exzision | – |
+| **Talgdrüsenadenom** | Exzision + Muir-Torre-Screening | – |
+
+---
+
+## Referenzen
+
+1. Drozdowski R, et al. Adnexal Neoplasms of the Eye. [*Clin Dermatol.* 2024](https://doi.org/10.1016/j.clindermatol.2024.01.004)
+2. Wang KY, et al. Population-Based Incidence of Ocular Adnexal Tumors. [*Ophthalmic Epidemiol.* 2025](https://doi.org/10.1080/09286586.2024.2379971)
+3. Jakobiec FA, et al. Eyelid Eccrine and Apocrine Hidrocystomas (40 Lesions). [*Am J Ophthalmol.* 2011](https://doi.org/10.1016/j.ajo.2010.08.028)
+4. Williams K, et al. Management of Multiple Syringomas: Systematic Review. [*J Am Acad Dermatol.* 2016](https://doi.org/10.1016/j.jaad.2015.12.006)
+5. Park HJ, et al. Treatment of Syringomas by CO₂ Laser (Multiple-Drilling). [*Dermatol Surg.* 2007](https://doi.org/10.1111/j.1524-4725.2007.33065.x)
+6. Palioura S, et al. Pleomorphic Adenoma of the Eyelid Margin. [*Surv Ophthalmol.* 2013](https://doi.org/10.1016/j.survophthal.2012.10.003)
+7. Zloto O, et al. Periocular Pilomatrixoma: 16 Cases. [*Ophthal Plast Reconstr Surg.* 2015](https://doi.org/10.1097/IOP.0000000000000164)
+8. Levy J, et al. Eyelid Pilomatrixoma: 16 Cases and Literature Review. [*Surv Ophthalmol.* 2008](https://doi.org/10.1016/j.survophthal.2008.06.007)
+9. Votruba M, et al. Solitary Trichoepithelioma Versus BCC. [*Eye.* 1998](https://doi.org/10.1038/eye.1998.7)
+10. Nanda R, et al. Desmoplastic Trichoepitheliom: Systematic Review. [*Dermatol Surg.* 2024](https://doi.org/10.1097/DSS.0000000000004194)
+11. Handler MZ, et al. Pilomatricoma Prevalence in Turner Syndrome. [*JAMA Dermatol.* 2013](https://doi.org/10.1001/2013.jamadermatol.115)
+''',
+        wikiSummary: '''
+## Kurzzusammenfassung
+
+**Benigne Adnextumoren des Lides** – 67,8% aller okulären Adnextumoren. Ursprung: Schweißdrüsen, Haarfollikel, Talgdrüsen.
+
+---
+
+### Die wichtigsten Tumoren
+
+| Tumor | Häufigkeit/Merkmal | Therapie |
+|---|---|---|
+| **Hidrozystom** | 9,2%, transluzent, bläulich | Exzision |
+| **Syringom** | Adoleszente Frauen, "Kaulquappen"-Histologie | CO₂-Laser |
+| **Pilomatrixom** | Kinder, steinhart, Schattenzellen | Exzision |
+| **Trichoepitheliom** | DD Basalzellkarzinom! | Mohs (0% Rezidiv) |
+| **Talgdrüsenadenom** | Muir-Torre-Syndrom? | Exzision + Screening |
+
+> **Cave:** Trichoepitheliom wird klinisch oft mit **BCC verwechselt** – CK20+ Merkel-Zellen und fehlendes Clefting unterscheiden. Bei Talgdrüsenadenom immer an **Muir-Torre-Syndrom** denken!
+''',
+      ),
+      const Condition(
+        id: 'benign_pigmented_lesions',
+        name: 'Benigne Pigmentierte Läsionen',
+        description: 'Melanozytäre Nävi, Epheliden und Lentigines – ca. 20% aller benignen Lidtumoren.',
+        symptoms: ['swelling'],
+        urgency: Urgency.low,
+        treatment: ['Exzision bei Malignitätsverdacht', 'Lasertherapie bei kosmetischer Indikation', 'UV-Schutz'],
+        followUp: 'Regelmäßige Kontrolle; Abgrenzung zum Melanom beachten',
+        source: null,
+        wikiContent: '''
+## Übersicht
+
+Benigne pigmentierte Läsionen machen etwa **20% aller benignen Lidtumoren** aus und umfassen hauptsächlich melanozytäre Nävi, Epheliden und Lentigines.¹
+
+---
+
+## 1. Melanozytäre Nävi
+
+### Allgemeine Übersicht
+- **Häufigkeit:** Dritthäufigster benigner Lidtumor; intradermale Nävi am häufigsten (21,1%), gefolgt von Compound-Nävi (10,7%)¹ ² ³
+- **Natürliche Entwicklung:** Junktionale Nävi → Compound-Nävi → Intradermale Nävi ("Abtropfen" der Nävuszellen in die Dermis)⁴
+- **Therapie:** Chirurgische Exzision bei kosmetischer Indikation, funktioneller Beeinträchtigung oder Malignitätsverdacht; bei kleinen Läsionen auch Shave-Exzision⁶
+
+---
+
+### Junktionaler Nävus
+- **Definition:** Melanozytäre Proliferation **ausschließlich an der dermoepidermalen Junktionszone**
+- **Klinisches Bild:** Flache, scharf begrenzte, gleichmäßig pigmentierte Makulae; hellbraun bis dunkelbraun⁷ ⁸
+- **Dermoskopie:** Regelmäßiges Pigmentnetzwerk, "Ringed pattern" in konfokaler Mikroskopie⁸
+- **Lokalisation:** Häufiger an Handflächen, Fußsohlen; am Lid seltener als andere Nävustypen⁵
+- Können im Laufe des Lebens zu Compound-Nävi "reifen"
+
+> **Wichtig:** Flache, stark pigmentierte Läsionen erfordern sorgfältige Abgrenzung zum Melanom
+
+---
+
+### Compound-Nävus
+- **Definition:** Melanozytäre Proliferation **sowohl an der Junktion als auch in der Dermis** – Übergangsstadium
+- **Klinisches Bild:** Leicht erhabene, pigmentierte Papeln; flach bis kuppelförmig; 2–6 mm
+- **Histologie:** Nester an Junktion und papillärer Dermis mit typischer **"Maturation"** (Reifung) in der Tiefe – wichtiges Benignitätskriterium⁹
+- **Dermoskopie:** "Meshwork pattern", nestförmige Proliferation⁷ ⁸
+- **Varianten:** Polypoide Compound-Nävi können atypische Merkmale zeigen (Asymmetrie 30%, Shouldering 47,5%)⁹
+
+> **DD:** Kann die radiale Wachstumsphase eines Melanoms imitieren – Maturation und fehlende Atypie beachten
+
+---
+
+### Intradermaler Nävus
+- **Definition:** Melanozytäre Proliferation **ausschließlich in der Dermis** – "Endstadium" der Nävusentwicklung
+- **Klinisches Bild:** Erhabene, kuppelförmige oder papillomatöse Papeln; oft hautfarben; können behaart sein (Benignitätshinweis); 3–10 mm
+- **Histologie:** Nester und Stränge in der Dermis mit deutlicher Maturation; keine Junktionsaktivität; kann neurale Differenzierung zeigen¹⁰ ¹¹
+
+### Subtypen (Unna und Miescher)¹⁰
+
+| Subtyp | Lokalisation | Merkmale |
+|---|---|---|
+| **Unna-Nävus** | Hals, Rumpf, Extremitäten (87%) | Papilläre Dermis, radiales Muster, papillomatös |
+| **Miescher-Nävus** | **Gesicht (91%)** – häufigster am Lid | Keilförmig, kuppelförmig, hautfarben |
+
+> **Besonderheit:** Bei 6,2% der intradermalen Nävi findet sich eine benigne atypische junktionale melanozytäre Hyperplasie – kann mit Melanoma in situ verwechselt werden¹¹
+
+---
+
+## 2. Epheliden (Sommersprossen)
+
+### Klinische Merkmale
+- **Definition:** Kleine (1–2 mm), hellbraune Makulae in sonnenexponierten Bereichen
+- **Charakteristisch:** Dunkeln bei UV-Exposition nach und **verblassen im Winter** (pathognomonisch)¹²
+- **Erstmanifestation:** Kindheit (ab 2–3 Jahren), besonders bei hellhäutigen Personen
+
+### Pathophysiologie
+- **Genetik:** MC1R-Genvarianten (60% populationsattributables Risiko)¹³
+- **Histologie:** Normale/verminderte Melanozytenzahl, aber erhöhte Melaninproduktion pro Melanozyt; **keine Verlängerung der Reteleisten** (DD zu Lentigines)¹² ¹⁴
+
+### Therapie (nur bei kosmetischem Wunsch)
+
+| Therapie | Ergebnis |
+|---|---|
+| **Q-switched Nd:YAG (532 nm)** | 66,5–69,4% Reduktion (Goldstandard) |
+| **Picosekunden-Laser (730/755 nm)** | ~69% Clearance pro Sitzung |
+| **577-nm Gelblaser** | 88% signifikante Verbesserung |
+| **IPL + RF + Epidermabrasion** | 67% exzellente Ergebnisse |
+| **Kryotherapie** | Nur ~15% Clearance |
+
+> **Sonnenschutz SPF 50+** essentiell zur Rezidivprävention. Bei dunkleren Hauttypen Picosekunden-Laser (730 nm) bevorzugen.
+
+---
+
+## 3. Lentigines (Altersflecken)
+
+### Klinische Merkmale
+- **Definition:** Flache, isolierte braun-schwarze Pigmentierungen (2–4 mm)
+- Durch chronische Sonnenexposition induziert
+- **Persistieren ganzjährig** (im Gegensatz zu Epheliden)¹² ¹³
+- Auftreten typischerweise ab dem 40. Lebensjahr
+
+### Histologie
+- **Erhöhte Melanozytenzahl** an der dermoepidermalen Junktion
+- **Verlängerung der Reteleisten** (DD-Merkmal zu Epheliden)¹⁴
+
+### Genetische Syndrome mit multiplen Lentigines
+- **LEOPARD-Syndrom:** Lentigines, EKG-Anomalien, okulärer Hypertelorismus, Pulmonalstenose (PTPN11-Mutation)
+- **Peutz-Jeghers-Syndrom:** Periorale Lentigines, GI-Polypen, erhöhtes Karzinomrisiko (STK11-Mutation)
+- **Carney-Komplex:** Lentigines, kardiale Myxome, endokrine Tumoren (PRKAR1A-Mutation)
+
+### Therapie (nur bei kosmetischem Wunsch)
+
+**Kombinationstherapien** zeigen die höchste Ansprechrate (65%), gefolgt von **Lasertherapien** (43%), topischen Retinoiden (21%), Kryotherapie (15%) und chemischen Peelings (6%).
+
+| Therapie | Ergebnis |
+|---|---|
+| **Q-switched Nd:YAG (532 nm)** | 80% exzellente Ergebnisse |
+| **Q-switched Ruby (694 nm)** | Signifikant besser als topische Therapie |
+| **Picosekunden-Laser (730 nm)** | 74% Clearance-Score ≥3/4 |
+| **577-nm Gelblaser** | 68% signifikante Verbesserung |
+| **Mequinol 2% + Tretinoin 0,01%** | Signifikant besser als Vehikel |
+| **Kryopeeling** | Überlegen gegenüber TCA-Peeling |
+
+> **Vor Therapie:** Abgrenzung zur **Lentigo maligna** (Melanoma in situ) erforderlich – bei Verdacht histologische Sicherung!
+
+---
+
+## Referenzen
+
+1. Deprez M, et al. Clinicopathological Features of Eyelid Skin Tumors (5504 Cases). [*Am J Dermatopathol.* 2009](https://doi.org/10.1097/DAD.0b013e3181961861)
+2. Chi MJ, et al. Clinical Analysis of Benign Eyelid and Conjunctival Tumors. [*Ophthalmologica.* 2006](https://doi.org/10.1159/000089274)
+3. Huang YY, et al. Benign and Malignant Eyelid Tumors (4521 Cases). [*Biomed Res Int.* 2015](https://doi.org/10.1155/2015/453091)
+4. Brodell R, et al. Natural History of Melanocytic Nevi. [*Am Fam Physician.* 1988](https://pubmed.ncbi.nlm.nih.gov/3189396/)
+5. Wang DG, et al. Clinicopathological Analysis of Acquired Melanocytic Nevi. [*Am J Dermatopathol.* 2020](https://doi.org/10.1097/DAD.0000000000001599)
+6. Brown R, et al. Evaluation and Management of Benign Tumors of the Eye and Eyelid. [*Clin Dermatol.* 2024](https://doi.org/10.1016/j.clindermatol.2024.01.005)
+7. Mikoshiba Y, et al. Melanocytic Lesions on Volar Skin Without Typical Dermoscopic Patterns. [*JAMA Dermatol.* 2019](https://doi.org/10.1001/jamadermatol.2018.5926)
+8. Pellacani G, et al. In Vivo Morphologic Classification of Melanocytic Nevi. [*JEADV.* 2014](https://doi.org/10.1111/jdv.12181)
+9. Mesbah Ardakani N, et al. Polypoid Compound Melanocytic Proliferations. [*Am J Dermatopathol.* 2019](https://doi.org/10.1097/DAD.0000000000001375)
+10. Yus ES, et al. Unna's and Miescher's Nevi: Two Different Types. [*Am J Dermatopathol.* 2007](https://doi.org/10.1097/DAD.0b013e31803325b2)
+11. Okamura JM, et al. Benign Atypical Junctional Melanocytic Hyperplasia in Intradermal Nevi. [*Mod Pathol.* 2000](https://doi.org/10.1038/modpathol.3880152)
+12. Praetorius C, et al. Ephelides and Solar Lentigines. [*Pigment Cell Melanoma Res.* 2014](https://doi.org/10.1111/pcmr.12232)
+13. Bastiaens M, et al. MC1R Gene Is the Major Freckle Gene. [*Hum Mol Genet.* 2001](https://doi.org/10.1093/hmg/10.16.1701)
+14. Schievink WI, et al. Arterial Dissections with Lentiginosis. [*N Engl J Med.* 1995](https://doi.org/10.1056/NEJM199503023320905)
+15. Mukovozov I, et al. Treatment of Lentigines: A Systematic Review. [*Dermatol Surg.* 2023](https://doi.org/10.1097/DSS.0000000000003630)
+''',
+        wikiSummary: '''
+## Kurzzusammenfassung
+
+**Benigne pigmentierte Lidläsionen** – ca. **20%** aller benignen Lidtumoren.
+
+---
+
+### Die drei Hauptentitäten
+
+| Läsion | Merkmale | DD-Hinweis |
+|---|---|---|
+| **Melanozytäre Nävi** | Junktional → Compound → Intradermal | Maturation = Benignität |
+| **Epheliden** | Verblassen im Winter | Keine Reteleisten-Verlängerung |
+| **Lentigines** | Persistieren ganzjährig | Reteleisten verlängert |
+
+---
+
+### Therapie (kosmetisch)
+- **Laser:** Q-switched Nd:YAG (532 nm) Goldstandard für Epheliden + Lentigines
+- **Kombinationstherapie:** Höchste Ansprechrate (65%) bei Lentigines
+- **Nävi:** Exzision bei DD Melanom oder Funktionsbeeinträchtigung
+
+> **Cave:** Vor Therapie immer **Abgrenzung zum Melanom** (ABCDE-Kriterien, Dermoskopie). Lentigines von **Lentigo maligna** unterscheiden!
+''',
+      ),
+      const Condition(
+        id: 'benign_epidermal_tumors',
+        name: 'Benigne Epidermale Veränderungen',
+        description: 'Plattenepithelpapillom, seborrhoische Keratose und aktinische Keratose – benigne Tumoren machen ca. 84% aller Lidtumoren aus.',
+        symptoms: ['swelling'],
+        urgency: Urgency.low,
+        treatment: ['Chirurgische Exzision', 'Kryotherapie', 'Kürettage', 'Bei aktinischer Keratose: 5-FU, Imiquimod, Tirbanibulin'],
+        followUp: 'Aktinische Keratosen regelmäßig kontrollieren (Malignisierungsrisiko); UV-Schutz',
+        source: null,
+        wikiContent: '''
+## Definition
+
+**Benigne epidermale Tumoren des Lides** umfassen hauptsächlich Plattenepithelpapillome, seborrhoische Keratosen und aktinische Keratosen. Benigne Tumoren machen etwa **84% aller Lidtumoren** aus.¹
+
+---
+
+## 1. Plattenepithelpapillom (Squamous Cell Papilloma)
+
+- **Häufigkeit:** Häufigster benigner Lidtumor mit **26%** aller Lidhauttumoren¹
+- **Klinisches Bild:** Papilläre, oft gestielte Wucherungen mit warzenartiger Oberfläche; können einzeln oder multipel auftreten² ³
+- **Lokalisation:** Typischerweise am Lidrand
+- **Ätiologie:** Teilweise assoziiert mit HPV (insbesondere HPV-6, HPV-11), aber auch Hochrisiko-Genotypen wie HPV-16⁴ ⁵
+- **Histologie:** Proliferation von Plattenepithel mit Hyperkeratose und Papillomatose
+- **Rezidivrisiko:** Bei multiplen Läsionen **16,3%** nach durchschnittlich 4,5 Jahren⁶
+- **Therapie:** Chirurgische Exzision oder Kryotherapie; Kryotherapie kann das Rezidivrisiko senken² ⁶
+
+![Plattenepithelpapillom – Papilläre, gestielte Wucherung am Lidrand](asset:assets/images/papilloma.png)
+
+---
+
+## 2. Seborrhoische Keratose
+
+- **Häufigkeit:** Zweithäufigster benigner Lidtumor mit **21%** aller Fälle¹
+- **Alter:** Typisches Auftreten ab dem 30. Lebensjahr, Prävalenz steigt mit zunehmendem Alter
+- **Klinisches Bild:** Scharf begrenzte, erhabene Läsionen mit **"aufgesetztem" Erscheinungsbild**; Makulae, Papeln oder Plaques⁷ ⁸
+- **Farbe:** Variiert von hautfarben über hellbraun bis dunkelbraun oder schwarz
+- **Dermoskopie:** Typische Merkmale sind Fissuren, komedonenähnliche Öffnungen und Milia-ähnliche Zysten (DD-Hilfe zum Melanom)⁹
+- **Histologie:** Proliferation epidermaler Keratinozyten mit verschiedenen Subtypen
+
+![Seborrhoische Keratose – Scharf begrenzte, erhabene Läsion mit typischem Erscheinungsbild](asset:assets/images/seborrheic_keratosis.png)
+
+### Therapie
+- Medizinisch nicht notwendig; bei kosmetischer Indikation:
+- **Kürettage:** Höchste Clearance-Rate (**87,5%**)
+- **Kryochirurgie**
+- **Laserablation:** 532-nm-Laser (55% Clearance)
+- **Topisches Wasserstoffperoxid**¹⁰
+
+---
+
+## 3. Aktinische Keratose
+
+- **Dignität:** **Prämaligne Läsion** mit Potenzial zur malignen Transformation
+- **Ätiologie:** Chronische UV-Exposition an sonnenexponierten Hautarealen¹¹ ¹²
+- **Klinisches Bild:** Raue, schuppige, erythematöse oder rosafarbene Läsionen; tastbar rau¹³
+- **Pathogenese:** UV-induzierte Mechanismen: oxidativer Stress, Immunsuppression, gestörte Apoptose, Mutagenese¹¹
+- **Malignisierungsrisiko:** Progression zu invasivem Plattenepithelkarzinom ca. **0,6% pro Jahr**
+
+### Therapie periokular
+- **Exzision mit Histologie:** Von ophthalmoplastischen Chirurgen bevorzugt (62,6%)¹⁶
+- **Kryotherapie**
+- **Topisches 5-Fluorouracil**
+- **Imiquimod**
+- **Photodynamische Therapie**
+- **Tirbanibulin-Salbe 1%:** Neuere Option, 5 Tage Anwendung¹⁷
+- **Vorbehandlung:** Hyperkeratotische Läsionen mit Tazarotene, Kürettage oder Keratolytika
+
+> **Prävention:** UV-Schutz wird von der American Academy of Dermatology stark empfohlen.
+
+---
+
+## Referenzen
+
+1. Deprez M, et al. Clinicopathological Features of Eyelid Skin Tumors (5504 Cases). [*Am J Dermatopathol.* 2009](https://doi.org/10.1097/DAD.0b013e3181961861)
+2. Brown R, et al. Evaluation and Management of Benign Tumors of the Eye and Eyelid. [*Clin Dermatol.* 2024](https://doi.org/10.1016/j.clindermatol.2024.01.005)
+3. Pe'er J. Pathology of Eyelid Tumors. [*Indian J Ophthalmol.* 2016](https://doi.org/10.4103/0301-4738.181752)
+4. Ramberg I, et al. HPV Related Neoplasia of the Ocular Adnexa. [*Viruses.* 2021](https://doi.org/10.3390/v13081522)
+5. Moyer AB, et al. HPV-Driven Squamous Lesions: High-Risk Genotypes. [*Am J Dermatopathol.* 2018](https://doi.org/10.1097/DAD.0000000000001139)
+6. Jian H, et al. Clinical Features and Prognosis of Ocular Papilloma (298 Cases). [*Graefes Arch Clin Exp Ophthalmol.* 2023](https://doi.org/10.1007/s00417-023-06035-y)
+7. Shen-Wagner J, et al. Diagnosing Common Benign Skin Tumors. [*Am Fam Physician.* 2024](https://pubmed.ncbi.nlm.nih.gov/)
+8. Barthelmann S, et al. Seborrheic Keratosis. [*JDDG.* 2023](https://doi.org/10.1111/ddg.14984)
+9. Minagawa A. Dermoscopy-Pathology Relationship in Seborrheic Keratosis. [*J Dermatol.* 2017](https://doi.org/10.1111/1346-8138.13657)
+10. Timmermann V, et al. Practical Approaches for Seborrheic Keratosis Treatment. [*Lasers Surg Med.* 2025](https://doi.org/10.1002/lsm.70042)
+11. Wang Z, et al. Pathogenesis of Actinic Keratosis. [*Front Med.* 2024](https://doi.org/10.3389/fmed.2024.1330491)
+12. de Oliveira ECV, et al. Actinic Keratosis – Review for Clinical Practice. [*Int J Dermatol.* 2019](https://doi.org/10.1111/ijd.14147)
+13. Wehner MR. Keratinocyte Carcinoma. [*JAMA.* 2025](https://doi.org/10.1001/jama.2025.18749)
+14. Siegel JA, et al. Current Perspective on Actinic Keratosis. [*Br J Dermatol.* 2017](https://doi.org/10.1111/bjd.14852)
+15. Lagler CN, et al. Management of Periocular Actinic Keratosis. [*Ophthal Plast Reconstr Surg.* 2012](https://doi.org/10.1097/IOP.0b013e318257f5f2)
+16. Blauvelt A, et al. Tirbanibulin Ointment for Actinic Keratosis (Phase 3). [*N Engl J Med.* 2021](https://doi.org/10.1056/NEJMoa2024040)
+17. Eisen DB, et al. Guidelines for Management of Actinic Keratosis. [*J Am Acad Dermatol.* 2021](https://doi.org/10.1016/j.jaad.2021.05.056)
+''',
+        wikiSummary: '''
+## Kurzzusammenfassung
+
+**Benigne epidermale Lidtumoren** – machen **84%** aller Lidtumoren aus.
+
+---
+
+### Die drei Hauptentitäten
+
+| Tumor | Häufigkeit | Therapie |
+|---|---|---|
+| **Papillom** | 26% (häufigster) | Exzision, Kryotherapie |
+| **Seborrhoische Keratose** | 21% | Kürettage (87,5%), Kryo, Laser |
+| **Aktinische Keratose** | prämaligne | Exzision + Histologie, 5-FU, Tirbanibulin |
+
+---
+
+### Wichtig
+- Papillom: HPV-assoziiert, Rezidivrate **16,3%** bei multiplen Läsionen
+- Seborrhoische Keratose: Typisch "aufgesetzt", DD Melanom per Dermoskopie
+- **Aktinische Keratose: Malignisierungsrisiko 0,6%/Jahr** → behandeln!
+
+> **UV-Schutz** ist die wichtigste Präventionsmaßnahme.
+''',
+      ),
+      const Condition(
+        id: 'xanthelasma',
+        name: 'Xanthelasma Palpebrarum',
+        description: 'Gelbliche, weiche Plaques am medialen Augenlidbereich – häufigste Form kutaner Xanthome. Unabhängiger kardiovaskulärer Risikofaktor.',
+        symptoms: ['swelling'],
+        urgency: Urgency.low,
+        treatment: ['Chirurgische Exzision (Goldstandard)', 'Laser-Therapie (Er:YAG, Q-switched Nd:YAG)', 'TCA 70%', 'Lipidsenkende Therapie bei Dyslipidämie'],
+        followUp: 'Lipidprofil bei allen Patienten; kardiovaskuläre Risikostratifizierung; Rezidivkontrolle',
+        source: null,
+        wikiContent: '''
+## Definition
+
+Xanthelasma palpebrarum (XP) sind **gelbliche, weiche Plaques**, die typischerweise am medialen Augenlidbereich auftreten und die **häufigste Form kutaner Xanthome** darstellen.¹ Die Prävalenz in der Allgemeinbevölkerung liegt bei **1,1–4,4%**.²
+
+---
+
+## Epidemiologie
+
+- **Alter:** Typischerweise 40–60 Jahre, Durchschnittsalter ca. 45–50 Jahre³ ⁴
+- **Geschlecht:** Häufiger bei **Frauen** (ca. 68–72%)³
+- **Prävalenz:** 1,1–4,4% in der Allgemeinbevölkerung²
+
+---
+
+## Ätiologie und Pathogenese
+
+Die Pathogenese ist multifaktoriell und umfasst Lipidstörungen sowie genetische Faktoren:² ¹
+
+### Assoziierte Faktoren
+
+| Faktor | Assoziation |
+|---|---|
+| **Erhöhtes Gesamtcholesterin** | Signifikant erhöht bei XP-Patienten |
+| **Erhöhtes LDL-Cholesterin** | Kausal assoziiert (Mendelsche Randomisierung) |
+| **Erniedrigtes HDL-Cholesterin** | Besonders HDL2-C erniedrigt |
+| **Erhöhtes Apolipoprotein B** | Signifikant erhöht |
+| **Apolipoprotein E4/E3-Phänotyp** | Höhere Prävalenz bei XP |
+| **Entzündungsmediatoren** | CCL2, CCL11, CCL13, CXCL1 kausal assoziiert |
+
+> **Wichtig:** Etwa **50% der Patienten mit Xanthelasma sind normolipidämisch**.¹
+
+---
+
+## Klinik
+
+### Typische Befunde⁴
+- **Gelbliche, weiche Plaques oder Papeln**
+- Lokalisation: **Medialer Augenlidbereich** (innerer Kanthus)
+- Meist **bilateral** und symmetrisch
+- Oberlid häufiger als Unterlid
+- Schmerzlos
+- Langsam progredient
+
+![Xanthelasma palpebrarum – Gelbliche Plaques am medialen Augenlidbereich](asset:assets/images/xanthelasma.png)
+
+### Differenzialdiagnosen
+- Langerhans-Zell-Histiozytose
+- Diffuses normolipämisches Xanthom
+- Juveniles Xanthogranulom
+- Nekrobiotisches Xanthogranulom
+- Erdheim-Chester-Erkrankung
+
+---
+
+## Kardiovaskuläres Risiko
+
+Xanthelasma ist ein **unabhängiger Prädiktor für kardiovaskuläre Erkrankungen**:
+
+### Copenhagen City Heart Study (n=12.745, 33 Jahre Follow-up)
+
+| Outcome | Hazard Ratio (95% KI) |
+|---|---|
+| **Myokardinfarkt** | 1,48 (1,23–1,79) |
+| **Ischämische Herzerkrankung** | 1,39 (1,20–1,60) |
+| **Schwere Atherosklerose** | 1,69 (1,03–2,79) |
+| **Tod** | 1,14 (1,04–1,26) |
+| Ischämischer Schlaganfall | 0,94 (nicht signifikant) |
+
+### Aktuelle Daten (2026, n=40.096)
+- **Hyperlipidämie:** HR 1,38 (95% KI: 1,35–1,41)
+- **Major Adverse Cardiovascular Events (MACE):** HR 1,26 (95% KI: 1,22–1,31)
+
+> **Wichtig:** Arcus corneae allein ist **kein unabhängiger Prädiktor** für kardiovaskuläres Risiko.
+
+---
+
+## Diagnostik
+
+### Klinische Diagnose
+- Typisches Erscheinungsbild (gelbe Plaques am medialen Lid)
+- Keine Biopsie erforderlich bei typischer Präsentation
+
+### Empfohlene Laboruntersuchungen
+- **Vollständiges Lipidprofil** (Gesamtcholesterin, LDL-C, HDL-C, Triglyzeride)
+- Apolipoprotein A1 und B
+- Nüchternglukose
+- Kardiovaskuläre Risikostratifizierung
+
+> **Empfehlung:** Alle Patienten mit Xanthelasma sollten ein **Lipidprofil** erhalten und auf kardiovaskuläre Risikofaktoren untersucht werden.
+
+---
+
+## Therapie
+
+Die Behandlung ist primär **kosmetisch indiziert**:
+
+### Therapieoptionen
+
+| Therapie | Clearance-Rate | Rezidivrate |
+|---|---|---|
+| **Chirurgische Exzision** | 100% | 17,5% |
+| **CO₂-Laser** | 93–100% | variabel |
+| **Er:YAG-Laser** | 100% | 10,5% |
+| **Q-switched Nd:YAG** | 93,2–100% | niedrig |
+| **TCA 70%** | 22,2% (komplett) | höher |
+| **Kryotherapie** | moderat | variabel |
+| **Intradermales Heparin** | gut (Grad I–II) | niedrig |
+
+### Therapieempfehlungen
+1. **Chirurgische Exzision:** Goldstandard für lokalisierte Läsionen
+2. **Laser-Therapie:** Er:YAG oder Q-switched Nd:YAG für gute kosmetische Ergebnisse
+3. **TCA 70%:** Option für kleine, frühe Läsionen
+4. **Intradermales Heparin:** Für frühe Grad I–II Läsionen
+
+### Zusätzliche Maßnahmen
+- **Lipidsenkende Therapie** bei Dyslipidämie
+- Lebensstilmodifikation (Ernährung, Bewegung)
+- Behandlung kardiovaskulärer Risikofaktoren
+
+---
+
+## Prognose
+
+- **Rezidivrate:** 10,5–17,5% je nach Therapiemodalität
+- **Kardiovaskuläres Risiko:** Erhöht, unabhängig von klassischen Risikofaktoren
+- Multiple Läsionen haben höhere Rezidivrate als singuläre
+
+---
+
+## Referenzen
+
+1. Bergman R. The Pathogenesis and Clinical Significance of Xanthelasma Palpebrarum. [*J Am Acad Dermatol.* 1994](https://doi.org/10.1016/s0190-9622(94)70023-0)
+2. Hu W, et al. Genetic Insight Into Causes of Xanthelasma: A Mendelian Randomization Study. [*Front Immunol.* 2024](https://doi.org/10.3389/fimmu.2024.1347112)
+3. Liu ZX, et al. Factors Influencing Xanthelasma in Chinese Patients. [*Medicine.* 2025](https://doi.org/10.1097/MD.0000000000043325)
+4. Dey A, et al. Cardiovascular Profile of Xanthelasma Palpebrarum. [*Biomed Res Int.* 2013](https://doi.org/10.1155/2013/932863)
+5. Chang HC, et al. Serum Lipids and Risk of Atherosclerosis in Xanthelasma. [*J Am Acad Dermatol.* 2020](https://doi.org/10.1016/j.jaad.2019.08.082)
+6. Christoffersen M, et al. Xanthelasmata, Arcus Corneae, and Ischaemic Vascular Disease. [*BMJ.* 2011](https://doi.org/10.1136/bmj.d5497)
+7. Bineshfar N, et al. Eyelid Xanthelasma and Cardiovascular Outcomes. [*Ophthal Plast Reconstr Surg.* 2026](https://doi.org/10.1097/IOP.0000000000003187)
+8. Wang KY, et al. Relationship Between Xanthelasma and Hyperlipidemia. [*Ann Plast Surg.* 2018](https://doi.org/10.1097/SAP.0000000000001310)
+9. Neinaa YME, et al. CO₂ Laser Versus Intradermal Heparin in Xanthelasma. [*Photodermatol Photoimmunol Photomed.* 2023](https://doi.org/10.1111/phpp.12915)
+10. Kumar S, et al. Surgical Excision Versus TCA 70% in Xanthelasma. [*Clin Exp Dermatol.* 2026](https://doi.org/10.1093/ced/llag080)
+11. Heng JK, et al. Q-Switched Nd:YAG Laser for Xanthelasma. [*J Am Acad Dermatol.* 2017](https://doi.org/10.1016/j.jaad.2017.03.041)
+12. Park H, et al. Er:YAG Laser for Xanthelasma. [*Lasers Med Sci.* 2025](https://doi.org/10.1007/s10103-024-04273-y)
+''',
+        wikiSummary: '''
+## Kurzzusammenfassung
+
+**Xanthelasma palpebrarum** = gelbliche Plaques am medialen Lid. Häufigste kutane Xanthome (Prävalenz 1,1–4,4%). **50% sind normolipidämisch.**
+
+---
+
+### Kardiovaskuläres Risiko
+- **Unabhängiger Prädiktor** für MI (HR 1,48), IHD (HR 1,39)
+- MACE HR 1,26 – Lipidprofil bei **allen** Patienten!
+
+---
+
+### Therapie
+| Therapie | Clearance | Rezidiv |
+|---|---|---|
+| Chirurgische Exzision | 100% | 17,5% |
+| Er:YAG-Laser | 100% | 10,5% |
+| Q-switched Nd:YAG | 93–100% | niedrig |
+
+> **Cave:** Immer **Lipidprofil + kardiovaskuläre Risikostratifizierung** durchführen!
+''',
       ),
       const Condition(
         id: 'basal_cell_carcinoma',
@@ -1468,16 +2436,6 @@ Alle 6–12 Monate für 5 Jahre, dann jährlich lebenslang (NCCN).
         source: null,
       ),
       const Condition(
-        id: 'thygeson_keratitis',
-        name: 'Thygeson-Keratitis',
-        description: 'Rezidivierende oberflächliche Keratitis mit typischen subepithelialen Trübungen; oft bilateral, wenig Rötung.',
-        symptoms: ['light_sensitivity', 'foreign_body', 'blurred_vision'],
-        urgency: Urgency.low,
-        treatment: ['Steroid-Tropfen niedrig dosiert bei Schub', 'Tränenersatz', 'Weiche Kontaktlinsen als Option'],
-        followUp: 'Bei Rezidiven',
-        source: null,
-      ),
-      const Condition(
         id: 'fungal_keratitis',
         name: 'Pilz-Keratitis',
         description: 'Pilzinfektion der Hornhaut; typisch nach Trauma mit pflanzlichem Material oder bei Kontaktlinsen.',
@@ -1590,12 +2548,422 @@ Alle 6–12 Monate für 5 Jahre, dann jährlich lebenslang (NCCN).
       const Condition(
         id: 'filamentary_keratitis',
         name: 'Filamentöse Keratitis',
-        description: 'Hornhautfilamente bei trockenem Auge oder nach Epithelerkrankung; Entfernung und Tränenersatz.',
-        symptoms: ['foreign_body', 'dry_eyes', 'pain'],
+        description: 'Chronisch-rezidivierende Hornhauterkrankung mit adhärenten fadenförmigen Strukturen aus Epithel, Mukus und Zelldetritus.',
+        symptoms: ['foreign_body', 'dry_eyes', 'pain', 'tearing', 'light_sensitivity'],
         urgency: Urgency.low,
-        treatment: ['Tränenersatz intensiv', 'Filament-Entfernung', 'Lidhygiene', 'Punctum Plugs bei Bedarf'],
-        followUp: 'Bei Rezidiven',
+        treatment: ['Mechanische Filamententfernung', 'Konservierungsmittelfreie künstliche Tränen', 'N-Acetylcystein 2-10%', 'Hypertone NaCl 5%'],
+        followUp: 'Regelmäßig; chronisch-rezidivierender Verlauf; Grunderkrankung behandeln',
         source: null,
+        wikiContent: '''
+## Definition
+
+Die filamentöse Keratitis (FK) ist eine **chronisch-rezidivierende Hornhauterkrankung**, die durch das Vorhandensein von fadenförmigen Strukturen (Filamenten) auf der Hornhautoberfläche charakterisiert ist.¹ Diese Filamente bestehen aus **Epithel, Mukus und Zelldetritus** und sind an der Hornhaut adhärent.¹
+
+---
+
+## Epidemiologie
+
+- Durchschnittsalter: **56,9 Jahre**²
+- **Häufiger bei Frauen** und älteren Personen³
+- Kann uni- oder bilateral auftreten (abhängig von der Grunderkrankung)³
+
+---
+
+## Ätiologie und assoziierte Erkrankungen
+
+Die FK ist mit einer Vielzahl von okulären und systemischen Erkrankungen assoziiert:¹ ² ³
+
+### Häufigste Ursachen²
+
+| Ursache | Häufigkeit | Remissionsrate |
+|---|---|---|
+| **Hirnläsionen** (Schlaganfall, Tumor) | 36,2% | 33,3% (niedrigste) |
+| **Trockenes Auge** (KCS) | 30,2% | >60% |
+| **Autoimmunerkrankungen** (Sjögren) | 24,1% | >60% |
+| Augenoperationen/-verletzungen | variabel | >60% |
+
+### Weitere assoziierte Erkrankungen³
+- Superior limbic keratoconjunctivitis (SLK)
+- Virale Keratokonjunktivitis
+- Prolongiertes Augenpatching nach Operationen
+- Penetrierende Keratoplastik
+- Ptosis
+- Rezidivierende Hornhauterosion
+- Neurotrophe Keratitis
+- Bullöse Keratopathie
+- Blepharospasmus
+
+---
+
+## Pathogenese
+
+Die genaue Pathogenese ist noch nicht vollständig geklärt, jedoch spielen folgende Faktoren eine Rolle:¹ ³
+
+### Austrocknung (Desiccation)
+- Tränenfilminstabilität
+- Epithelschädigung durch Hyperosmolarität
+
+### Mechanische Lidkräfte (Blink-Mikrotrauma)³
+- Lidschlag traumatisiert die Augenoberfläche
+- Bei Ptosis: Konstanter Kontakt zwischen Lidrand und superiorer Hornhaut
+- Bei SLK: Redundante Bindehaut verursacht Reibung
+- Bei KCS: Horizontale Bindehautfalten entlang der Lidränder
+
+### Entzündungsmediatoren
+- Chronische Entzündung der Augenoberfläche
+- Konjunktivale Plattenepithelmetaplasie
+- Becherzellverlust
+
+> **Teufelskreis:** Reibung → Epithelschädigung → Filamentbildung → weitere Irritation → verstärkte Reibung
+
+---
+
+## Klinik
+
+### Symptome¹ ³
+- **Fremdkörpergefühl** (Leitsymptom)
+- Chronische Augenschmerzen
+- Irritation/Brennen
+- Tränenfluss
+- Muköser Ausfluss
+- Photophobie
+- Blepharospasmus
+
+### Klinische Befunde¹ ⁵
+- **Filamente auf der Hornhautoberfläche:** Fadenförmige, an der Hornhaut adhärente Strukturen
+- Filamente bestehen aus Epithel, Mukus und Zelldetritus
+- Positive Fluorescein-Anfärbung der Filamente
+- Punktförmige Epitheldefekte
+- Konjunktivale Injektion
+
+![Filamentöse Keratitis – Hornhautfilamente in der Spaltlampenuntersuchung](asset:assets/images/filamentary_keratitis.png)
+
+---
+
+## Diagnostik
+
+Die Diagnose ist **klinisch** und basiert auf:
+
+- **Spaltlampenuntersuchung:** Nachweis der charakteristischen Filamente
+- **Fluorescein-Färbung:** Anfärbung der Filamente und Epitheldefekte
+- **Anamnese:** Identifikation der Grunderkrankung
+
+> **Wichtig:** Suche nach der zugrunde liegenden Ursache (Trockenes Auge, Autoimmunerkrankung, neurologische Erkrankung)
+
+---
+
+## Therapie
+
+Die Behandlung erfordert einen **stufenweisen Ansatz** mit Behandlung der Grunderkrankung und spezifischer Filamenttherapie:¹ ⁴ ³
+
+### Stufe 1 – Basistherapie
+- **Mechanische Filamententfernung:** Mit Juwelier-Pinzette oder Zelluloseacetat-Filter³
+- **Konservierungsmittelfreie künstliche Tränen:** Intensive Lubrikation¹
+- **Behandlung der Grunderkrankung** (z.B. Trockenes Auge)
+
+### Stufe 2 – Medikamentöse Therapie
+
+| Therapie | Wirkmechanismus | Anwendung |
+|---|---|---|
+| **Hypertone NaCl (5%)** | Entzieht Flüssigkeit, fördert Epitheladhäsion | Mehrmals täglich |
+| **N-Acetylcystein (2–10%)** | Mukolytikum, löst Filamente auf | 4x täglich |
+| **Topische Kortikosteroide** | Antiinflammatorisch | Kurzzeitig |
+| **Topische NSAIDs** (Diclofenac 0,1%) | Antiinflammatorisch | Schnellere Besserung |
+| **Ciclosporin A** | Immunmodulation | Bei chronischen Fällen |
+
+### Stufe 3 – Erweiterte Therapie
+- **Punctum Plugs:** Verbesserung der Tränenretention¹ ⁴
+- **Bandage-Kontaktlinsen:** Schutz vor mechanischem Trauma¹ ³
+- **Autologe Serumaugentropfen (20%):** Bei refraktären Fällen effektiv⁶
+
+### Stufe 4 – Refraktäre Fälle
+- **Botulinumtoxin A (Onabotulinumtoxin A):**³
+  - Injektion in den M. orbicularis oculi
+  - Reduziert Lidschlagfrequenz und -kraft
+  - Vermindert mechanisches Trauma
+  - Effektiv bei Blepharospasmus, SLK, schwerer KCS
+  - Wiederholung oft erforderlich (>50% benötigen Serieninjektionen)
+- **Ptosis-Chirurgie:** Bei Ptosis-assoziierter FK³
+- **Boston Ocular Surface Prosthesis:** Sklerallinse mit Flüssigkeitsreservoir³
+
+---
+
+## Therapie nach Grunderkrankung
+
+| Grunderkrankung | Empfohlene Therapie | Prognose |
+|---|---|---|
+| **Trockenes Auge** | Lubrikation, Punctum Plugs, Antiinflammatorisch | Gut (>60% Remission) |
+| **Autoimmunerkrankung** | Systemische Therapie + lokale Behandlung | Gut (>60% Remission) |
+| **Hirnläsion** | Intensive lokale Therapie, Botulinumtoxin | Schlecht (33% Remission) |
+| **Postoperativ** | Lubrikation, Bandage-KL | Gut |
+
+---
+
+## Prognose
+
+- **Chronisch-rezidivierender Verlauf** häufig¹ ⁵
+- Remissionsraten abhängig von der Grunderkrankung²
+- **Hirnläsionen:** 6,6-fach höheres Therapieversagen im Vergleich zu anderen Ursachen²
+- Prolongierte Therapie oft notwendig zur Rezidivprophylaxe¹
+
+---
+
+## Prophylaxe
+
+- **Präoperative Optimierung** der Augenoberfläche bei Risikopatienten⁴
+- Vermeidung von konservierten Augentropfen
+- Regelmäßige Lubrikation bei Trockenem Auge
+- Behandlung von Lidfehlstellungen
+
+---
+
+## Referenzen
+
+1. Weiss M, et al. A Review of Filamentary Keratitis. [*Surv Ophthalmol.* 2022](https://doi.org/10.1016/j.survophthal.2021.04.002)
+2. Lee SM, et al. Clinical Manifestation and Risk Factors in Filamentary Keratitis. [*Am J Ophthalmol.* 2020](https://doi.org/10.1016/j.ajo.2020.05.037)
+3. Gumus K, et al. Botulinum Toxin for Refractory Filamentary Keratitis. [*Arch Ophthalmol.* 2012](https://doi.org/10.1001/archophthalmol.2011.2713)
+4. Albietz J, et al. Management of FK Associated With Aqueous-Deficient Dry Eye. [*Optom Vis Sci.* 2003](https://doi.org/10.1097/00006324-200306000-00007)
+5. Crist AJ. Management of Refractory FK With N-Acetylcysteine. [*Optom Vis Sci.* 2021](https://doi.org/10.1097/OPX.0000000000001701)
+6. Read SP, et al. Treatment of Refractory FK With Autologous Serum Tears. [*Eye Contact Lens.* 2017](https://doi.org/10.1097/ICL.0000000000000217)
+''',
+        wikiSummary: '''
+## Kurzzusammenfassung
+
+**Filamentöse Keratitis** = adhärente Filamente (Epithel + Mukus + Zelldetritus) auf der Hornhaut. Chronisch-rezidivierend.
+
+---
+
+### Häufigste Ursachen
+| Ursache | Häufigkeit | Remission |
+|---|---|---|
+| Hirnläsionen | 36,2% | 33,3% |
+| Trockenes Auge | 30,2% | >60% |
+| Autoimmun (Sjögren) | 24,1% | >60% |
+
+---
+
+### Therapie-Stufenschema
+
+1. **Basis:** Filamententfernung + Lubrikation
+2. **Medikamentös:** N-Acetylcystein + hypertone NaCl 5%
+3. **Erweitert:** Punctum Plugs, Bandage-KL, Serum-AT
+4. **Refraktär:** Botulinumtoxin A
+
+> **Cave:** Hirnläsionen haben **6,6-fach höheres Therapieversagen**! Grunderkrankung immer behandeln.
+''',
+      ),
+      const Condition(
+        id: 'xerophthalmia',
+        name: 'Xerophthalmie',
+        description: 'Okuläre Manifestationen des Vitamin-A-Mangels – von Nachtblindheit bis Keratomalazie. Häufigste Ursache vermeidbarer Blindheit bei Kindern weltweit.',
+        symptoms: ['dry_eyes', 'blurred_vision', 'light_sensitivity'],
+        urgency: Urgency.high,
+        treatment: ['Hochdosis-Vitamin-A oral (200.000 IU)', 'Bei Malabsorption: parenterale Gabe', 'Lubrikation', 'Behandlung von Begleitinfektionen'],
+        followUp: 'Keratomalazie ist ein Notfall! Frühe Stadien vollständig reversibel',
+        source: null,
+        wikiContent: '''
+## Definition
+
+Xerophthalmie bezeichnet die **okulären Manifestationen eines Vitamin-A-Mangels** und umfasst ein Spektrum von Veränderungen von Nachtblindheit bis zur Keratomalazie.¹ Sie ist weltweit eine der **häufigsten Ursachen für vermeidbare Blindheit** bei Kindern.²
+
+---
+
+## Epidemiologie
+
+- **Weltweit:** Wichtiges Public-Health-Problem, besonders in Entwicklungsländern²
+- **Entwickelte Länder:** Selten, aber zunehmend (v.a. durch alkoholische Lebererkrankung)¹
+- **Risikogruppen:** Kinder 6 Monate – 5 Jahre, schwangere/stillende Frauen²
+- **Mortalität:** Kinder mit milder Xerophthalmie haben eine **4-fach erhöhte Mortalität**³
+
+---
+
+## Ätiologie und Risikofaktoren
+
+### Entwicklungsländer² ⁴
+- Unzureichende Vitamin-A-Zufuhr (Armut)
+- Infektionskrankheiten (Masern, Durchfallerkrankungen)
+- Protein-Energie-Mangelernährung
+
+### Entwickelte Länder¹ ⁵ ⁶ ⁷
+
+| Risikofaktor | Mechanismus |
+|---|---|
+| **Fettmalabsorption** | Gestörte Vitamin-A-Resorption |
+| **Chronische Lebererkrankung/Alkoholismus** | Gestörte Speicherung und Metabolismus |
+| **Autismus-Spektrum-Störung** | Restriktive Ernährung |
+| **Zystische Fibrose** | Malabsorption |
+| **Kurzdarmsyndrom** | Malabsorption |
+| **Zöliakie** | Malabsorption |
+| **Dialysepflichtige Niereninsuffizienz** | Erhöhter Verlust |
+
+---
+
+## Pathophysiologie
+
+Vitamin A ist essentiell für:⁸
+
+1. **Sehfunktion:** Bildung von Rhodopsin (Sehpurpur) für die Dunkeladaptation
+2. **Epithelzelldifferenzierung:** Erhalt des nicht-verhornenden Epithels
+3. **Immunfunktion:** Aufrechterhaltung der Infektionsabwehr
+
+### Pathologische Veränderungen bei Mangel⁸
+- Keratinisierung der Bindehaut und Hornhaut
+- Verlust der Becherzellen (Muzinproduktion ↓)
+- Reduzierte wässrige Tränenproduktion
+- Stromale Einschmelzung (auch ohne bakterielle Invasion möglich)
+
+---
+
+## WHO-Klassifikation der Xerophthalmie
+
+| Stadium | Bezeichnung | Beschreibung |
+|---|---|---|
+| **XN** | Nachtblindheit | Gestörte Dunkeladaptation |
+| **X1A** | Konjunktivale Xerosis | Trockene, matte Bindehaut |
+| **X1B** | Bitot-Flecken | Schaumige, weiße Flecken auf der Bindehaut |
+| **X2** | Korneale Xerosis | Trockene, matte Hornhaut |
+| **X3A** | Keratomalazie (<1/3) | Ulzeration/Nekrose |
+| **X3B** | Keratomalazie (≥1/3) | Schwere Nekrose |
+| **XS** | Hornhautnarben | Residuen nach Xerophthalmie |
+| **XF** | Xerophthalmischer Fundus | Retinale Veränderungen |
+
+---
+
+## Klinik
+
+### Symptome¹ ⁵ ⁸
+- **Nachtblindheit** (frühestes Symptom)
+- Augenreizung/Fremdkörpergefühl
+- Photophobie
+- Verschwommenes Sehen
+- Augentrockenheit
+
+### Frühe Stadien (XN, X1A, X1B)
+- Gestörte Dunkeladaptation
+- Matte, trockene Bindehaut
+- **Bitot-Flecken:** Schaumige, weiße, dreieckige Läsionen temporal der Hornhaut
+- **Punktförmige Epithelkeratopathie:** Früheste Hornhautmanifestation (bei 60% der Patienten mit Nachtblindheit)
+
+![Bitot-Flecken – Schaumige, weiße Läsionen auf der Bindehaut als Zeichen des Vitamin-A-Mangels](asset:assets/images/xerophthalmia_bitot.png)
+
+### Späte Stadien (X2, X3)
+- Hornhautxerosis: Matte, trockene Hornhautoberfläche
+- Hornhautulzeration
+- **Keratomalazie:** Nekrotische Einschmelzung der Hornhaut (Notfall!)
+- Hornhautperforation möglich
+
+---
+
+## Diagnostik
+
+### Klinische Diagnose¹ ⁶
+- Anamnese (Ernährung, Grunderkrankungen)
+- Spaltlampenuntersuchung
+- Fluorescein-Färbung
+
+### Labordiagnostik
+- **Serum-Vitamin-A-Spiegel:** Normal 80–300 Units/100 mL (30–70 µg/dL)
+
+> **Wichtig:** Bei Kindern mit Autismus und Augenreizung immer an Vitamin-A-Mangel denken!⁵
+
+---
+
+## Therapie
+
+**Akute korneale Xerophthalmie ist ein medizinischer Notfall!**
+
+### WHO-Therapieschema (oral)
+
+| Patientengruppe | Tag 1 | Tag 2 | Nach 2 Wochen |
+|---|---|---|---|
+| **Kinder >1 Jahr** | 200.000 IU | 200.000 IU | 200.000 IU |
+| **Kinder 6–12 Monate** | 100.000 IU | 100.000 IU | 100.000 IU |
+| **Kinder <6 Monate** | 50.000 IU | 50.000 IU | 50.000 IU |
+
+### Parenterale Therapie (bei Malabsorption)
+- **Erwachsene:** 100.000 IU/Tag i.m. für 3 Tage, dann 50.000 IU/Tag für 2 Wochen
+- **Kinder 1–8 Jahre:** 17.500–35.000 IU/Tag für 10 Tage
+- **Säuglinge:** 7.500–15.000 IU/Tag für 10 Tage
+
+> **Orale vs. parenterale Therapie:** Orale Gabe ist **genauso effektiv** wie parenterale Gabe, auch bei Durchfall oder Protein-Energie-Mangelernährung.
+
+### Zusätzliche Maßnahmen
+- Behandlung von Begleitinfektionen
+- Ernährungsberatung
+- Lubrikation der Augenoberfläche
+- Bei Hornhautperforation: Chirurgische Intervention
+
+---
+
+## Prognose
+
+- **Frühe Stadien (XN, X1A, X1B):** Vollständige Reversibilität unter Vitamin-A-Therapie¹
+- **Korneale Xerosis:** Schnelle Besserung innerhalb einer Woche
+- **Keratomalazie:** Kann zu **irreversibler Blindheit** führen⁵ ⁶
+- **Mortalität:** 16% aller Todesfälle bei Kindern 1–6 Jahre in endemischen Gebieten³
+
+---
+
+## Prophylaxe
+
+### Individuelle Prophylaxe
+- Vitamin-A-reiche Ernährung (Leber, Eier, Milchprodukte, dunkelgrünes Blattgemüse, gelbe Früchte)
+- Vitamin-A-Supplementierung bei Risikogruppen
+
+### Public-Health-Maßnahmen²
+- Vitamin-A-Supplementierung bei Kindern 6 Monate – 5 Jahre
+- Kombination mit Masernimpfung
+- Anreicherung von Lebensmitteln (Biofortifikation)
+- Postpartale Supplementierung der Mutter
+
+---
+
+## Referenzen
+
+1. McLaughlin S, et al. Xerophthalmia – A Potential Epidemic on Our Doorstep? [*Eye.* 2014](https://doi.org/10.1038/eye.2014.17)
+2. Sherwin JC, et al. Epidemiology of Vitamin A Deficiency and Xerophthalmia. [*Trans R Soc Trop Med Hyg.* 2012](https://doi.org/10.1016/j.trstmh.2012.01.004)
+3. Sommer A. Mortality Associated With Mild, Untreated Xerophthalmia. [*Trans Am Ophthalmol Soc.* 1983](https://pubmed.ncbi.nlm.nih.gov/6676983/)
+4. Mele L, et al. Nutritional and Household Risk Factors for Xerophthalmia in Aceh. [*Am J Clin Nutr.* 1991](https://doi.org/10.1093/ajcn/53.6.1460)
+5. Marek S, et al. Potential Blindness From Nutritional Xerophthalmia in Autistic Patients. [*J AAPOS.* 2023](https://doi.org/10.1016/j.jaapos.2023.05.009)
+6. Van Swol J, et al. Four Cases of Keratopathy From Vitamin A Deficiency. [*Cornea.* 2025](https://doi.org/10.1097/ICO.0000000000003992)
+7. Chiu M, et al. Vitamin A Deficiency and Xerophthalmia in Children. [*J Paediatr Child Health.* 2016](https://doi.org/10.1111/jpc.13243)
+8. Sommer A. Effects of Vitamin A Deficiency on the Ocular Surface. [*Ophthalmology.* 1983](https://doi.org/10.1016/s0161-6420(83)34512-7)
+9. Sommer A. Xerophthalmia and Vitamin A Status. [*Prog Retin Eye Res.* 1998](https://doi.org/10.1016/s1350-9462(97)00001-3)
+10. Sommer A, et al. Vitamin A-Responsive Punctate Keratopathy in Xerophthalmia. [*Am J Ophthalmol.* 1979](https://doi.org/10.1016/0002-9394(79)90072-2)
+11. Sommer A, et al. Oral Versus Intramuscular Vitamin A in Xerophthalmia. [*Lancet.* 1980](https://doi.org/10.1016/s0140-6736(80)91053-3)
+12. Ross DA. Recommendations for Vitamin A Supplementation. [*J Nutr.* 2002](https://doi.org/10.1093/jn/132.9.2902S)
+''',
+        wikiSummary: '''
+## Kurzzusammenfassung
+
+**Xerophthalmie** = okuläre Manifestation des **Vitamin-A-Mangels**. Von Nachtblindheit bis Keratomalazie. Häufigste Ursache **vermeidbarer Blindheit** bei Kindern.
+
+---
+
+### WHO-Klassifikation
+| Stadium | Beschreibung |
+|---|---|
+| XN | Nachtblindheit |
+| X1B | **Bitot-Flecken** (pathognomonisch) |
+| X2 | Korneale Xerosis |
+| X3A/B | **Keratomalazie** (Notfall!) |
+
+---
+
+### Therapie (WHO-Schema)
+- **Kinder >1 Jahr:** 200.000 IU oral an Tag 1, 2, und nach 2 Wochen
+- Bei Malabsorption: parenterale Gabe
+- Orale Gabe genauso effektiv wie parenteral
+
+---
+
+### Prognose
+- Frühe Stadien: **vollständig reversibel**
+- Keratomalazie: **irreversible Blindheit** möglich
+- **4-fach erhöhte Mortalität** bei Kindern
+
+> **Cave:** In entwickelten Ländern an **Alkoholismus, Malabsorption, Autismus** denken!
+''',
       ),
       const Condition(
         id: 'exposure_keratopathy',
@@ -1666,6 +3034,1213 @@ Alle 6–12 Monate für 5 Jahre, dann jährlich lebenslang (NCCN).
         treatment: ['Präoperativ: Grunderkrankung stabilisieren', 'Postoperativ: lokale Steroide und Immunsuppression', 'Abstoßungszeichen erkennen'],
         followUp: 'Langfristige Nachsorge',
         source: null,
+      ),
+      const Condition(
+        id: 'ocular_rosacea',
+        name: 'Rosazea & Okuläre Rosazea',
+        description: 'Chronisch-entzündliche Erkrankung mit okulärer Beteiligung bei bis zu 75% der Rosazea-Patienten.',
+        symptoms: ['redness', 'burning', 'dry_eyes', 'light_sensitivity', 'blurred_vision'],
+        urgency: Urgency.medium,
+        treatment: ['Lidhygiene 2x täglich', 'Künstliche Tränen', 'Ciclosporin-AT 0,05%', 'Doxycyclin 40-100mg bei schweren Fällen'],
+        followUp: 'Regelmäßige Kontrolle alle 3-6 Monate; bei Keratitis sofort',
+        source: null,
+        wikiContent: '''
+## Definition
+
+**Rosazea** ist eine **chronisch-entzündliche Hauterkrankung**, die primär das Gesicht betrifft und durch persistierendes Erythem, Papeln, Pusteln, Teleangiektasien und rezidivierendes Flushing gekennzeichnet ist.¹ Die **okuläre Beteiligung** tritt bei **bis zu 75% der Rosazea-Patienten** auf und kann den kutanen Manifestationen vorausgehen, gleichzeitig auftreten oder folgen.¹ ²
+
+---
+
+## Klassifikation der Rosazea
+
+| Subtyp | Klinische Merkmale |
+|---|---|
+| **Erythematotelangiektaktisch** | Persistierendes Erythem, Flushing, Teleangiektasien |
+| **Papulopustulös** | Erythem mit Papeln und Pusteln |
+| **Phymatös** | Hautverdickung, Rhinophym (Knollennase) |
+| **Okulär** | Augenbeteiligung (Blepharitis, Konjunktivitis, Keratitis) |
+
+---
+
+## Pathophysiologie
+
+Die Pathogenese der okulären Rosazea umfasst mehrere Mechanismen:⁴ ⁵ ⁶
+
+- **Immunsystem-Dysregulation:** Aktivierung von Toll-like-Rezeptoren (insbesondere TLR-4) und Komplementsystem führt zu chronischer Entzündung der Augenoberfläche
+- **Neurovaskuläre Dysregulation:** Beteiligung von VEGF, TRP-Ionenkanälen und Neuropeptiden
+- **Oxidativer Stress:** Erhöhter Gesamtoxidationsstatus (TOS) und erniedrigter Antioxidantienstatus (TAS) in Tränen und Serum
+- **Meibom-Drüsen-Dysfunktion:** Zentrale Rolle bei der okulären Manifestation
+- **Mikrobiom-Veränderungen:** Alterationen des okulären Mikrobioms
+- **Typ-IV-Hypersensitivitätsreaktion:** Histologisch zeigt sich eine T-Helfer-Zell-dominierte Entzündung (CD4/CD8-Ratio erhöht)⁷
+
+---
+
+## Klinik
+
+### Symptome⁸
+- Fremdkörpergefühl (21,8%)
+- Trockenheit (32,3%)
+- Brennen/Stechen
+- Juckreiz
+- Tränen (29,4%)
+- Photophobie (20,5%)
+- Verschwommenes Sehen
+
+### Befunde² ³ ⁹
+- **Blepharitis:** Lidrandentzündung mit Teleangiektasien, Erythem, Schuppung
+- **Meibom-Drüsen-Dysfunktion:** Mit rezidivierenden [Hordeola](#hordeolum) und [Chalazien](#chalazion)
+- **Konjunktivitis:** Diffuse konjunktivale Hyperämie
+- **Keratitis:** Korneavaskularisation, Ulzeration, Narbenbildung
+- **Selten:** Episkleritis, Skleritis, Iritis, Korneaperforation (sehbedrohend)
+
+![Okuläre Rosazea – Typische Befunde mit Blepharitis und Lidrandentzündung](asset:assets/images/ocular_rosacea.png)
+
+---
+
+## Diagnostik
+
+Die Diagnose ist **primär klinisch** und basiert auf:³ ⁸
+
+- Anamnese (Augensymptome bei allen Rosazea-Patienten erfragen)
+- Inspektion von Lidern und Augenoberfläche
+- Spaltlampenuntersuchung
+
+> **Wichtig:** Die Diagnose wird häufig verzögert, insbesondere bei Kindern und bei Fehlen kutaner Veränderungen.³ ⁴
+
+---
+
+## Therapie
+
+Die Behandlung erfolgt **stufenweise** je nach Schweregrad:¹ ¹⁰ ¹¹
+
+### Basistherapie (alle Patienten)
+- **Lidhygiene:** Zweimal täglich mit lauwarmem Wasser oder warmen Kompressen
+- **Künstliche Tränen:** Nach Bedarf
+
+### Topische Therapie (Grad 1–2)
+- **Ciclosporin-Augentropfen 0,05%:** Verbessert Lebensqualität und Tränenproduktion¹ ¹²
+- **Azithromycin topisch:** Auf Lidrand
+- **Metronidazol-Gel 0,75%:** Auf Lidrand
+- **Fusidinsäure-Gel:** Auf Lidrand
+- **Ivermectin topisch:** Auf Lidrand¹¹
+
+### Systemische Therapie (Grad 2–3, schwere Fälle)
+- **Doxycyclin:** 40 mg (modifizierte Freisetzung) oder 100 mg täglich¹ ¹⁰
+- **Azithromycin oral:** Alternative
+- **Isotretinoin niedrig dosiert:** Bei therapierefraktären Fällen
+
+### Lichtbasierte Therapie
+- **Intense Pulsed Light (IPL):** 89% partielle Ansprechrate¹⁰
+
+---
+
+## Therapieeffektivität¹⁰
+
+| Therapie | Ansprechrate |
+|---|---|
+| Topische Antimikrobielle | 91% (82/90) |
+| Orale Antibiotika | 89% (525/580) |
+| Intense Pulsed Light | 89% (97/109) |
+| Ciclosporin-Augentropfen | 87% (40/46) |
+| Lidhygiene allein | 65% (67/105) |
+| Kombinationstherapie | 90% (69/77) |
+
+---
+
+## Schweregrad-basiertes Management⁹
+
+1. **Grad 1 (mild):** Lidhygiene, künstliche Tränen, ggf. topische Therapie
+2. **Grad 2 (moderat):** Systemische Therapie (Doxycyclin)
+3. **Grad 3 (schwer):** Überweisung zum Ophthalmologen obligat (Keratitis, Skleritis, Iritis)
+
+---
+
+## Interdisziplinäre Zusammenarbeit
+
+Eine **enge Kooperation zwischen Dermatologen und Ophthalmologen** ist essenziell:²
+
+- Dermatologen sollten bei allen Rosazea-Patienten nach Augensymptomen fragen
+- Ophthalmologen sollten bei okulären Befunden an kutane Rosazea denken
+- Frühzeitige Diagnose und Behandlung verhindert permanente Augenschäden
+
+---
+
+## Referenzen
+
+1. van Zuuren EJ. Rosacea. [*N Engl J Med.* 2017](https://doi.org/10.1056/NEJMcp1506630)
+2. Vassileva S, et al. Rosacea: The Eyes Have It. [*Clin Dermatol.* 2023](https://doi.org/10.1016/j.clindermatol.2023.08.009)
+3. Tavassoli S, et al. Ocular Manifestations of Rosacea: A Clinical Review. [*Clin Exp Ophthalmol.* 2021](https://doi.org/10.1111/ceo.13900)
+4. Mohamed-Noriega K, et al. Ocular Rosacea: An Updated Review. [*Cornea.* 2025](https://doi.org/10.1097/ICO.0000000000003785)
+5. Rodrigues-Braz D, et al. Cutaneous and Ocular Rosacea: Common and Specific Physiopathogenic Mechanisms. [*Mol Vis.* 2021](https://pubmed.ncbi.nlm.nih.gov/34220178/)
+6. Yesilirmak N, et al. Toll-Like Receptor-4 Expression and Oxidative Stress in Ocular Rosacea. [*Mol Vis.* 2024](https://pubmed.ncbi.nlm.nih.gov/38846480/)
+7. Hoang-Xuan T, et al. Ocular Rosacea: A Histologic and Immunopathologic Study. [*Ophthalmology.* 1990](https://doi.org/10.1016/s0161-6420(90)32403-x)
+8. Sinikumpu SP, et al. Ocular Symptoms and Rosacea: A Population-Based Study. [*Dermatology.* 2022](https://doi.org/10.1159/000522494)
+9. Powell FC. Rosacea. [*N Engl J Med.* 2005](https://doi.org/10.1056/NEJMcp042829)
+10. Avraham S, et al. Treatment of Ocular Rosacea: A Systematic Review. [*JDDG.* 2024](https://doi.org/10.1111/ddg.15290)
+11. Clanner-Engelshofen BM, et al. S2k Guideline: Rosacea. [*JDDG.* 2022](https://doi.org/10.1111/ddg.14849)
+12. van Zuuren EJ, et al. Interventions for Rosacea. [*Cochrane Database Syst Rev.* 2015](https://doi.org/10.1002/14651858.CD003262.pub5)
+''',
+        wikiSummary: '''
+## Kurzzusammenfassung
+
+**Okuläre Rosazea** = chronisch-entzündliche Augenerkrankung bei **bis zu 75%** der Rosazea-Patienten. Kann auch **ohne Hautbefunde** auftreten.
+
+---
+
+### Klinik
+- Blepharitis, MGD, rezidivierende [Hordeola](#hordeolum)/[Chalazien](#chalazion)
+- Keratitis (sehbedrohend bei Grad 3)
+- Trockenheit (32,3%), Fremdkörpergefühl (21,8%)
+
+---
+
+### Therapie-Stufenschema
+
+1. **Basis:** Lidhygiene 2x/Tag + künstliche Tränen
+2. **Mild–Moderat:** Ciclosporin-AT 0,05% oder topische Antibiotika
+3. **Schwer:** Doxycyclin 40–100 mg/Tag systemisch
+4. **IPL:** 89% Ansprechrate
+
+---
+
+### Wichtige Zahlen
+| Therapie | Ansprechrate |
+|---|---|
+| Topische Antimikrobielle | 91% |
+| Orale Antibiotika | 89% |
+| IPL | 89% |
+| Ciclosporin-AT | 87% |
+| Lidhygiene allein | 65% |
+
+---
+
+### Cave
+> **Grad 3 (Keratitis, Skleritis, Iritis):** Sofortige Überweisung zum Ophthalmologen! Enge **Dermatologen-Ophthalmologen-Kooperation** essenziell.
+''',
+      ),
+      const Condition(
+        id: 'photokeratitis',
+        name: 'Keratitis Photoelectrica',
+        description: 'Akute UV-Schädigung des Hornhautepithels durch natürliche oder künstliche UV-Quellen (Verblitzung, Schneeblindheit).',
+        symptoms: ['pain', 'light_sensitivity', 'tearing', 'foreign_body', 'blurred_vision'],
+        urgency: Urgency.medium,
+        treatment: ['Künstliche Tränen', 'Topische Antibiotika (Chloramphenicol 0,5%)', 'Zykloplegika (Cyclopentolat)', 'Topische NSAIDs', 'Systemische Analgesie bei starken Schmerzen'],
+        followUp: 'Selbstlimitierend in 24-48h; Kontrolle bei ausbleibender Besserung',
+        source: null,
+        wikiContent: '''
+## Definition
+
+Die Keratitis photoelectrica (auch Photokeratitis, UV-Keratitis oder "Verblitzung") ist eine **akute, selbstlimitierende entzündliche Schädigung des Hornhautepithels** durch UV-Strahlung aus natürlichen oder künstlichen Quellen.¹ Bekannte Beispiele sind die **Schneeblindheit** und die **Schweißerblindheit** (Verblitzung).¹
+
+---
+
+## Ätiologie und Ursachen
+
+Die Erkrankung wird durch **UV-B- und UV-C-Strahlung** (Wellenlänge 100–320 nm) verursacht, wobei die maximale spektrale Empfindlichkeit bei **288 nm** liegt.²
+
+### Häufige Expositionsquellen¹ ²
+
+| Natürliche Quellen | Künstliche Quellen |
+|---|---|
+| Sonnenlicht (Schneeblindheit) | Schweißgeräte (Lichtbogen) |
+| Reflexion von Schnee, Wasser, Sand | Metallhalogenidlampen |
+| Höhensonne | UV-Desinfektionslampen |
+| | UV-C-Insektenfallen |
+| | Solarien |
+
+**Schwellendosis:** 50–100 J/m² für die Entwicklung einer Photokeratitis.²
+
+---
+
+## Pathophysiologie
+
+- UV-B und UV-C werden primär vom **Hornhautepithel** absorbiert
+- Photochemische Schädigung der Epithelzellen
+- Apoptose und Nekrose der oberflächlichen Epithelzellen
+- Freisetzung von Entzündungsmediatoren
+- Stimulation der Schmerzrezeptoren
+- Bei intensiver Exposition: Beteiligung von Stroma und Endothel möglich²
+
+---
+
+## Klinik
+
+### Charakteristisches Merkmal
+**Latenzzeit von 6–12 Stunden** zwischen Exposition und Symptombeginn.¹ ³
+
+### Symptome¹ ² ³
+- **Starke Augenschmerzen** (100% der Patienten)
+- Photophobie
+- Tränenfluss
+- Fremdkörpergefühl/Brennen
+- Verschwommenes Sehen
+- Blepharospasmus
+
+### Klinische Befunde¹ ²
+- **Konjunktivale Injektion** (nahezu alle Patienten)
+- **Punktförmige Epitheldefekte** (Punctate epithelial erosions) mit interpalpebraler Verteilung
+- Ziliare Vasodilatation
+- Fluorescein-positive Läsionen
+- **Bilateral** (typisch)
+- UV-Verbrennungen der periorbitalen Haut möglich (75% der Fälle)¹
+- Keine Vorderkammerreaktion (bei unkomplizierten Fällen)²
+
+---
+
+## Diagnostik
+
+Die Diagnose ist **klinisch** und basiert auf:
+
+- **Anamnese:** Typische Expositionsgeschichte (Schweißen, Schnee, UV-Lampen)
+- **Latenzzeit:** 6–12 Stunden zwischen Exposition und Symptomen
+- **Spaltlampenuntersuchung:** Punktförmige Epitheldefekte, konjunktivale Injektion
+- **Fluorescein-Färbung:** Positive Anfärbung der Epitheldefekte
+
+---
+
+## Therapie
+
+Die Behandlung ist **symptomatisch**, da die Erkrankung selbstlimitierend ist:¹ ³ ²
+
+### Empfohlene Therapie (Wilderness Medical Society Guidelines)³
+
+| Therapie | Empfehlungsgrad |
+|---|---|
+| **Künstliche Tränen** | Starke Empfehlung |
+| **Topische Antibiotika** (z.B. Chloramphenicol 0,5%) | Starke Empfehlung |
+| **Zykloplegika** (z.B. Cyclopentolat) | Starke Empfehlung |
+| **Topische NSAIDs** | Starke Empfehlung |
+| **Systemische Analgesie** (bei starken Schmerzen) | Starke Empfehlung |
+
+### Zusätzliche Maßnahmen
+- Topische Kortikosteroide (in einigen Fällen)²
+- Dexpanthenol-Augentropfen²
+- Kühle Kompressen
+- Dunkle Umgebung (bei Photophobie)
+
+> **Nicht empfohlen:** Augenverband (Patching) wird **nicht empfohlen**.³ ⁴
+
+---
+
+## Prognose
+
+- **Exzellent:** Spontane Heilung innerhalb von **24–48 Stunden**¹
+- **Vollständige Erholung** bei allen Patienten in dokumentierten Fallserien²
+- Keine Langzeitfolgen bei typischen Fällen²
+- Visus meist nur minimal beeinträchtigt (ca. 20/25)²
+- Bei schwerer Exposition: Stromale Trübung, Endothelschäden möglich (selten)²
+
+---
+
+## Prophylaxe
+
+**Prävention ist die wichtigste Maßnahme:**³ ¹
+
+- **Sonnenbrillen mit UV-A/B-Schutz und Seitenschutz** (wichtigste Maßnahme)
+- Schweißerschutzbrille bei Schweißarbeiten
+- Schutzbrille bei Arbeiten mit UV-Lampen
+- Vermeidung direkter Exposition gegenüber UV-Quellen
+- Bei Schnee/Wasser/Sand: Besondere Vorsicht wegen Reflexion
+
+> **Wichtig:** Personen mit UV-Schutzbrille haben ein **85% geringeres Risiko** für Photokeratitis (RR 0,15).¹
+
+---
+
+## Referenzen
+
+1. Kirschke DL, et al. Photokeratitis and UV-Radiation Burns Associated With Damaged Metal Halide Lamps. [*Arch Pediatr Adolesc Med.* 2004](https://doi.org/10.1001/archpedi.158.4.372)
+2. Chan JYY, et al. Photokeratitis in Outdoor Event Participants Exposed to UV Radiation Display. [*JAMA Ophthalmol.* 2024](https://doi.org/10.1001/jamaophthalmol.2024.1092)
+3. Paterson R, et al. WMS Guidelines for Treatment of Eye Injuries in the Wilderness: 2024 Update. [*Wilderness Environ Med.* 2024](https://doi.org/10.1177/10806032231223008)
+4. Drake B, et al. WMS Practice Guidelines for Treatment of Eye Injuries. [*Wilderness Environ Med.* 2012](https://doi.org/10.1016/j.wem.2012.08.015)
+''',
+        wikiSummary: '''
+## Kurzzusammenfassung
+
+**Keratitis photoelectrica** = akute UV-Schädigung des Hornhautepithels. Bekannt als **Verblitzung** (Schweißen) oder **Schneeblindheit**.
+
+---
+
+### Klinik
+- **Latenzzeit 6–12h** nach UV-Exposition
+- Starke Schmerzen, Photophobie, Tränenfluss, bilateral
+- Punktförmige Epitheldefekte (Fluorescein-positiv)
+
+---
+
+### Therapie (alle starke Empfehlung)
+- Künstliche Tränen + topische Antibiotika
+- Zykloplegika + topische NSAIDs
+- Systemische Analgesie bei Bedarf
+- **Kein Augenverband!**
+
+---
+
+### Prognose
+**Exzellent** – spontane Heilung in **24–48 Stunden**, vollständige Erholung.
+
+> **Prophylaxe:** UV-Schutzbrille reduziert Risiko um **85%** (RR 0,15).
+''',
+      ),
+      const Condition(
+        id: 'tspk',
+        name: 'Thygeson Keratitis (TSPK)',
+        description: 'Chronisch-rezidivierende Hornhauterkrankung mit grau-weißen intraepithelialen Läsionen, meist bilateral.',
+        symptoms: ['light_sensitivity', 'blurred_vision', 'tearing', 'foreign_body'],
+        urgency: Urgency.low,
+        treatment: ['Künstliche Tränen', 'Topische Steroide (Fluorometholon 0,1%)', 'Ciclosporin A 0,05% (steroid-sparend)', 'Tacrolimus 0,02% bei Steroidresistenz'],
+        followUp: 'Regelmäßig alle 4-6 Wochen; chronischer Verlauf über Jahre',
+        source: null,
+        wikiContent: '''
+## Definition
+
+Die Thygeson superfizielle punktförmige Keratitis (TSPK) ist eine **chronisch-rezidivierende Hornhauterkrankung**, die durch grau-weiße, intraepitheliale Läsionen charakterisiert ist, meist bilateral auftritt und durch Exazerbationen und Remissionen über Jahre bis Jahrzehnte verläuft.¹ ²
+
+---
+
+## Epidemiologie
+
+- Durchschnittliches Erkrankungsalter: **28,7 Jahre**³
+- **80% der Patienten** entwickeln Symptome vor dem 30. Lebensjahr⁴
+- Keine eindeutige Geschlechtspräferenz
+- Seltene Erkrankung (Orphan Disease)
+- Durchschnittliche Krankheitsdauer: **11,1 Jahre** (kann 1 Monat bis 24 Jahre betragen)³ ⁵
+
+---
+
+## Pathogenese
+
+Die **exakte Ätiologie ist unbekannt**, jedoch werden mehrere Mechanismen diskutiert:¹ ⁶ ²
+
+### Virale Hypothese
+- Klinische Ähnlichkeit zu viralen Keratopathien
+- **Jedoch:** PCR-Studien zeigen kein Vorhandensein von HSV-1, HSV-2, VZV oder Adenoviren im Hornhautepithel bei aktiver TSPK⁷
+- Kein Ansprechen auf antivirale oder antibakterielle Therapie¹
+
+### Immunvermittelte Hypothese
+- **Langerhans-Zellen:** Stark erhöht im basalen Hornhautepithel und in der Bowman-Membran bei TSPK⁸
+- Assoziation mit dem subepithelialem Nervenplexus
+- Verschwinden der Langerhans-Zellen unter Steroidtherapie⁸
+
+### Genetische Assoziation
+- Assoziation mit **HLA-DR3** (Antigen assoziiert mit immunogenen Reaktionen)²
+
+### Virus-induzierte Immunreaktion
+- Möglicherweise Immunantwort auf eine frühere virale Infektion⁶
+
+---
+
+## Klinik
+
+### Symptome¹ ³ ⁴
+- **Photophobie** (häufigstes Symptom)
+- Verschwommenes Sehen
+- Tränen
+- Augenreizung/Fremdkörpergefühl
+- Brennen
+
+### Klinische Befunde¹ ² ³
+- **Multiple, grau-weiße, intraepitheliale Hornhautläsionen**
+- Meist **bilateral** (84%), kann asymmetrisch sein
+- **Minimale oder keine Konjunktivabeteiligung** (wichtiges Unterscheidungsmerkmal!)
+- Läsionen können mit Fluorescein anfärben
+- Subepitheliale Trübungen möglich (besonders nach IDU-Behandlung)⁵
+
+![TSPK – Grau-weiße intraepitheliale Hornhautläsionen in der Spaltlampenuntersuchung](asset:assets/images/tspk_1.png)
+
+![TSPK – Punktförmige Läsionen mit Fluorescein-Anfärbung](asset:assets/images/tspk_2.png)
+
+### Charakteristischer Verlauf
+- Episoden von **Exazerbationen und Remissionen**
+- Spontane Remissionen möglich
+- Visus meist gut erhalten (78,9% mit Visus ≥20/30)³
+
+---
+
+## Diagnostik
+
+Die Diagnose ist eine **Ausschlussdiagnose** und basiert auf:² ³
+
+### Klinische Kriterien
+- Typische intraepitheliale Läsionen
+- Bilaterale Beteiligung (meist)
+- Fehlende Konjunktivitis
+- Chronisch-rezidivierender Verlauf
+- Ansprechen auf Steroide
+
+### Diagnostik
+- Spaltlampenuntersuchung
+- **Konfokale Mikroskopie:** Zeigt erhöhte Langerhans-Zellen⁸
+- Bei Kindern/atypischen Fällen: Hornhautabstrich zum Ausschluss infektiöser Ursachen⁹
+
+> **Wichtig:** Bei Kindern mit fehlendem Ansprechen auf Steroide sollte die Diagnose überdacht werden (DD: TGFBI-assoziierte stromale Dystrophie).⁹
+
+### Differenzialdiagnosen
+- Virale Keratitis (HSV, Adenovirus)
+- Trockenes Auge
+- Kontaktlinsen-assoziierte Keratopathie
+- Medikamenten-induzierte Keratopathie
+- Stromale Hornhautdystrophien
+
+---
+
+## Therapie
+
+### Stufe 1 – Milde Symptome
+- **Künstliche Tränen/Lubrikantien:** Basistherapie für alle Patienten
+
+### Stufe 2 – Moderate bis schwere Symptome (Erstlinie)
+- **Topische Kortikosteroide:** Therapie der Wahl³ ⁶
+  - Fluorometholon 0,1% (bei Kindern bevorzugt)⁹
+  - Prednisolon, Dexamethason
+  - **97,5% der Patienten** benötigen Steroide im Krankheitsverlauf³
+  - Langsames Ausschleichen (alle 4–6 Wochen) wichtig
+
+### Stufe 3 – Steroid-sparende Therapie
+- **Ciclosporin A 0,05% Augentropfen:**⁹ ⁴
+  - Bei Unfähigkeit, Steroide auszuschleichen
+  - **72% der Patienten** empfinden es als effektiv⁴
+  - Signifikante Reduktion der Steroidexposition bei Kindern⁹
+- **Tacrolimus 0,02% Augentropfen:**¹⁰
+  - Effektiv bei steroidrefraktären Fällen
+  - Ansprechen innerhalb von **72 Stunden**
+  - Gut verträglich
+
+### Stufe 4 – Zusätzliche Optionen
+- **Therapeutische Kontaktlinsen:** Bandage-Kontaktlinsen zur Symptomlinderung³ ²
+
+### Stufe 5 – Refraktäre Fälle
+- **PRK/PTK (Photorefraktive/Phototherapeutische Keratektomie):** In ausgewählten therapieresistenten Fällen⁶
+
+---
+
+## Therapieübersicht
+
+| Therapie | Indikation | Wirksamkeit |
+|---|---|---|
+| **Künstliche Tränen** | Alle, milde Symptome | Symptomlinderung |
+| **Topische Steroide** | Erstlinie moderat/schwer | 97,5% benötigen Steroide |
+| **Ciclosporin 0,05%** | Steroid-sparend | 72% effektiv |
+| **Tacrolimus 0,02%** | Steroidrefraktär | 100% Ansprechen in 72h |
+| **Kontaktlinsen** | Symptomlinderung | Adjuvant |
+| **PRK/PTK** | Refraktäre Fälle | Einzelfallberichte |
+
+---
+
+## Wichtige Hinweise
+
+- **Antivirale Therapie ist nicht wirksam** und sollte vermieden werden¹ ⁷
+- **Idoxuridin (IDU)** kann subepitheliale Trübungen verursachen und sollte nicht verwendet werden⁵
+
+---
+
+## Prognose
+
+- **Generell günstig** mit Erhalt des Visus
+- Chronischer Verlauf über Jahre bis Jahrzehnte
+- Spontane Remissionen möglich
+- **60% der Patienten** berichten über >5 Rezidive pro Jahr⁴
+- **18% der Rezidive** dauern länger als 3 Monate⁴
+
+### Lebensqualität⁴
+- 22% schwere Beeinträchtigung der täglichen Aktivitäten
+- 38% reduzierte berufliche Aktivität
+- 80% stark belastet durch Augenerkrankung
+
+---
+
+## Referenzen
+
+1. Moshirfar M, et al. Thygeson Superficial Punctate Keratitis: Review. [*Eye Contact Lens.* 2022](https://doi.org/10.1097/ICL.0000000000000891)
+2. Priyadarshini SR, et al. Thygeson's SPK: Review and Case Series. [*Indian J Ophthalmol.* 2021](https://doi.org/10.4103/ijo.IJO_1624_20)
+3. Nagra PK, et al. Thygeson's SPK: Ten Years' Experience. [*Ophthalmology.* 2004](https://doi.org/10.1016/j.ophtha.2003.05.002)
+4. Saad R, et al. Burden of Disease in TSPK. [*Orphanet J Rare Dis.* 2021](https://doi.org/10.1186/s13023-021-01707-6)
+5. Tabbara KF, et al. Thygeson's SPK. [*Ophthalmology.* 1981](https://doi.org/10.1016/s0161-6420(81)35089-1)
+6. Mandal N, et al. Thygeson's SPK. [*Graefes Arch Clin Exp Ophthalmol.* 2022](https://doi.org/10.1007/s00417-022-05617-6)
+7. Connell PP, et al. Common Viral Pathogens in TSPK. [*Br J Ophthalmol.* 2007](https://doi.org/10.1136/bjo.2006.104802)
+8. Kawamoto K, et al. Langerhans Cells in TSPK. [*Mol Vis.* 2009](https://pubmed.ncbi.nlm.nih.gov/19649151/)
+9. Gagrani M, et al. TSPK in Children. [*Eye.* 2023](https://doi.org/10.1038/s41433-023-02533-9)
+10. Shoughy SS, et al. Topical Tacrolimus in TSPK. [*Cornea.* 2020](https://doi.org/10.1097/ICO.0000000000002224)
+''',
+        wikiSummary: '''
+## Kurzzusammenfassung
+
+**TSPK** = chronisch-rezidivierende Hornhauterkrankung mit **grau-weißen intraepithelialen Läsionen**, bilateral, ohne Konjunktivitis. Orphan Disease.
+
+---
+
+### Klinik
+- Photophobie, verschwommenes Sehen, Tränen
+- **Keine Konjunktivabeteiligung** (wichtiges DD-Merkmal!)
+- Visus meist erhalten (78,9% ≥20/30)
+
+---
+
+### Therapie-Stufenschema
+
+1. **Mild:** Künstliche Tränen
+2. **Erstlinie:** Topische Steroide (97,5% benötigen diese)
+3. **Steroid-sparend:** Ciclosporin A 0,05% (72% effektiv)
+4. **Steroidrefraktär:** Tacrolimus 0,02% (Ansprechen in 72h)
+
+---
+
+### Wichtig
+- **Antivirale Therapie unwirksam!**
+- Krankheitsdauer Ø **11,1 Jahre**, 60% >5 Rezidive/Jahr
+
+> **Cave:** Ätiologie unbekannt – wahrscheinlich immunvermittelt (erhöhte Langerhans-Zellen, HLA-DR3-Assoziation).
+''',
+      ),
+      const Condition(
+        id: 'pterygium',
+        name: 'Pterygium',
+        description: 'Benigne keilförmige fibrovaskuläre Wucherung der Bindehaut, die über den Limbus auf die Hornhaut wächst.',
+        symptoms: ['redness', 'foreign_body', 'blurred_vision', 'dry_eyes'],
+        urgency: Urgency.low,
+        treatment: ['Künstliche Tränen', 'UV-Schutzbrille', 'Bei Progression: chirurgische Exzision + Autograft ± MMC'],
+        followUp: 'Regelmäßige Kontrolle; postoperativ engmaschig wegen Rezidivrisiko',
+        source: null,
+        wikiContent: '''
+## Definition
+
+Ein Pterygium ist eine **benigne, keilförmige fibrovaskuläre Wucherung** der Bindehaut, die über den Limbus auf die Hornhaut wächst.¹ ² Es wird auch als "Surfer's Eye" bezeichnet und gehört zu den weltweit häufigsten Augenerkrankungen mit einer globalen Prävalenz von etwa **12%**.³
+
+---
+
+## Epidemiologie
+
+- Besonders häufig im sogenannten **"Pterygium-Gürtel"** (tropische Regionen zwischen 37° nördlicher und südlicher Breite)⁴
+- Risikopopulationen: Personen mit hoher UV-Exposition (Fischer, Landwirte, Surfer)²
+- Prävalenz variiert je nach Region und UV-Exposition
+
+---
+
+## Pathogenese
+
+Die Pathogenese ist **multifaktoriell** und umfasst folgende Mechanismen:¹ ⁵ ³
+
+### Hauptfaktor: UV-B-Strahlung
+- Induziert DNA-Schäden in limbalen Epithelzellen
+- Aktiviert Toll-like-Rezeptor 3 (TLR3) → NF-κB-Aktivierung → chronische Entzündung⁶
+- Stimuliert Expression von Wachstumsfaktoren (HB-EGF, VEGF, bFGF)⁷ ⁸
+
+### Molekulare Mechanismen
+- **Tumorsuppressorgen p53:** Mutationen und MDM2-vermittelte Inaktivierung⁴
+- **Matrix-Metalloproteinasen (MMPs):** MMP-2, MMP-9 überexprimiert → Abbau der Bowman-Membran und Invasion³
+- **VEGF:** Erhöht in Pterygiumgewebe → Angiogenese³ ⁸
+- **Oxidativer Stress:** Erhöhte reaktive Sauerstoffspezies¹ ⁵
+- **Extrazelluläre Matrix-Dysregulation:** Vermehrte Kollagen-III-Synthese, gestörte Elastinfaser-Assemblierung⁵
+
+### Weitere Risikofaktoren
+- HPV-Infektion (in einigen Populationen)⁸
+- Genetische Faktoren (DNA-Reparaturgene: hOGG1, XRCC1)³
+- Trockenes Auge (Assoziation mit Pterygium)¹
+
+---
+
+## Klinik
+
+### Symptome²
+- Oft **asymptomatisch** über Jahre
+- Fremdkörpergefühl
+- Rötung und Irritation (bei Entzündung)
+- Trockenheit
+- Verschwommenes Sehen (bei Hornhautbeteiligung)
+
+### Klinische Befunde² ⁸
+- **Keilförmige, fleischige, gelbliche Läsion** auf der Bulbuskonjunktiva
+- Meist **nasal** lokalisiert (höhere UV-Exposition durch nasale Lichtreflexion)
+- Wächst zentripetal vom Limbus auf die Hornhaut
+- Kann Astigmatismus induzieren
+- Bei fortgeschrittenen Fällen: Überdeckung der Sehachse
+
+![Pterygium – Keilförmige fibrovaskuläre Wucherung mit nasaler Lokalisation](asset:assets/images/pterygium.png)
+
+### Klassifikation nach Morphologie
+- **Atrophisch:** Flach, wenig vaskularisiert
+- **Fleischig:** Dick, stark vaskularisiert (höhere Rezidivrate)
+
+---
+
+## Diagnostik
+
+Die Diagnose ist **primär klinisch** durch:²
+
+- Inspektion: Typische keilförmige Läsion
+- Spaltlampenuntersuchung: Beurteilung der Hornhautinvasion
+- Messung des induzierten Astigmatismus (Topographie)
+
+### Differenzialdiagnose
+- **Pinguecula** (keine Hornhautinvasion)
+- **Konjunktivale intraepitheliale Neoplasie (CIN)**
+- **Plattenepithelkarzinom der Konjunktiva**
+
+---
+
+## Therapie
+
+### Konservative Therapie (symptomatisch)²
+- **Künstliche Tränen:** Lubrikation bei Irritation
+- **Topische Vasokonstriktoren:** Kurzzeitig bei Rötung
+- **Sonnenschutz** (UV-Schutzbrille)
+
+### Indikationen zur chirurgischen Therapie
+- Visusbeeinträchtigung
+- Signifikanter induzierter Astigmatismus
+- Progression auf die zentrale Hornhaut
+- Kosmetische Gründe
+- Rezidivierende Entzündungen
+
+---
+
+## Chirurgische Techniken und Rezidivraten
+
+| Technik | Rezidivrate | Bemerkungen |
+|---|---|---|
+| **Bare Sclera** (alleinige Exzision) | Bis zu 80% | Nicht mehr empfohlen |
+| **Konjunktivales Autograft (CAG)** | 5–15% | Goldstandard |
+| **Limbales Autograft** | 5–15% | Enthält Stammzellen |
+| **Amnionmembran-Transplantation** | Höher als CAG | Alternative bei begrenztem Gewebe |
+| **CAG + Mitomycin C** | **1,4%** | Niedrigste Rezidivrate |
+
+### Adjuvante Therapien
+- **Mitomycin C (MMC):** 0,02% intraoperativ für 1–3 Minuten. Reduziert Rezidivrate signifikant. Cave: Skleranekrose bei höheren Dosen
+- **5-Fluorouracil (5-FU):** Alternative zu MMC
+- **Topisches Ciclosporin 0,05%:** Postoperativ, signifikante Reduktion der Rezidivrate (OR 0,32)
+- **Anti-VEGF (Bevacizumab):** Subkonjunktival oder topisch
+- **Beta-Bestrahlung:** Historisch, heute selten wegen Komplikationen
+
+> **Empfohlene Technik:** Pterygium-Exzision + konjunktivales/limbales Autograft ± intraoperatives MMC ist die bevorzugte Methode mit den niedrigsten Rezidivraten.
+
+---
+
+## Fixierungstechniken für Autografts
+
+| Technik | Vorteile | Nachteile |
+|---|---|---|
+| **Naht** | Sicher, etabliert | Längere OP-Zeit, Fremdkörpergefühl |
+| **Fibrinkleber** | Schneller, weniger Beschwerden | Kosten, theoretisches Infektionsrisiko |
+| **Autologes Blut** | Kostengünstig | Weniger Daten |
+
+---
+
+## Komplikationen der Chirurgie
+
+- Rezidiv (häufigstes Problem)
+- Granulom/pyogenes Granulom
+- Transplantatverlust
+- Hornhautnarben
+- Diplopie (bei Muskelschädigung)
+- Skleranekrose (bei MMC)
+- Erhöhter Augeninnendruck
+
+---
+
+## Prophylaxe
+
+- **UV-Schutz:** Sonnenbrille mit UV-A/B-Filter (wichtigste Maßnahme)
+- Hut mit breiter Krempe
+- Vermeidung von Staub und Wind
+- Behandlung von Trockenem Auge
+- Regelmäßige augenärztliche Kontrollen bei Risikopersonen
+
+---
+
+## Prognose
+
+- Primäre Pterygien haben bessere Prognose als rezidivierende
+- Rezidive sind aggressiver und schwieriger zu behandeln
+- Mit modernen Techniken (CAG + MMC) Rezidivrate unter 5%
+
+---
+
+## Referenzen
+
+1. Ding P, et al. Risk Factors for Pterygium: Latest Research Progress. [*Exp Eye Res.* 2024](https://doi.org/10.1016/j.exer.2024.109900)
+2. Leibowitz HM. The Red Eye. [*N Engl J Med.* 2000](https://doi.org/10.1056/NEJM200008033430507)
+3. Gupta M, et al. Unravelling the Molecular Tapestry of Pterygium. [*Eye.* 2024](https://doi.org/10.1038/s41433-024-03186-y)
+4. Young AL, et al. The Evolving Story of Pterygium. [*Cornea.* 2018](https://doi.org/10.1097/ICO.0000000000001744)
+5. Martín-López J, et al. The Role of the Stromal Extracellular Matrix in Pterygium. [*J Clin Med.* 2021](https://doi.org/10.3390/jcm10245930)
+6. Lai CC, et al. Conjunctival Expression of TLR3 in UV-Induced Pterygium. [*Invest Ophthalmol Vis Sci.* 2021](https://doi.org/10.1167/iovs.62.10.6)
+7. Nolan TM, et al. The Role of UV and HB-EGF in Pterygium Pathogenesis. [*Am J Pathol.* 2003](https://doi.org/10.1016/S0002-9440(10)63850-3)
+8. Detorakis ET, et al. Pathogenetic Mechanisms and Treatment Options for Pterygium. [*Int J Mol Med.* 2009](https://doi.org/10.3892/ijmm_00000149)
+9. Liu T, et al. Progress in the Pathogenesis of Pterygium. [*Curr Eye Res.* 2013](https://doi.org/10.3109/02713683.2013.823212)
+10. Shibata N, et al. Relative Gene Expression Analysis of Human Pterygium Tissues. [*Exp Eye Res.* 2020](https://doi.org/10.1016/j.exer.2020.108194)
+11. Kaufman SC, et al. Options and Adjuvants in Surgery for Pterygium. [*Ophthalmology.* 2013](https://doi.org/10.1016/j.ophtha.2012.06.066)
+12. Chu WK, et al. Pterygium: New Insights. [*Eye.* 2020](https://doi.org/10.1038/s41433-020-0786-3)
+13. Clearfield E, et al. Conjunctival Autograft for Pterygium. [*Cochrane Database Syst Rev.* 2016](https://doi.org/10.1002/14651858.CD011349.pub2)
+14. Taher NO, et al. AMT and CAG Combined With MMC for Pterygium. [*Front Med.* 2022](https://doi.org/10.3389/fmed.2022.981663)
+15. Palewski M, et al. Evaluating Efficacy and Safety of Pterygium Surgeries. [*Int J Environ Res Public Health.* 2022](https://doi.org/10.3390/ijerph191811357)
+16. Aleksander-Ivanov Y, et al. Adjuvant Use of Topical Cyclosporine A in Pterygium. [*Am J Ophthalmol.* 2025](https://doi.org/10.1016/j.ajo.2025.06.020)
+''',
+        wikiSummary: '''
+## Kurzzusammenfassung
+
+**Pterygium** = benigne keilförmige fibrovaskuläre Wucherung der Bindehaut auf die Hornhaut. Globale Prävalenz **~12%**. Hauptursache: **UV-B-Strahlung**.
+
+---
+
+### Klinik
+- Meist nasal, keilförmig, oft asymptomatisch
+- Kann Astigmatismus und Visusminderung verursachen
+
+---
+
+### Therapie
+
+| Technik | Rezidivrate |
+|---|---|
+| Bare Sclera | bis 80% |
+| CAG (Goldstandard) | 5–15% |
+| CAG + MMC | **1,4%** |
+
+> **Empfohlen:** Exzision + konjunktivales Autograft ± MMC
+
+---
+
+### Prophylaxe
+**UV-Schutzbrille** ist die wichtigste Maßnahme. Primäre Pterygien haben bessere Prognose als Rezidive.
+''',
+      ),
+    ],
+  ),
+  Category(
+    id: 'dry_eye_category',
+    name: 'Trockenes Auge',
+    icon: '🏜️',
+    description: 'Sicca-Syndrom, Meibom-Drüsen-Dysfunktion und verwandte Erkrankungen',
+    conditions: [
+      const Condition(
+        id: 'dry_eye_overview',
+        name: 'Keratokonjunktivitis sicca (KCS)',
+        description: 'Multifaktorielle Erkrankung der Augenoberfläche mit Störung des Tränenfilms – wässriger Mangel oder evaporativ.',
+        symptoms: ['dry_eyes', 'burning', 'foreign_body', 'tearing', 'blurred_vision', 'sand_sensation', 'sticky_secretion'],
+        urgency: Urgency.low,
+        treatment: [
+          'Patientenberatung: Vermeidung von Umweltfaktoren, Blinzeltraining bei Bildschirmarbeit',
+          'Tränenersatzmittel: Hypromellose (leicht), Carbomere/Hyaluronsäure (mittel-schwer)',
+          'Konservierungsmittelfreie Präparate bevorzugen',
+          'Lidhygiene und warme Kompressen',
+          'Bei Entzündung: Ciclosporin-Tropfen 0.05-0.1%',
+          'Bei schwerem Verlauf: Tränenpünktchenverschluss (Punctum Plugs)',
+          'Omega-3-Fettsäuren zur Unterstützung',
+        ],
+        followUp: 'Kontrolle nach 4-8 Wochen, bei Komplikationen früher',
+        diagnostics: ['Tränenfilmaufreißzeit (BUT) < 10 Sek. pathologisch', 'Schirmer-Test: < 10mm ohne Anästhesie pathologisch', 'Anfärbung mit Fluoreszein und Bengalrosa', 'Beurteilung des Tränenmeniskus'],
+        complications: ['Hornhautfilamente und muköse Plaques', 'Punktförmige Epithelerosionen', 'Periphere Hornhautvaskularisation', 'In schweren Fällen: Hornhauteinschmelzung, Perforation'],
+      ),
+      const Condition(
+        id: 'meibom_dysfunction',
+        name: 'Meibom-Drüsen-Dysfunktion (MGD)',
+        description: 'Chronische Störung der Meibom-Drüsen mit verändertem Lipidsekret – häufigste Ursache des evaporativen trockenen Auges.',
+        symptoms: ['dry_eyes', 'burning', 'foreign_body', 'sticky_secretion'],
+        urgency: Urgency.low,
+        treatment: ['Warme Kompressen + Lidmassage', 'Lidhygiene', 'Omega-3-Fettsäuren', 'IPL-Therapie bei chronischen Fällen', 'Doxycyclin bei schwerer MGD'],
+        followUp: 'Langfristige Kontrolle; Symptome rezidivieren bei Absetzen der Therapie',
+      ),
+      const Condition(
+        id: 'sjogren',
+        name: 'Sjögren-Syndrom',
+        description: 'Autoimmunerkrankung mit Trockenheit von Augen und Mund; Frauen:Männer 9-20:1. 10% aller Patienten mit trockenem Auge haben Sjögren.',
+        symptoms: ['dry_eyes', 'dry_mouth', 'sand_sensation', 'burning'],
+        urgency: Urgency.medium,
+        treatment: ['Intensive Lubrikation (konservierungsmittelfrei)', 'Ciclosporin-AT 0,05-0,1%', 'Autologe Serum-AT 20%', 'Punctum Plugs', 'Pilocarpin 5mg 4x/Tag', 'Rheumatologische Mitbetreuung'],
+        followUp: 'Regelmäßig; interdisziplinär mit Rheumatologie; Lymphom-Screening',
+        source: null,
+        wikiContent: '''
+## Definition und Epidemiologie
+
+Das Sjögren-Syndrom ist definiert als **trockenes Auge und trockener Mund** in Verbindung mit **systemischer Immundysfunktion**.¹ Etwa **10% der Patienten mit klinisch signifikantem trockenem Auge** haben ein zugrunde liegendes Sjögren-Syndrom.¹
+
+- **Prävalenz:** Ca. 0,4%
+- **Frauen-zu-Männer-Verhältnis:** 9–20:1¹ ²
+- **Erkrankungsgipfel:** Um das 50. Lebensjahr²
+- **Hauptsymptome:** Augentrockenheit, Mundtrockenheit und Fatigue (>80%)²
+
+### Klassifikation
+- **Primäres Sjögren-Syndrom:** Kann mit Schilddrüsendysfunktion oder Autoimmunthyreoiditis assoziiert sein¹
+- **Sekundäres Sjögren-Syndrom:** Bei Vorliegen einer anderen Autoimmunerkrankung (RA, Sklerodermie, SLE)¹
+
+---
+
+## Pathogenese
+
+Bei Sjögren-Syndrom führt eine **autoimmun-vermittelte Exokrinopathie** zur **T-Zell-Infiltration der Tränendrüsen** mit reduzierter Tränenproduktion.³
+
+### Immunpathologie⁴ ⁵
+- **T-Zell-Aktivierung:** CD4+ T-Zellen dominieren die lymphozytäre Infiltration
+- **Th1/Th2, Th17 und Treg-Differenzierung:** Verschiedene Subgruppen tragen zur Pathologie bei
+- **B-Zell-Überaktivierung:** Führt zu Autoantikörperproduktion (Anti-SSA/Ro, Anti-SSB/La)
+- **Neurosekretorischer Block:** Proinflammatorische Zytokine blockieren die Drüsenfunktion³
+
+> **Paradoxes Phänomen:** Patienten mit Sjögren und hohem Corneal Staining berichten paradoxerweise **weniger Symptome** als Patienten ohne Sjögren – aufgrund reduzierter kornealer Sensitivität.³
+
+---
+
+## Diagnostische Kriterien (ACR-EULAR 2016)
+
+Die Diagnose basiert auf der gewichteten Summe von fünf Items:¹
+
+| Item | Score |
+|---|---|
+| **Anti-SSA/Ro-Antikörper-Positivität** | 3 |
+| **Fokale lymphozytäre Sialadenitis** (Focus Score ≥1/4 mm²) | 3 |
+| Ocular Staining Score ≥5 | 1 |
+| Schirmer-Test ≤5 mm/5 min | 1 |
+| Unstimulierte Speichelflussrate ≤0,1 ml/min | 1 |
+
+**Diagnose:** Gesamtscore **≥4** bei Patienten mit suggestiven Symptomen¹
+
+### Wann an Sjögren denken?
+Bei **intrinsischer Tränenproduktionsdefizienz bei nicht-älteren Frauen**, insbesondere bei **raschem Beginn und/oder ausgeprägter Schwere**.¹
+
+### Labordiagnostik²
+- **Anti-SSA-Antikörper:** Bei zwei Dritteln vorhanden
+- **Rheumafaktor:** Bei ca. 50%
+- **Anti-dsDNA:** Typischerweise negativ (DD SLE)
+- **Speicheldrüsenbiopsie:** Empfohlen bei Fehlen von Anti-SSA
+
+---
+
+## Okuläre Manifestationen
+
+### Klinische Zeichen⁶
+- Sandiges, brennendes, gereiztes Gefühl
+- Verschlechterung im Tagesverlauf
+- Exazerbation durch Wind, Klimaanlagen, trockene Umgebungen
+- Reduzierter Tränenfilm mit erhöhter Mukusproduktion
+- Reduzierter Schirmer-Test
+- Positive Vitalfärbung (Bengalrosa, Lissamingrün, Fluorescein)
+
+### Weitere okuläre Komplikationen¹
+- Skleritis
+- Sterile Keratitis
+- Uveitis
+
+---
+
+## Therapie
+
+### Stufentherapie des Sjögren-assoziierten trockenen Auges¹
+
+| Schweregrad | Therapie | Details |
+|---|---|---|
+| **Mild–Moderat** | Topische Lubrikantien | Tränenersatzmittel (konservierungsmittelfrei) |
+| **Moderat** | Topische Cyclosporin A | 0,05% oder 0,1% bei moderater/schwerer Entzündung |
+| **Schwer** | Autologes Serum (20%) | Verbessert Symptome und Vitalfärbung |
+| **Schwer** | Punctum-Okklusion | Silikon-Plugs oder permanente Kauterisation |
+| **Schwer** | Orale Cholinergika | Cevimelin, Pilocarpin (5 mg 4x/Tag) |
+| **Schwer** | Sklerallinsen | Bei therapierefraktären Fällen |
+| **Schwerst** | Tarsorrhaphie | Bei schwersten Fällen |
+
+### Orale Sekretogoga¹
+- **Pilocarpin** (5 mg 4x/Tag): Signifikante Verbesserung der Fokussierungsfähigkeit
+- **Cevimelin:** FDA-zugelassen für Mundtrockenheit, verbessert auch okuläre Symptome
+- Wirksamkeit bei Mundtrockenheit **größer** als bei Augentrockenheit
+- **Häufigste Nebenwirkung:** Übermäßiges Schwitzen (>40%)¹
+
+### EULAR-Empfehlungen⁷
+
+| Therapie | Indikation | Evidenz |
+|---|---|---|
+| **Topische Lubrikantien** | Augentrockenheit | Wirksam |
+| **Topische Cyclosporin A** | Moderat/schwer | Wirksam |
+| **Autologes Serum** | Schwere Fälle | Wirksam |
+| **Pilocarpin/Cevimelin** | Sicca (v.a. oral) | Wirksam |
+| **Hydroxychloroquin** | Fatigue, Arthralgien | Schwache Evidenz für Auge |
+| **Rituximab** | Systemische Manifestationen | Inkonsistente Evidenz |
+| **Anti-TNF** | – | **Nicht wirksam** |
+
+> **Hydroxychloroquin:** Obwohl häufig verschrieben, zeigt die Literatur **keine starke Evidenz** für die Wirksamkeit bei trockenem Auge.¹
+
+---
+
+## Systemische Komplikationen und Therapie²
+
+- **Glucocorticoide:** Bei interstitieller Nephritis
+- **Rituximab:** Bei B-Zell-Aktivierung und systemischen Komplikationen
+- **Analgesie:** Paracetamol als First-Line, NSAIDs bei Gelenkschmerzen
+- **Neuropathische Schmerzen:** Gabapentin, Pregabalin oder Duloxetin
+
+---
+
+## Prognose und Lymphom-Risiko
+
+Patienten mit Sjögren-Syndrom haben ein erhöhtes Risiko für **lymphoproliferative Erkrankungen**.¹ ²
+
+### Risikofaktoren für Lymphom²
+- Hohe Krankheitsaktivität
+- Rheumafaktor-Positivität
+- **Erniedrigtes C4** bei Diagnosestellung¹
+- Rezidivierende Parotisschwellung
+- Purpura
+
+> **Interdisziplinäre Betreuung mit Rheumatologie ist obligat!**¹
+
+---
+
+## Referenzen
+
+1. Amescua G, et al. Dry Eye Syndrome Preferred Practice Pattern®. [*Ophthalmology.* 2024](https://doi.org/10.1016/j.ophtha.2023.12.041)
+2. Mariette X, et al. Primary Sjögren's Syndrome. [*N Engl J Med.* 2018](https://doi.org/10.1056/NEJMcp1702514)
+3. Clayton JA. Dry Eye. [*N Engl J Med.* 2018](https://doi.org/10.1056/NEJMra1407936)
+4. Roszkowska AM, et al. Ophthalmologic Manifestations of Primary Sjögren's Syndrome. [*Genes.* 2021](https://doi.org/10.3390/genes12030365)
+5. Meng Q, et al. T and B Lymphocyte Subpopulations in Sjögren's Syndrome. [*Front Immunol.* 2024](https://doi.org/10.3389/fimmu.2024.1468469)
+6. McCluskey P, et al. The Eye in Systemic Inflammatory Diseases. [*Lancet.* 2004](https://doi.org/10.1016/S0140-6736(04)17554-5)
+7. Ramos-Casals M, et al. EULAR Recommendations for Sjögren's Syndrome. [*Ann Rheum Dis.* 2020](https://doi.org/10.1136/annrheumdis-2019-216114)
+''',
+        wikiSummary: '''
+## Kurzzusammenfassung
+
+**Sjögren-Syndrom** = Autoimmun-Exokrinopathie mit trockenem Auge + Mund. **10%** aller Sicca-Patienten haben Sjögren. Frauen:Männer **9–20:1**.
+
+---
+
+### ACR-EULAR-Kriterien (Score ≥4)
+| Item | Score |
+|---|---|
+| Anti-SSA/Ro+ | 3 |
+| Fokale Sialadenitis | 3 |
+| Ocular Staining ≥5 | 1 |
+| Schirmer ≤5 mm | 1 |
+| Speichelfluss ≤0,1 ml/min | 1 |
+
+---
+
+### Stufentherapie
+1. **Lubrikantien** (konservierungsmittelfrei)
+2. **Ciclosporin-AT** 0,05% bei Entzündung
+3. **Autologes Serum 20%** bei schweren Fällen
+4. **Pilocarpin** 5 mg 4x/Tag (v.a. für Mundtrockenheit)
+5. **Punctum-Okklusion / Sklerallinsen**
+
+> **Cave:** Erhöhtes **Lymphom-Risiko** (v.a. bei niedrigem C4)! **Rheumatologische Mitbetreuung obligat!**
+''',
+      ),
+      const Condition(
+        id: 'evaporative_dry_eye',
+        name: 'Evaporatives Trockenes Auge',
+        description: 'Trockenes Auge durch erhöhte Verdunstung des Tränenfilms, meist durch MGD, seltener durch Lidfehlstellungen oder Umweltfaktoren.',
+        symptoms: ['dry_eyes', 'burning', 'blurred_vision', 'sticky_secretion'],
+        urgency: Urgency.low,
+        treatment: ['Warme Kompressen + Lidmassage (Erstlinie)', 'Lipidhaltige Tränenersatzmittel', 'Lidhygiene', 'IPL + Meibom-Drüsen-Expression', 'LipiFlow bei MGD'],
+        followUp: 'Alle 3-6 Monate; Lidhygiene langfristig',
+      ),
+    ],
+  ),
+  Category(
+    id: 'lens',
+    name: 'Linse',
+    icon: '🔍',
+    description: 'Erkrankungen der Augenlinse',
+    conditions: [
+      const Condition(
+        id: 'ectopia_lentis',
+        name: 'Ectopia Lentis (Linsenluxation)',
+        description: 'Verlagerung der Augenlinse aus ihrer normalen Position durch Zonulaschwäche. Häufigste Ursache: FBN1-Mutationen (97,4%).',
+        symptoms: ['blurred_vision', 'double_vision'],
+        urgency: Urgency.medium,
+        treatment: ['Brillenkorrektur bei milder Subluxation', 'Amblyopietherapie bei Kindern', 'Lensektomie ± IOL bei schwerer Subluxation', 'Genetische Abklärung obligat'],
+        followUp: 'Jährliche Kontrollen; Glaukom-Screening; kardiologische Überwachung bei Marfan',
+        source: null,
+        wikiContent: '''
+## Definition
+
+Die Ectopia lentis bezeichnet eine **Verlagerung oder Verschiebung der Augenlinse** aus ihrer normalen zentralen Position. Die Linse kann subluxiert (teilweise verlagert) oder vollständig luxiert (in die Vorderkammer oder den Glaskörper) sein.¹ Die Erkrankung wird typischerweise **im Kindesalter manifest**.¹
+
+---
+
+## Ätiologie und assoziierte Syndrome
+
+### Genetische Ursachen²  ³
+- **FBN1-Mutationen:** 97,4% aller Fälle (Marfan-Syndrom, familiäre Ectopia lentis)
+- **ADAMTSL4-Mutationen:** 1,3% (nicht-syndromale Ectopia lentis, Ectopia lentis et pupillae)
+- **LTBP2-Mutationen:** 1,3%
+
+### Wichtige assoziierte Syndrome⁴ ⁵ ⁶
+
+| Syndrom | Gen | Erbgang | Charakteristika |
+|---|---|---|---|
+| **Marfan-Syndrom** | FBN1 | AD | Aortendilatation, Skelettanomalien |
+| **Homocystinurie** | CBS | AR | Thromboembolien, mentale Retardierung |
+| **Weill-Marchesani** | ADAMTS10, FBN1 | AD/AR | Kleinwuchs, Brachydaktylie, Sphärophakie |
+| **Ectopia lentis et pupillae** | ADAMTSL4 | AR | Ektope Pupille, flache Iris |
+
+> **Wichtig:** Jede Ectopia lentis erfordert eine **genetische Abklärung** auf Marfan-Syndrom oder verwandte Erkrankungen.⁴
+
+---
+
+## Richtung der Linsenverlagerung – DD-Hinweis
+
+| Syndrom | Verlagerungsrichtung |
+|---|---|
+| **Marfan-Syndrom** | **Superotemporal** (oben-außen) |
+| **Homocystinurie** | **Inferonasal** (unten-innen) |
+| **Weill-Marchesani** | Variabel, oft inferior |
+
+---
+
+## Differenzierung Marfan vs. Homocystinurie
+
+| Merkmal | Marfan-Syndrom | Homocystinurie |
+|---|---|---|
+| **Erbgang** | Autosomal dominant | Autosomal rezessiv |
+| **Linsenverlagerung** | Superotemporal | Inferonasal |
+| **Aortendilatation** | Häufig | Selten |
+| **Thromboembolien** | Selten | Häufig |
+| **Mentale Retardierung** | Nein | Häufig |
+| **Gelenkhypermobilität** | Ja | Nein |
+| **Labor** | Normal | Homocystein >100 µmol/L |
+
+---
+
+## Pathogenese
+
+Die Ectopia lentis entsteht durch **Schwäche oder Ruptur der Zonulafasern:**⁸
+
+- **Marfan:** Defektes Fibrillin-1 → defekte Mikrofibrillen der Zonula
+- **Homocystinurie:** Homocysteinylierung von Fibrillin-1 und Fibronektin⁹ ¹⁰
+- **Trauma:** Zonularuptur durch stumpfes Trauma
+- **Pseudoexfoliation:** Fortgeschrittene Zonulaschwäche bei älteren Patienten⁸
+
+---
+
+## Klinik
+
+### Symptome¹
+- **Sehstörungen:** Verschwommenes Sehen, monokulare Diplopie
+- **Myopie:** Oft hochgradig (-5 D bis >-15 D)
+- **Hyperopie:** Bei Luxation aus der Sehachse (funktionelle Aphakie)
+- **Astigmatismus:** Häufig ausgeprägt und irregulär
+- **Blendung:** Durch Linsenrandeffekte
+
+### Befunde⁴ ⁸
+- **Phakodonesis:** Zittern der Linse bei Augenbewegungen
+- **Iridodonesis:** Zittern der Iris
+- **Sichtbarer Linsenrand** in der Pupille bei Mydriasis
+- **Frühzeitige Kataraktentwicklung**
+
+### Manifestationsalter⁴ ⁷
+- **Marfan:** Oft vor dem 10. Lebensjahr, kann bei Geburt vorhanden sein
+- **Homocystinurie:** Typischerweise nach dem 1. Lebensjahr, bei Unbehandelten bis zum 8. Lebensjahr
+
+---
+
+## Komplikationen
+
+| Komplikation | Mechanismus | Häufigkeit |
+|---|---|---|
+| **Amblyopie** | Refraktionsfehler, Anisometropie | Häufig |
+| **Glaukom** | Pupillarblock, Winkelverlegung | ~30% bei Marfan |
+| **Netzhautablösung** | Glaskörpertraktion, Bulbuselongation | Erhöht |
+| **Katarakt** | Frühzeitige Linsentrübung | Häufig |
+
+---
+
+## Diagnostik
+
+### Ophthalmologische Untersuchung⁴
+- **Spaltlampenuntersuchung** nach maximaler Mydriasis
+- **Refraktionsbestimmung:** Oft hochgradige Myopie oder Hyperopie
+- **Tonometrie:** Glaukom-Screening
+- **Funduskopie:** Netzhautablösung ausschließen
+- **Ultraschall-Biomikroskopie (UBM):** Beurteilung der Zonula
+
+### Systemische Abklärung⁴ ⁷
+- **Genetische Testung:** FBN1, ADAMTSL4, CBS, LTBP2 (>90% mol. Diagnose möglich)³
+- **Echokardiographie:** Aortenwurzel, Mitralklappenprolaps
+- **Labor:** Plasma-Homocystein und Methionin
+- **Skelettbeurteilung:** Marfanoide Merkmale
+
+---
+
+## Therapie
+
+### Konservativ⁴
+- **Brillenkorrektur:** Bei milder Subluxation mit Linse in der Sehachse
+- **Kontaktlinsen:** Alternative zur Brille
+- **Amblyopietherapie:** Okklusion bei Kindern
+
+### Chirurgisch⁴
+
+| Verfahren | Indikation | Besonderheiten |
+|---|---|---|
+| **Lensektomie ohne IOL** | Schwere Subluxation, Kinder | Aphakiekorrektur mit Brille/KL |
+| **Lensektomie + IOL** | Moderate Subluxation | Besserer Visus, höhere Komplikationsrate |
+| **Sklerafixierte IOL** | Fehlende Kapselunterstützung | Langzeitstabilität unklar |
+| **Intralentikuläre Aspiration** | Weiche Linse (Kinder) | Häufigstes Verfahren (79,5%) |
+| **Pars-plana-Lensektomie** | Luxation in Glaskörper | Mit Vitrektomie |
+
+### Chirurgische Ergebnisse bei Marfan
+- Visusverbesserung von 1,1 logMAR (20/250) auf **0,3 logMAR (20/40)**
+- IOL-Position stabil in 47,1% der Augen
+
+> **Wichtig:** Refraktive Hornhautchirurgie (LASIK) ist bei Marfan-Syndrom **kontraindiziert**.⁴
+
+---
+
+## Nachsorge
+
+Bei Marfan-Syndrom und verwandten Erkrankungen:⁴
+- **Jährliche ophthalmologische Kontrollen**
+- Spaltlampe auf Linsensubluxation und Katarakt
+- Glaukom-Screening
+- Funduskopie in Mydriasis
+- **Kardiologische Überwachung** (Aortenwurzel)
+
+---
+
+## Prognose
+
+- **Visusprognose:** Gut bei frühzeitiger Diagnose und adäquater Therapie
+- Alter und Subluxationsgrad beeinflussen finalen Visus nicht signifikant
+- **Nicht-FBN1-Varianten:** Früherer Beginn und schwererer Phänotyp²
+- **Axiale Myopie:** Progression schneller bei Vorschulkindern, langsamer nach OP²
+
+---
+
+## Referenzen
+
+1. Isolated Ectopia Lentis. [*MedlinePlus.*](https://medlineplus.gov/)
+2. Guo D, et al. Clinical and Genetic Landscape of Ectopia Lentis (156 Familien). [*Invest Ophthalmol Vis Sci.* 2024](https://doi.org/10.1167/iovs.65.1.20)
+3. Musleh M, et al. Genetic Testing in Children With Ectopia Lentis. [*Genes.* 2023](https://doi.org/10.3390/genes14040791)
+4. Tinkle BT, et al. Health Supervision for Children With Marfan Syndrome. [*Pediatrics.* 2023](https://doi.org/10.1542/peds.2023-061450)
+5. Judge DP, et al. Marfan's Syndrome. [*Lancet.* 2005](https://doi.org/10.1016/S0140-6736(05)67789-6)
+6. Marzin P, et al. Weill-Marchesani Syndrome. [*GeneReviews.* 2020](https://www.ncbi.nlm.nih.gov/books/NBK1114/)
+7. Sacharow SJ, et al. Homocystinuria due to CBS Deficiency. [*GeneReviews.* 2025](https://www.ncbi.nlm.nih.gov/books/NBK1524/)
+8. Lomi N, et al. Technique for Extreme Subluxated Crystalline Lens. [*Indian J Ophthalmol.* 2026](https://doi.org/10.4103/IJO.IJO_1919_25)
+9. Hubmacher D, et al. Homocysteine Modifies Fibronectin. [*Biochemistry.* 2011](https://doi.org/10.1021/bi200183z)
+10. Hubmacher D, et al. Homocysteinylation of Elastic Fiber Proteins. [*J Biol Chem.* 2010](https://doi.org/10.1074/jbc.M109.021246)
+11. Bin Helayel H, et al. Surgical Outcomes in Marfan Syndrome. [*Clin Ophthalmol.* 2025](https://doi.org/10.2147/OPTH.S557116)
+12. Maharana PK, et al. Outcomes of Surgical Intervention in Ectopia Lentis. [*Indian J Ophthalmol.* 2022](https://doi.org/10.4103/ijo.IJO_255_22)
+''',
+        wikiSummary: '''
+## Kurzzusammenfassung
+
+**Ectopia lentis** = Verlagerung der Augenlinse. **FBN1-Mutationen** in 97,4% der Fälle.
+
+---
+
+### Verlagerungsrichtung als DD-Hinweis
+| Syndrom | Richtung |
+|---|---|
+| **Marfan** | Superotemporal |
+| **Homocystinurie** | Inferonasal |
+
+---
+
+### Komplikationen
+Amblyopie, Glaukom (~30% bei Marfan), Netzhautablösung, Katarakt
+
+---
+
+### Therapie
+- **Konservativ:** Brille/KL bei milder Subluxation
+- **Chirurgisch:** Lensektomie ± IOL (Visus 20/250 → 20/40)
+- **LASIK kontraindiziert** bei Marfan!
+
+> **Jede Ectopia lentis erfordert genetische Abklärung + Echokardiographie!**
+''',
       ),
     ],
   ),
