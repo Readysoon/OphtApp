@@ -6236,6 +6236,241 @@ Normales Farbsehen ist Voraussetzung für sicherheitskritische Berufe (Militär,
           ),
         ],
       ),
+      Category(
+        id: 'tonometry',
+        name: 'Augendruckmessung (Tonometrie)',
+        icon: '💧',
+        description: 'Methoden zur Messung des Augeninnendrucks',
+        conditions: [
+          const Condition(
+            id: 'applanation_tonometry',
+            name: 'Applanationstonometrie nach Goldmann (GAT)',
+            description: 'Goldstandard zur Messung des Augeninnendrucks (IOD); seit über 60 Jahren Referenzmethode in Forschung und Praxis.',
+            symptoms: [],
+            urgency: Urgency.low,
+            treatment: ['Spaltlampen-basiert mit Fluorescein + Anästhesie', 'Applanationsfläche 3,06 mm', 'Skalenwert × 10 = IOD in mmHg'],
+            followUp: 'Bei abnormalen Werten Wiederholung; CCT-Messung als Risikofaktor einbeziehen',
+            source: null,
+            wikiContent: """
+## Definition
+
+Die **Goldmann-Applanationstonometrie (GAT)** ist der international anerkannte **Goldstandard** zur Messung des Augeninnendrucks (IOD) und seit **über 60 Jahren** die Referenzmethode in Forschung und klinischer Praxis.⁵
+
+---
+
+## Physikalisches Prinzip
+
+Die GAT basiert auf dem **Imbert-Fick-Gesetz**: Wird eine dünne, perfekt elastische, kugelförmige Membran abgeflacht (applaniert), entspricht der Druck im Inneren der Kugel dem Verhältnis von aufgebrachter Kraft zur abgeflachten Fläche:⁶
+
+**P = F / A**
+
+Das Auge ist jedoch **keine perfekt elastische Kugel**:
+- Hornhaut-**Rigidität** überschätzt den IOD
+- Tränenfilm-**Meniskus-Kapillarkraft** unterschätzt den IOD
+
+> **Goldmanns Erkenntnis:** Bei einer Applanationsfläche von exakt **3,06 mm Durchmesser** (~7,35 mm²) heben sich diese beiden gegenläufigen Kräfte auf – vorausgesetzt die zentrale Hornhautdicke (CCT) beträgt ca. **520–550 µm**.⁶
+
+---
+
+## Aufbau des Tonometers
+
+Wird an der Spaltlampe befestigt und besteht aus:
+- **Messkörper** mit Federwaage und Einstellrad
+- **Transparentes Kunststoff-Prisma (Biprismus)** an der Spitze – spaltet den Tränenfilm-Meniskus in zwei Halbkreise (Miren)
+- **Einstellrad** reguliert die Kraft stufenlos (**Skalenwert × 10 = IOD in mmHg**)
+
+---
+
+## Durchführung – Schritt für Schritt
+
+1. **Vorbereitung:** Patient an Spaltlampe, Kinn/Stirn fixiert, geradeaus blicken, nicht blinzeln
+2. **Topische Anästhesie:** Oxybuprocain oder Proparacain⁵
+3. **Fluorescein-Applikation:** Streifen in unteren Fornix tupfen
+4. **Kobaltblaues Licht:** Blaufilter aktivieren → Fluorescein fluoresziert grün-gelb
+5. **Annäherung:** Prisma per Joystick zur zentralen Hornhaut führen
+6. **Miren-Beurteilung:** Zwei grün-gelb leuchtende Halbkreise
+7. **Druckeinstellung:** Innenkanten der Halbkreise sollen sich gerade berühren → Applanation = exakt 3,06 mm
+8. **Ablesen:** Skalenwert × 10 = IOD in mmHg (z.B. 1,8 → 18 mmHg)
+
+> **Reihenfolge:** IOD **vor** Gonioskopie oder Pupillenerweiterung messen.⁴
+
+### Fluorescein-Tipp
+- **Ohne Fluorescein:** IOD wird um durchschnittlich ~5,6 mmHg unterschätzt
+- **Zu viel:** Breite Miren → Überschätzung
+- **Zu wenig:** Schmale Miren → Unterschätzung
+
+---
+
+## Normalwerte und Interpretation
+
+- **Mittlerer normaler IOD:** ca. **15 mmHg** (SD ~3 mmHg)
+- **Kein zufriedenstellender Grenzwert** für Glaukom-Screening (18 mmHg: nur ~65% Sensitivität/Spezifität)
+- **Diurnale Schwankungen** → Tageszeit dokumentieren
+- Erfahrene Untersucher weichen in **~10%** der Fälle um ≥3 mmHg voneinander ab → Mehrfachmessungen!⁵
+
+---
+
+## Einflussfaktoren und Fehlerquellen
+
+### Zentrale Hornhautdicke (CCT) – wichtigster Faktor
+- **Dicke Hornhaut (>550 µm)** → IOD **überschätzt**
+- **Dünne Hornhaut (<550 µm)** → IOD **unterschätzt**
+- Faustregel: **~1 mmHg pro 25 µm Abweichung** von 550 µm
+
+> Die **AAO empfiehlt KEINE standardisierte CCT-Korrekturtabelle** – CCT als Risikofaktor in die Gesamtbeurteilung einbeziehen.⁴
+
+### Weitere Fehlerquellen⁷ ⁸
+- **Hornhautödem:** Unterschätzung trotz dicker Hornhaut
+- **Nach LASIK/PRK:** Signifikante Unterschätzung
+- **Hornhautnarben:** Unregelmäßige Miren
+- **Konsekutive Messungen:** Mechanische IOD-Reduktion
+
+---
+
+## Vorteile und Limitationen
+
+| Vorteile | Limitationen |
+|---|---|
+| Goldstandard seit >60 Jahren | Abhängig von CCT und Hornhautbiomechanik |
+| Hohe Genauigkeit/Reproduzierbarkeit | Kein validiertes CCT-Korrektur-Nomogramm |
+| Relativ kostengünstig | Erfordert Spaltlampe, Fluorescein, Anästhesie |
+| Schnell (~1–2 min/Auge) | Erfordert Patientenkooperation (aufrechte Position) |
+| Breite Evidenzbasis | Bei Kindern oft nicht durchführbar |
+| Alle Glaukomstudien basieren auf GAT | Sehr ungenau bei erkrankten/operierten Hornhäuten |
+
+---
+
+## Alternative Tonometer für spezielle Patientengruppen
+
+### 1. Kinder und nicht-kooperative Patienten
+
+GAT erfordert aufrechte Position und Kooperation. Bei Kindern <10 Jahren gelingt GAT nur in **64%**, NCT in **89%**, Rebound in **75%**.¹¹
+
+| Gerät | Vorteile |
+|---|---|
+| **iCare-Rebound** | Keine Anästhesie, handgehalten; IOD ~2–3 mmHg höher als GAT |
+| **Tono-Pen** | Handgehalten; überschätzt um ~3,2 mmHg vs. GAT |
+| **Perkins** | Tragbare GAT, auch liegend/in Narkose; am wenigsten CCT-abhängig bei <6 J. |
+
+> **Untersuchung in Narkose:** Sevofluran senkt IOD, Ketamin erhöht ihn → Werte unter Narkose nie so genau wie wach.¹⁰
+
+### 2. Nach refraktiver Chirurgie (LASIK/PRK/SMILE)
+
+GAT unterschätzt nach myoper LASIK um ~1,5 mmHg (mehr bei hoher Korrektur).⁷ ⁸
+
+| Gerät | Eignung |
+|---|---|
+| **Corvis ST (bIOP)** | **Beste prä/post-Übereinstimmung** nach FS-LASIK |
+| **DCT (Pascal)** | Zweitbeste, weniger CCT-abhängig |
+| **ORA (IOPcc)** | Unabhängig von CCT/Hornhautkrümmung |
+| **CATS-Prisma** | Konvexes Goldmann-Prisma, ~1,5 mmHg höher (genauer) post-LASIK |
+
+### 3. Keratokonus und Hornhautektasie
+
+GAT zeigt **artifiziell erniedrigte Werte** (verdünnte/biomechanisch geschwächte Hornhaut).¹⁵
+- Studienbeispiel: **GAT 10,96 mmHg vs. DCT 15,42 mmHg vs. ORA 14,65 mmHg**
+
+> **AAO-Empfehlung bei Ektasie:** Geräte verwenden, die weniger von glatter Hornhautoberfläche abhängen (DCT, ORA).²
+
+### 4. Hornhautödem
+Trotz dicker Hornhaut wird IOD durch GAT **unterschätzt** (veränderte Hydratation/Elastizität). **Pneumotonometer und DCT** bevorzugt.¹
+
+### 5. Heim-Monitoring
+
+**iCare HOME/HOME2:** FDA-zugelassenes Rebound-Tonometer für Selbstmessung.
+- Mittlere Abweichung **-0,28 ± 1,57 mmHg** vs. GAT
+- Erfasst **diurnale Schwankungen**, die Praxismessungen verpassen
+- **74–83%** der Patienten erfolgreich nach Training (auch per Video möglich)¹⁷ ¹⁸ ¹⁹ ²⁰
+
+> Häufigere Heim-Messungen könnten **Progressionsrisiko besser vorhersagen** als gelegentliche Praxismessungen.⁵
+
+### 6. Glaukom-Screening (Entwicklungsländer)
+**iCare und NCT** zeigten beste Übereinstimmung mit GAT (ICC 0,69 bzw. 0,65). Eignen sich für Screening-Programme.¹³
+
+---
+
+## Vergleichstabelle: Alternative Tonometer
+
+| Tonometer | Prinzip | Anästhesie | CCT-Abhängigkeit | Eignung |
+|---|---|---|---|---|
+| **GAT (Goldmann)** | Applanation (Imbert-Fick) | Ja | Hoch | Standard-Referenz |
+| **DCT (Pascal)** | Konturanpassung + Piezosensor | Ja | Sehr gering | Post-LASIK, Keratokonus |
+| **ORA** | Bidirektionaler Luftstoß | Nein | Gering (IOPcc) | Keratokonus, Biomechanik |
+| **Corvis ST** | Scheimpflug + Luftstoß | Nein | Gering (bIOP) | Post-LASIK |
+| **Pneumotonometer** | Pneumatischer Sensor | Ja | Mittel | Hornhautödem |
+| **iCare (Rebound)** | Magnetisierte Sonde | Nein | Mittel-hoch | Kinder, Heim, Screening |
+| **Tono-Pen** | Mikrostrain-Gauge | Ja | Mittel | Notfall, OP |
+| **Perkins** | Tragbare GAT | Ja | Hoch (wie GAT) | Liegend, Narkose |
+| **Mackay-Marg** | Applanation + Indentation | Ja | Mittel | Irreguläre Hornhaut |
+
+> **Grundsatz:** Es gibt **kein perfektes Tonometer**. Wahl nach klinischer Situation, Patientenkooperation, Hornhautzustand. Entscheidend: bei jedem Patienten **konsistent dieselbe Methode** verwenden.¹ ² ⁹
+
+---
+
+## Referenzen
+
+1. Mian SI, et al. Corneal Edema and Opacification PPP. [*Ophthalmology.* 2024](https://doi.org/10.1016/j.ophtha.2023.12.038)
+2. Jhanji V, et al. Corneal Ectasia PPP. [*Ophthalmology.* 2024](https://doi.org/10.1016/j.ophtha.2023.12.039)
+3. Hutchinson AK, et al. Pediatric Eye Evaluations PPP. [*Ophthalmology.* 2023](https://doi.org/10.1016/j.ophtha.2022.10.027)
+4. Gedde SJ, et al. Primary Open-Angle Glaucoma PPP. [*Ophthalmology.* 2021](https://doi.org/10.1016/j.ophtha.2020.10.022)
+5. Jayaram H, et al. Glaucoma: Now and Beyond. [*Lancet.* 2023](https://doi.org/10.1016/S0140-6736(23)01289-8)
+6. Kniestedt C, et al. Contour vs Applanation Tonometry. [*Arch Ophthalmol.* 2005](https://doi.org/10.1001/archopht.123.11.1532)
+7. Bao F, et al. GAT, DCT, ORA, Corvis ST Post-FS-LASIK. [*Curr Eye Res.* 2020](https://doi.org/10.1080/02713683.2020.1745851)
+8. Kilgore KP, et al. CATS Tonometer Post-Myopic LASIK. [*Clin Ophthalmol.* 2025](https://doi.org/10.2147/OPTH)
+9. Okafor KC, Brandt JD. Measuring IOP. [*Curr Opin Ophthalmol.* 2015](https://doi.org/10.1097/ICU.0000000000000132)
+10. Fayed MA, Chen TC. Pediatric IOP Measurements. [*Surv Ophthalmol.* 2019](https://doi.org/10.1016/j.survophthal.2019.05.003)
+11. Feng CS, et al. Rebound, NCT, GAT in Children. [*Am J Ophthalmol.* 2015](https://doi.org/10.1016/j.ajo.2015.06.017)
+12. Lambert SR, et al. Rebound Tonometry in Children: AAO. [*Ophthalmology.* 2013](https://doi.org/10.1016/j.ophtha.2013.04.024)
+13. Kutzscher AE, et al. Reproducibility of 5 Tonometry Methods. [*Ophthalmol Glaucoma.* 2019](https://doi.org/10.1016/j.ogla.2019.09.009)
+14. Studer MK, et al. GAT, iCare, Tono-Pen in Children Under GA. [*J Clin Med.* 2025](https://doi.org/10.3390/jcm14010001)
+15. Bayer A, et al. ORA, DCT, GAT in Keratoconus. [*J Glaucoma.* 2010](https://doi.org/10.1097/IJG.0b013e3181af321b)
+16. Mollan SP, et al. Goldmann, ORA, Pascal, TonoPen in Keratoconus. [*Br J Ophthalmol.* 2008](https://doi.org/10.1136/bjo.2007.135335)
+17. Pons-Talaya C, et al. iCare HOME in Glaucoma: Systematic Review. [*Am J Ophthalmol.* 2025](https://doi.org/10.1016/j.ajo.2024.12.016)
+18. Romano D, et al. Self-Monitoring With iCare HOME2. [*J Glaucoma.* 2025](https://doi.org/10.1097/IJG.0000000000002491)
+19. Dabasia PL, et al. New Rebound Tonometer for Self-Measurement. [*Br J Ophthalmol.* 2016](https://doi.org/10.1136/bjophthalmol-2015-307674)
+20. Barbour-Hastie CC, Tatham AJ. Teaching Home Tonometry via Video. [*Eye.* 2023](https://doi.org/10.1038/s41433-022-02261-6)
+""",
+            wikiSummary: """
+## Kurzzusammenfassung
+
+**Goldmann-Applanationstonometrie (GAT)** = **Goldstandard** der IOD-Messung. Imbert-Fick-Gesetz: P = F/A.
+
+---
+
+### Durchführung
+1. Topische Anästhesie + Fluorescein
+2. Kobaltblau, Spaltlampe
+3. Applanationsfläche **3,06 mm**
+4. Skalenwert × 10 = IOD in mmHg
+
+### Normwerte
+- Mittlerer IOD: **~15 mmHg** (SD ~3)
+- Kein guter Grenzwert für Screening (18 mmHg: 65% Sens/Spez)
+
+---
+
+### CCT-Einfluss
+- **>550 µm:** IOD überschätzt
+- **<550 µm:** IOD unterschätzt
+- ~1 mmHg pro 25 µm Abweichung
+- **AAO: keine Standardkorrektur**
+
+---
+
+### Wann andere Tonometer?
+| Situation | Empfehlung |
+|---|---|
+| Kinder | iCare, Perkins (in Narkose) |
+| Post-LASIK | Corvis ST (bIOP), DCT |
+| Keratokonus | ORA (IOPcc), DCT |
+| Hornhautödem | Pneumotonometer, DCT |
+| Heim-Monitoring | iCare HOME/HOME2 |
+
+> **Cave:** Bei jedem Patienten **konsistent dieselbe Methode** verwenden!
+""",
+          ),
+        ],
+      ),
     ],
   ),
   Category(
